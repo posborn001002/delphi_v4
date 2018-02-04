@@ -1,0 +1,99 @@
+
+<%= form_with( model: @person, local: true, class: 'smart-form', html: { novalidate: 'novalidate' } ) do |form| %>
+ <header>
+   <h1>New Contact for <%= @organization.name %></h1>
+ </header>
+
+  <% if @person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+      <ul>
+        <% @person.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <fieldset>
+    <div class="row">
+      <section class="col col-6">
+        <label class="select">
+          <%= form.text_field :organization_name, list: "organizations_autocomplete" %>
+          <datalist id="organizations_autocomplete">
+            <% Organization.all.each do |organization| %>
+              <option value="<%= organization.name %>">
+            <% end %>
+          </datalist>
+          <i></i>
+        </label>
+      </section>
+      <section class="col col-6">
+        <label class="input"> <i class="icon-append fa fa-user"></i>
+          <%= form.text_field :job_title, id: :person_job_title, placeholder: 'Job Title' %>
+        </label>
+      </section>
+    </div>
+
+    <div class="row">
+      <section class="col col-6">
+        <label class="input"> <i class="icon-append fa fa-user"></i>
+          <%= form.text_field :first_name, id: :person_first_name, placeholder: 'First Name' %>
+        </label>
+      </section>
+      <section class="col col-6">
+        <label class="input"> <i class="icon-append fa fa-user"></i>
+          <%= form.text_field :last_name, id: :person_last_name, placeholder: 'Last Name' %>
+        </label>
+      </section>
+    </div>
+
+
+    <div class="row">
+      <section class="col col-6">
+        <label class="input"> <i class="icon-append fa fa-envelope-o"></i>
+          <%= form.email_field :email, id: :person_email, placeholder: 'E-mail' %>
+        </label>
+      </section>
+      <section class="col col-6">
+        <label class="input"> <i class="icon-append fa fa-phone"></i>
+          <%= form.telephone_field :telephone, id: :person_telephone , placeholder: 'Phone', data: { mask: '(999) 999-9999'} %>
+        </label>
+      </section>
+    </div>
+  </fieldset>
+
+  <div class="row">
+    <div class="actions">
+      <section class="col col-6">
+        <%= link_to '<span class="btn-label"><i class="glyphicon glyphicon-chevron-left"></i></span>Back'.html_safe,
+                    organization_people_path( @organization ),
+                    class: 'btn btn-labeled btn-default',
+                    html: {type: 'button'}
+        %>
+      </section>
+      <section class="col col-6">
+        <%= form.submit class: 'btn btn-primary btn-lg' %>
+      </section>
+    </div>
+  </div>
+
+  <footer>
+    <%= form.submit class: 'btn btn-primary btn-lg' %>
+    <%= link_to '<span class="btn-label"><i class="glyphicon glyphicon-chevron-left"></i></span>Back'.html_safe,
+                organization_people_path( @organization ),
+                class: 'btn btn-labeled btn-default',
+                html: {type: 'button'}
+    %>
+  </footer>
+
+  <%= form.submit class: 'btn btn-primary btn-lg' %>
+  <%= button_to '<span class="btn-label"><i class="glyphicon glyphicon-chevron-left"></i></span>Back'.html_safe,
+              organization_people_path( @organization ),
+                html_options: { form_class: 'btn btn-labeled btn-default' }
+  %>
+
+<% end %>
+

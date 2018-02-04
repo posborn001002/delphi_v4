@@ -1,0 +1,32 @@
+<%= form_with(model: measurement, local: true) do |form| %>
+  <% if measurement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(measurement.errors.count, "error") %> prohibited this measurement from being saved:</h2>
+
+      <ul>
+      <% measurement.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :DateLookup_id %>
+    <%= form.text_field :DateLookup_id, id: :measurement_DateLookup_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Metric_id %>
+    <%= form.text_field :Metric_id, id: :measurement_Metric_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :value %>
+    <%= form.text_field :value, id: :measurement_value %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

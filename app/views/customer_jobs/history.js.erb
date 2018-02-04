@@ -1,0 +1,2 @@
+$("#collapse-<%=@customer_job.id%>").html("<%= escape_javascript(render :partial => 'customer_jobs/history',
+    locals: { :customer_job => @customer_job })%>");

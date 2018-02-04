@@ -1,0 +1,52 @@
+<%= form_with(model: date_lookup, local: true) do |form| %>
+  <% if date_lookup.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(date_lookup.errors.count, "error") %> prohibited this date_lookup from being saved:</h2>
+
+      <ul>
+      <% date_lookup.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date, id: :date_lookup_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :day_of_month %>
+    <%= form.number_field :day_of_month, id: :date_lookup_day_of_month %>
+  </div>
+
+  <div class="field">
+    <%= form.label :month %>
+    <%= form.number_field :month, id: :date_lookup_month %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quarter %>
+    <%= form.number_field :quarter, id: :date_lookup_quarter %>
+  </div>
+
+  <div class="field">
+    <%= form.label :year %>
+    <%= form.number_field :year, id: :date_lookup_year %>
+  </div>
+
+  <div class="field">
+    <%= form.label :week_of_year %>
+    <%= form.number_field :week_of_year, id: :date_lookup_week_of_year %>
+  </div>
+
+  <div class="field">
+    <%= form.label :week_of_quarter %>
+    <%= form.number_field :week_of_quarter, id: :date_lookup_week_of_quarter %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

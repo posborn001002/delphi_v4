@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @toe_tag.priority %>
+</p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @toe_tag.Person %>
+</p>
+
+<%= link_to 'Edit', edit_toe_tag_path(@toe_tag) %> |
+<%= link_to 'Back', toe_tags_path %>

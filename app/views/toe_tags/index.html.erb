@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Toe Tags</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Priority</th>
+      <th>Person</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @toe_tags.each do |toe_tag| %>
+      <tr>
+        <td><%= toe_tag.priority %></td>
+        <td><%= toe_tag.Person %></td>
+        <td><%= link_to 'Show', toe_tag %></td>
+        <td><%= link_to 'Edit', edit_toe_tag_path(toe_tag) %></td>
+        <td><%= link_to 'Destroy', toe_tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Toe Tag', new_toe_tag_path %>

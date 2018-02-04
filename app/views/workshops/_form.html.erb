@@ -1,0 +1,27 @@
+<%= form_with(model: workshop, local: true) do |form| %>
+  <% if workshop.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(workshop.errors.count, "error") %> prohibited this workshop from being saved:</h2>
+
+      <ul>
+      <% workshop.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :DateLookup_id %>
+    <%= form.text_field :DateLookup_id, id: :workshop_DateLookup_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Person_id %>
+    <%= form.text_field :Person_id, id: :workshop_Person_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

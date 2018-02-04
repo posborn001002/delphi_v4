@@ -1,0 +1,210 @@
+<%= form_with( model: @person, local: true) do |form| %>
+  <% if person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+      <ul>
+      <% person.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, id: :person_first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, id: :person_last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :person_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telephone %>
+    <%= form.text_field :telephone, id: :person_telephone %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :job_title %>
+    <%= form.text_field :job_title, id: :person_job_title %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+
+<form id="order-form" class="smart-form" novalidate="novalidate">
+  <header>
+    Order services
+  </header>
+
+  <fieldset>
+
+
+
+    <div class="field">
+      <%= collection_select(:person, :organization_id, Organization.all,
+                            :id, :name,
+                            {:prompt => 'Select Organization'})
+      %>
+    </div>
+
+    <div class="row">
+      <section class="col col-6">
+        <label class="select">
+          <select name="interested">
+          <%= collection_select(:person, :organization_id, Organization.all,
+                      :id, :name,
+                      {:prompt => 'Select Organization'})%>
+            <i></i>
+        </label>
+
+
+
+
+        <div class="row">
+          <section class="col col-6">
+            <div class="field">
+              <%= form.label :first_name, class: 'icon-append fa fa-user' %>
+              <%= form.text_field :first_name, id: :person_first_name, placeholder: 'First Name' %>
+            </div>
+          </section>
+          <section class="col col-6">
+            <div class="field">
+              <%= form.label :last_name, class: 'icon-append fa fa-user' %>
+              <%= form.text_field :last_name, id: :person_last_name, placeholder: 'Last Name' %> %>
+            </div>
+          </section>
+        </div>
+
+
+        <div class="row">
+          <section class="col col-6">
+            <label class="input"> <i class="icon-append fa fa-user"></i>
+              <input type="text" name="name" placeholder="Name">
+            </label>
+          </section>
+          <section class="col col-6">
+            <label class="input"> <i class="icon-append fa fa-briefcase"></i>
+              <input type="text" name="company" placeholder="Company">
+            </label>
+          </section>
+        </div>
+
+
+
+
+      </section>
+      <section class="col col-6">
+        <label class="select">
+          <select name="budget">
+            <option value="0" selected="" disabled="">Budget</option>
+            <option value="1">less than 5000$</option>
+            <option value="2">5000$ - 10000$</option>
+            <option value="3">10000$ - 20000$</option>
+            <option value="4">more than 20000$</option>
+          </select> <i></i> </label>
+      </section>
+    </div>
+
+
+
+
+
+    <div class="row">
+      <section class="col col-6">
+        <label class="input"> <i class="icon-append fa fa-user"></i>
+          <input type="text" name="name" placeholder="Name">
+        </label>
+      </section>
+      <section class="col col-6">
+        <label class="input"> <i class="icon-append fa fa-briefcase"></i>
+          <input type="text" name="company" placeholder="Company">
+        </label>
+      </section>
+    </div>
+
+    <div class="row">
+      <section class="col col-6">
+        <label class="input"> <i class="icon-append fa fa-envelope-o"></i>
+          <input type="email" name="email" placeholder="E-mail">
+        </label>
+      </section>
+      <section class="col col-6">
+        <label class="input"> <i class="icon-append fa fa-phone"></i>
+          <input type="tel" name="phone" placeholder="Phone" data-mask="(999) 999-9999">
+        </label>
+      </section>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="row">
+      <section class="col col-6">
+        <label class="select">
+          <select name="interested">
+            <option value="0" selected="" disabled="">Interested in</option>
+            <option value="1">design</option>
+            <option value="1">development</option>
+            <option value="2">illustration</option>
+            <option value="2">branding</option>
+            <option value="3">video</option>
+          </select> <i></i> </label>
+      </section>
+      <section class="col col-6">
+        <label class="select">
+          <select name="budget">
+            <option value="0" selected="" disabled="">Budget</option>
+            <option value="1">less than 5000$</option>
+            <option value="2">5000$ - 10000$</option>
+            <option value="3">10000$ - 20000$</option>
+            <option value="4">more than 20000$</option>
+          </select> <i></i> </label>
+      </section>
+    </div>
+
+    <div class="row">
+      <section class="col col-6">
+        <label class="input"> <i class="icon-append fa fa-calendar"></i>
+          <input type="text" name="startdate" id="startdate" placeholder="Expected start date">
+        </label>
+      </section>
+      <section class="col col-6">
+        <label class="input"> <i class="icon-append fa fa-calendar"></i>
+          <input type="text" name="finishdate" id="finishdate" placeholder="Expected finish date">
+        </label>
+      </section>
+    </div>
+
+    <section>
+      <div class="input input-file">
+        <span class="button"><input id="file2" type="file" name="file2" onchange="this.parentNode.nextSibling.value = this.value">Browse</span><input type="text" placeholder="Include some files" readonly="">
+      </div>
+    </section>
+
+    <section>
+      <label class="textarea"> <i class="icon-append fa fa-comment"></i>
+        <textarea rows="5" name="comment" placeholder="Tell us about your project"></textarea>
+      </label>
+    </section>
+  </fieldset>
+  <footer>
+    <button type="submit" class="btn btn-primary">
+      Validate Form
+    </button>
+  </footer>
+</form>
+
+</div>

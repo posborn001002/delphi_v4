@@ -1,0 +1,27 @@
+<%= form_with(model: supplier_order, local: true) do |form| %>
+  <% if supplier_order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(supplier_order.errors.count, "error") %> prohibited this supplier_order from being saved:</h2>
+
+      <ul>
+      <% supplier_order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :order_name %>
+    <%= form.text_area :order_name, id: :supplier_order_order_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ref_number %>
+    <%= form.text_field :ref_number, id: :supplier_order_ref_number %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

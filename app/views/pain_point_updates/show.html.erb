@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Painpoint:</strong>
+  <%= @pain_point_update.PainPoint %>
+</p>
+
+<p>
+  <strong>Progress:</strong>
+  <%= @pain_point_update.progress_id %>
+</p>
+
+<p>
+  <strong>Progress type:</strong>
+  <%= @pain_point_update.progress_type %>
+</p>
+
+<p>
+  <strong>Pass fail:</strong>
+  <%= @pain_point_update.pass_fail %>
+</p>
+
+<%= link_to 'Edit', edit_pain_point_update_path(@pain_point_update) %> |
+<%= link_to 'Back', pain_point_updates_path %>

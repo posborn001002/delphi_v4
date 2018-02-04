@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Organization:</strong>
+  <%= @action_result.Organization %>
+</p>
+
+<p>
+  <strong>Ar number:</strong>
+  <%= @action_result.ar_number %>
+</p>
+
+<p>
+  <strong>Action:</strong>
+  <%= @action_result.action %>
+</p>
+
+<p>
+  <strong>Result:</strong>
+  <%= @action_result.result %>
+</p>
+
+<%= link_to 'Edit', edit_action_result_path(@action_result) %> |
+<%= link_to 'Back', action_results_path %>

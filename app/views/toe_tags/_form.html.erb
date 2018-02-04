@@ -1,0 +1,27 @@
+<%= form_with(model: toe_tag, local: true) do |form| %>
+  <% if toe_tag.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(toe_tag.errors.count, "error") %> prohibited this toe_tag from being saved:</h2>
+
+      <ul>
+      <% toe_tag.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :priority %>
+    <%= form.number_field :priority, id: :toe_tag_priority %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Person_id %>
+    <%= form.text_field :Person_id, id: :toe_tag_Person_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

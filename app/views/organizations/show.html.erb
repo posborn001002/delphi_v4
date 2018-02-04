@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+  <h1><%= @organization.name %></h1>
+<hr>
+<p>
+  <span><%= @organization.address1 %></span>
+  <span><%= @organization.address2 %></span>
+  <span><%= @organization.city %>, <%= @organization.state %>, <%= @organization.country %></span>
+</p>
+
+<hr>
+
+<%= render template: 'people/index' %>
+
+<hr>
+
+  <%= link_to 'Add a Member', new_organization_person_path(@organization) %>
+| <%= link_to 'Edit', edit_organization_path(@organization) %>
+| <%= link_to 'See All Organizations', organizations_path %>
+
+<hr>

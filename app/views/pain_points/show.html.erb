@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Workshop:</strong>
+  <%= @pain_point.Workshop %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @pain_point.description %>
+</p>
+
+<%= link_to 'Edit', edit_pain_point_path(@pain_point) %> |
+<%= link_to 'Back', pain_points_path %>

@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Customer Jobs</h1>
+
+<%= link_to 'New Customer Job', new_customer_job_path %>
+
+
+
+<div class="delphi-table">
+  <table class="header margin-top-15">
+    <thead>
+      <tr>
+        <th class="eigth">Stage</th>
+        <th class="three-quarters"><job>
+        <th class="eigth">Status</th>
+      </tr>
+    </thead>
+  </table>
+    <!-- DATA -->
+    <div class="scrollable-contents resize-to-fit">
+      <table id="status-history-table" class="expandable">
+        <tbody>
+          <% @customer_jobs.each.with_index do |j, index| %>
+            <tr >
+              <td class="bold-number eigth">AR-230</td>
+              <td class="three-quarters">
+                <a id="job-header-<%= index %>" class="job-header"
+                   data-remote="true"
+                   data-url="<%= customer_job_path( j ) %>"
+                   data-method="get"
+                   data-type="html"
+                   data-params="d=job-details-<%= index %>">
+                <span class="title"><%= j.job_name %></span>
+                <span class="subtitle" ><%= j.ref_number %></span>
+                </a>
+              </td>
+              <td class="eigth ion-thumbsdown" ></td>
+            </tr>
+        <tr id="job-details-<%= index %>"></tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+</div>
+
+
+<div id="accordion" role="tablist" aria-multiselectable="true">
+  <% @customer_jobs.each do |job| %>
+    <%= render :partial => "job", locals: {job: job} %>
+  <% end %>
+</div>

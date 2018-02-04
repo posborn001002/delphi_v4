@@ -1,0 +1,2 @@
+class DateLookup < ApplicationRecord
+end

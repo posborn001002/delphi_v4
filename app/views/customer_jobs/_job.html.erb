@@ -1,0 +1,24 @@
+<div class="job">
+  <div class="job-header" role="tab" id="heading-<%=job.id%>">
+    <h5 class="mb-0">
+      <%= link_to job.job_name,
+                  history_of_path(job.id),
+                  remote: true,
+                  :data => {  :toggle => "collapse",
+                              :parent => "#accordion",
+                              :target => "#collapse-#{job.id}"
+
+                  },
+                  :aria => {  :expanded => "false",
+                              :controls => "collapse-#{job.id}"
+                  }%>
+    </h5>
+  </div>
+
+  <div id="collapse-<%=job.id%>"
+       class="collapse"
+       role="tabpanel"
+       aria-labelledby="heading-<%=job.id%>">
+  </div>
+
+</div>

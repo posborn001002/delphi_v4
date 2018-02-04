@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @date_lookup.date %>
+</p>
+
+<p>
+  <strong>Day of month:</strong>
+  <%= @date_lookup.day_of_month %>
+</p>
+
+<p>
+  <strong>Month:</strong>
+  <%= @date_lookup.month %>
+</p>
+
+<p>
+  <strong>Quarter:</strong>
+  <%= @date_lookup.quarter %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @date_lookup.year %>
+</p>
+
+<p>
+  <strong>Week of year:</strong>
+  <%= @date_lookup.week_of_year %>
+</p>
+
+<p>
+  <strong>Week of quarter:</strong>
+  <%= @date_lookup.week_of_quarter %>
+</p>
+
+<%= link_to 'Edit', edit_date_lookup_path(@date_lookup) %> |
+<%= link_to 'Back', date_lookups_path %>

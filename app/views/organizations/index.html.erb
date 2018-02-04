@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>All Organizations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @organizations.each do |organization| %>
+      <tr>
+        <td><b><%= organization.name %></b><br><%= organization.city_and_state %></td>
+        <td><%= link_to 'Show', organization %></td>
+        <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
+        <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'New Person', new_organization_person_path(organization) %></td>
+        <td><%= link_to 'New Job', new_organization_customer_job_path( organization ) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Organization', new_organization_path %>

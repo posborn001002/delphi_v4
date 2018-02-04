@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Datelookup:</strong>
+  <%= @measurement.DateLookup %>
+</p>
+
+<p>
+  <strong>Metric:</strong>
+  <%= @measurement.Metric %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @measurement.value %>
+</p>
+
+<%= link_to 'Edit', edit_measurement_path(@measurement) %> |
+<%= link_to 'Back', measurements_path %>

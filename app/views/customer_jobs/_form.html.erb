@@ -1,0 +1,58 @@
+<%= form_with(model: customer_job, local: true, id: 'form-A3') do |form| %>
+  <% if customer_job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(customer_job.errors.count, "error") %> prohibited this customer_job from being saved:</h2>
+
+      <ul>
+      <% customer_job.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<fieldset>
+  <h2>New Job/Order</h2>
+
+  <div class="full">
+    <div class="three-quarters left">
+      <%= form.label 'Select Customer' %>
+      <%= collection_select(:customer_job, :organization_id, Organization.all,
+                        :id, :name,
+                        {:prompt => 'Select Customer'})
+       %>
+    </div>
+    <div class="quarter left select-new-container ok-cancel">
+      <%= link_to 'New Organization', new_organization_path %>
+    </div>
+  </div>
+
+  <div class="clearboth margin-top-15;">&nbsp;</div>
+    <div class="field">
+      <%= form.label :job_name %>
+      <%= form.text_field :job_name, id: :customer_job_name %>
+    </div>
+
+  <div class="field">
+    <%= form.label :ref_number %>
+    <%= form.text_field :ref_number, id: :customer_ref_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :job_description%>
+    <%= form.text_area :job_description, id: :customer_job_description %>
+  </div>
+
+  <%= form.hidden_field :organization_id, id: :customer_job_organization_id %>
+</fieldset>
+
+
+
+  <div class="actions">
+    <%= form.submit %>
+
+    <%=  ok_cancel :oktext => "Save", :canceltext => "Cancel" %>
+  </div>
+<% end %>
+

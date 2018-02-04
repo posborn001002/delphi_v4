@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Datelookup:</strong>
+  <%= @workshop.DateLookup %>
+</p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @workshop.Person %>
+</p>
+
+<%= link_to 'Edit', edit_workshop_path(@workshop) %> |
+<%= link_to 'Back', workshops_path %>

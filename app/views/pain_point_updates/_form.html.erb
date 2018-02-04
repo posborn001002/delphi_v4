@@ -1,0 +1,37 @@
+<%= form_with(model: pain_point_update, local: true) do |form| %>
+  <% if pain_point_update.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pain_point_update.errors.count, "error") %> prohibited this pain_point_update from being saved:</h2>
+
+      <ul>
+      <% pain_point_update.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :PainPoint_id %>
+    <%= form.text_field :PainPoint_id, id: :pain_point_update_PainPoint_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :progress_id_id %>
+    <%= form.text_field :progress_id_id, id: :pain_point_update_progress_id_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :progress_type %>
+    <%= form.text_field :progress_type, id: :pain_point_update_progress_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pass_fail %>
+    <%= form.number_field :pass_fail, id: :pain_point_update_pass_fail %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

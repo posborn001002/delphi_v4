@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Order name:</strong>
+  <%= @supplier_order.order_name %>
+</p>
+
+<p>
+  <strong>Ref number:</strong>
+  <%= @supplier_order.ref_number %>
+</p>
+
+<%= link_to 'Edit', edit_supplier_order_path(@supplier_order) %> |
+<%= link_to 'Back', supplier_orders_path %>

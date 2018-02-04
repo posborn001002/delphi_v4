@@ -1,0 +1,1603 @@
+
+$darker_blue: #284055;
+$medium_blue: #24889e;
+$dark_blue: #004b61;
+$light_blue: #99cad6;
+$lighter_blue: #e9f3f6;
+$dark_text: #516475;
+$text: #696d6d;
+$green: #76b043;
+$red: #dd714b;
+
+$background: #fff;
+$background_emphasis: #c8e2e9;
+$background_neutral: #f5f5f5;
+$background_error: #f0f0f0;
+
+$background_input: #c7c8c8;
+
+$transparent: rgba(0, 0, 0, 0);
+
+$green_faded: rgba(118, 176, 67, 0.4);
+$red_faded: rgba(221, 113, 75, 0.4);
+$light_blue_faded: rgba(36, 136, 158, 0.4);
+$medium_blue_faded: rgba(36, 136, 158, 0.4);
+$dark_blue_faded: rgba(0, 75, 97, 0.4);
+
+$icon_shadow: #ddedf1;
+
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+$body_font: Roboto, non-serif;
+$header_font: Roboto, non-serif;
+
+/**
+*
+*  medium blue
+*  dark blue
+*  light blue
+*  very light blue
+*  dark title text
+*  Text
+*  green
+*   red
+
+
+18  Defaults
+34  Helpers
+117 Page Elements
+128 Static Areas
+280 Edit Mode
+266 Buttons
+350 Icons
+400 Fieldset
+450 Input Fields
+466 Lists
+563 Tables
+1200 Green & Red total container
+
+*/
+
+
+/********************************************
+* DEFAULTS
+********************************************/
+
+body {
+    background-color: $background;
+    color: $text;
+    margin: 0;
+    font-family: Roboto, sans-serif;
+  }
+
+a:-webkit-any-link {
+  color: -webkit-link;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $header_font;
+}
+
+a, p, table, div, li, ul, article, fieldset, label, input, span, textarea {
+  font-family: $body_font;
+  line-height: 1.4em;
+  font-size: medium;
+}
+
+p, ol, ul, td {
+  font-family: $body_font;
+  font-size: small;
+  line-height: 1.4em;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a {
+ // color: #000;
+
+ // &:visited {
+ //   color: #666;
+ // }
+
+ // &:hover {
+//    color: #fff;
+//    background-color: #000;
+//  }
+}
+
+th {
+  padding-bottom: 5px;
+}
+
+td {
+  padding: 0 5px 7px;
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 3px;
+  }
+}
+
+#notice {
+  color: #green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: $red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid $red;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: $background_error;
+
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px -7px 0;
+    background-color: #c00;
+    color: #fff;
+  }
+
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+label {
+  display: block;
+}
+
+
+/********************************************
+* HELPERS
+********************************************/
+
+/****** Colors *********************************/
+.medium-blue-text {
+  color: $medium_blue;
+}.medium-blue-bkgrnd {
+   background-color: $medium_blue;
+ }
+.vdark-blue-text {
+  color: $dark_text;
+}
+.dark-blue-text {
+  color: $dark_blue;
+}
+.dark-blue-bkgrnd {
+  background-color: $dark_blue;
+}
+.light-blue-text {
+  color: $light_blue;
+}
+.light-blue-bkgrnd {
+  background-color: $light_blue;
+}
+.vlight-blue-text {
+  color: $lighter_blue;
+}
+.vlight-blue-bkgrnd {
+  background-color: $lighter_blue;
+}
+
+/***** Floats ******************************/
+.right {
+  float:right;
+}.left {
+   float:left;
+ }
+.center {
+  text-align:center
+}
+.middle {
+  vertical-align:middle
+}
+.left.half {
+  width:calc(50% - 10px);
+  margin-right:10px;
+}
+.right.half {
+  width:calc(50% - 10px);
+  margin-left:10px;
+}
+.clearboth {
+  clear:both;
+}
+
+/****** Column Widths *********************************/
+.sixteenth {
+  width: calc(100%/16);
+}
+.eigth {
+  width: 12%;
+}
+.three-sixteenths {
+  width: calc(100%/16*3);
+}
+.quarter {
+  width: 25%;
+}
+.fifth {
+  width: 20%;
+}
+.third {
+  width: 33%;
+}
+.three-eigths {
+  width: 38%;
+}
+.half {
+  width: 50%;
+}
+.five-eigths{
+  width: 63%
+}
+.two-thirds{
+  width: 66%
+}
+.three-quarters {
+  width: 75%;
+}
+.seven-eigths{
+  width: 87%
+}
+.full {
+  width: 100%;
+}
+
+/****** Spans *********************************/
+.eighty {
+  margin-left:auto;
+  margin-right:auto;
+  width:80%;
+}
+.ninety {
+  margin-left:auto;
+  margin-right:auto;
+  width:90%;
+}
+.ninety-five {
+  margin-left:auto;
+  margin-right:auto;
+  width:95%;
+}
+
+/****** Spacers *********************************/
+.margin-top-5 {
+  margin-top:5px;
+}
+.margin-top-5:first-child {
+  padding-top:5px;
+}
+.margin-top-10 {
+  margin-top:10px;
+}
+.margin-top-10:first-child {
+  padding-top:10px;
+}
+.margin-top-15 {
+  margin-top:15px;
+}
+.margin-top-15:first-child {
+  padding-top:15px;
+}
+/********************************************
+* PAGE ELEMENTS
+********************************************/
+.delphi-content {
+  margin: 0 15px;
+}
+body-menu-page {
+  width:100%;
+  padding-left:5px;
+}
+
+/****** Heading Styles **********/
+body h2 {
+  text-align: center;
+  font-size: x-large;
+  font-weight: 400;
+  margin-top:20px;
+  margin-bottom:15px;
+}
+/****** Page Backgrounds **********/
+.blue {
+  width:100%;
+  background-color: $background_emphasis;
+}
+.grey {
+  width:100%;
+  background-color: $background_neutral;
+}
+/********************************************
+* STATIC AREAS
+********************************************/
+/****** Static Container **********/
+div.static-container,
+div.static-top {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+div.static-top.title-select {
+  height:115px;
+  background-color:$background;
+}
+div.static-top.title-select+div {
+  margin-top:82px;
+}
+div.static-top.blue+.table-container {
+  /* margin-top: 270px; */
+}
+.fixed-accordion {
+  position: fixed;
+  left: 0;
+  z-index:10;
+  width:100%;
+}
+
+/****** Clearing Techniques **********/
+div.static-buttons.top+* {
+  padding-top: 60px!important;
+}
+
+/****** Static Container **********/
+div.static-container {
+  display:table;
+}
+div.static-row {
+  display:table-row;
+  background-color: $dark_blue;
+  height:70px;
+}
+div.static-cell {
+  height:70px;
+  display:table-cell;
+  font-size:medium;
+  text-align:center;
+  vertical-align:middle;
+  color:$background;
+}
+div.static-cell.active {
+  background-color: $dark_blue;
+  font-weight:bold;
+}
+div.static-cell:not(active) {
+  background-color: $medium_blue;
+  cursor:pointer;
+}
+.static-container+.delphi-content {
+  margin-top:70px;
+}
+
+/********************************************
+* EDIT MODE
+********************************************/
+.edit-mode fieldset >*:not(.apply-edit-mode),
+.edit-mode .delphi-table,
+.edit-mode .delphi-list,
+.edit-mode #affected-customers-container,
+.edit-mode .button-collection:not(.done-editing) {
+  display: none!important;
+}
+
+.edit-mode fieldset {
+  width: 100%!important;
+  position: fixed!important;
+  left: 0!important;
+  top:0!important;
+  height: 1000px!important;
+}
+.edit-mode fieldset {
+  margin: 0!important;
+  padding-right: 20%!important;
+}
+.edit-mode textarea {
+  height:200px!important;
+  max-height:200px!important;
+}
+.edit-mode div.static-buttons.top+* {
+  margin-top: 0!important;
+  padding-top: 0!important;
+}
+.edit-mode div.done-editing {
+  display: block!important;
+}
+/******** Styling for the Done Editing Button *****/
+div.button-collection.done-editing.ok-cancel {
+  display: none;
+  position: fixed;
+  bottom: auto;
+  left: auto;
+  max-width: 20%;
+  right: 0;
+}
+div.button-collection.done-editing,
+.done-editing div.button-row,
+.done-editing div.button-cell {
+  display: block;
+  height:100px;
+}
+
+
+/********************************************
+* BUTTONS
+********************************************/
+/** Used for conformation screens */
+.button-container h3 {
+  text-transform:none;
+  color: $medium_blue;
+  text-align:center;
+  width:100%;
+  margin: 0 auto;
+  font-size: x-large;
+  font-weight: 300;
+  padding: 0 50px;
+  margin-bottom: 25px;
+}
+.button-container.centered {
+  margin-top:100px;
+}
+
+
+/********************************************/
+.button-collection {
+  user-select:none;
+  display: table;
+  border-collapse:separate;
+  border-spacing: 5px;
+}
+div.button-row {
+  display: table-row;
+  border-radius: 5px;
+  border: 1px solid $transparent;
+}
+.button-text.spacer:active,
+.button-cell.spacer:hover,
+.button-cell.spacer {
+  background-color: $transparent;
+  cursor:default!important;
+}
+div.button-row .button-cell:not(.spacer):hover,
+div.button-row .button-cell:not(.spacer):visited,
+div.button-row .button-cell:not(.spacer) {
+  cursor:pointer;
+  text-decoration: none;
+  text-align:center;
+  display:table-cell;
+  font-weight:bold;
+  vertical-align:middle;
+  border-radius: 4px;
+  border: 1px solid $transparent;
+  position: relative;
+}
+div.button-row .button-cell:not(.spacer):active {
+  box-shadow: 0 3px #c5c5c5;
+  transform: translateY(2px);
+}
+
+/*** Main Menu ********************************/
+.button-collection.main-menu {
+  border-spacing:10px;
+  width:100%;
+  max-width: 340px;
+  margin: 25px auto;
+}
+.main-menu  div.button-row {
+  width:80%;
+  max-width:340px;
+  height:125px;
+}
+.main-menu  div.button-row .button-cell:not(.spacer):hover,
+.main-menu  div.button-row .button-cell:not(.spacer):visited,
+.main-menu  div.button-row .button-cell:not(.spacer) {
+  padding:0 25px;
+  font-size:larger;
+  text-transform: uppercase;
+  color:$background;
+  line-height:1.1em;
+  background-color: $medium_blue;
+}
+.main-menu div.button-row .button-cell:not(.spacer):active {
+  background-color: $dark_blue;
+}
+
+/*** OK Cancel ********************************/
+.button-collection.ok-cancel {
+  width:90%;
+  max-width:400px;
+  margin: 10px auto;
+}
+.ok-cancel  div.button-row {
+  height:70px;
+}
+.ok-cancel div.button-row .button-text.spacer:active,
+.ok-cancel div.button-row .button-cell.spacer:hover,
+.ok-cancel div.button-row .button-cell.spacer {
+  /* width:60px;  */
+}
+.ok-cancel  div.button-row .button-cell:not(.spacer):hover,
+.ok-cancel  div.button-row .button-cell:not(.spacer):visited,
+.ok-cancel  div.button-row .button-cell:not(.spacer) {
+  font-size:medium;
+  text-transform: uppercase;
+  color:$background;
+  line-height:1.1em;
+  background-color: $dark_blue;
+  width:170px;
+}
+.ok-cancel div.button-row .button-cell:not(.spacer):active {
+  background-color: $medium_blue
+}
+.button-cell.x-large {
+  font-size: x-large!important;
+  font-weight: 900!important;
+}
+
+/*** File UPloadl ********************************/
+.button-collection.attach-file {
+  width:100%;
+  max-width:200px;
+  margin: 0 auto;
+  border-spacing:0px;
+}
+
+/*** OK Neutral Cancel ********************************/
+.button-collection.ok-neutral-cancel {
+  width:90%;
+  max-width:400px;
+  margin: 10px auto;
+}
+.ok-neutral-cancel  div.button-row {
+  height:70px;
+}
+.ok-neutral-cancel div.button-row .button-text.spacer:active,
+.ok-neutral-cancel div.button-row .button-cell.spacer:hover,
+.ok-neutral-cancel div.button-row .button-cell.spacer {
+  /* width:60px;  */
+}
+.ok-neutral-cancel  div.button-row .button-cell:not(.spacer):hover,
+.ok-neutral-cancel  div.button-row .button-cell:not(.spacer):visited,
+.ok-neutral-cancel  div.button-row .button-cell:not(.spacer) {
+  font-size:medium;
+  text-transform: uppercase;
+  color:$background;
+  line-height:1.1em;
+  background-color: $dark_blue;
+  width:100px;
+}
+.ok-neutral-cancel div.button-row .button-cell:not(.spacer):active {
+  background-color: $medium_blue
+}
+.ok-neutral-cancel div.button-row .button-cell.icon:hover,
+.ok-neutral-cancel div.button-row .button-cell.icon:visited,
+.ok-neutral-cancel div.button-row .button-cell.icon,
+.ok-cancel div.button-row .button-cell.icon:hover,
+.ok-cancel div.button-row .button-cell.icon:visited,
+.ok-cancel div.button-row .button-cell.icon {
+  vertical-align: bottom;
+  padding-bottom: 9px;
+}
+/***  SECONDARY  ********************************/
+.button-collection.secondary {
+  border-spacing: 0;
+  width:99%;
+  max-width:400px;
+  margin: 15px auto;
+}
+.secondary  div.button-row {
+  height:40px;
+
+}
+.secondary  div.button-row .button-cell:not(.spacer):hover,
+.secondary  div.button-row .button-cell:not(.spacer):visited,
+.secondary  div.button-row .button-cell:not(.spacer) {
+  padding:0 5px;
+  font-size:medium;
+  text-transform: capitalize;
+  color: $dark_blue;
+  line-height:1.1em;
+  background-color: $background;
+  border: 2px solid #99CACC;
+  border-radius: 8px;
+}
+.secondary div.button-row .button-cell:not(.spacer):active {
+  background-color: $light_blue;
+}
+/***  Small  ********************************/
+.small  div.button-row {
+  height:40px;
+}
+.small  div.button-row .button-cell:not(.spacer):hover,
+.small  div.button-row .button-cell:not(.spacer):visited,
+.small  div.button-row .button-cell:not(.spacer) {
+  padding:5px 3px;
+  font-size:small;
+  border-radius: 5px;
+}
+/***  static-buttons  ********************************/
+.button-collection.static-buttons {
+  position: fixed;
+  z-index: 3;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: $background_emphasis;
+  border-spacing: 10px;
+  z-index: 10;
+}
+.button-collection.static-buttons.top {
+  bottom:auto;
+  top:0;
+}
+.static-buttons div.button-row {
+  height:40px;
+}
+
+.static-buttons  div.button-row .button-cell:not(.spacer):hover,
+.static-buttons  div.button-row .button-cell:not(.spacer):visited,
+.static-buttons  div.button-row .button-cell:not(.spacer) {
+  padding:0 5px;
+  font-size:medium;
+  text-transform: uppercase;
+  font-weight:700;
+  color: $background;
+  line-height:1.1em;
+  background-color: $dark_blue;
+  border: 1px solid $transparent;
+  border-radius: 7px;
+}
+.static-buttons  div.button-row .button-cell.default:not(.spacer):hover,
+.static-buttons  div.button-row .button-cell.default:not(.spacer):visited,
+.static-buttons  div.button-row .button-cell.default:not(.spacer) {
+  background-color: $medium_blue;
+}
+.static-buttons div.button-row .button-cell:not(.spacer):active {
+  background-color: $light_blue;
+}
+.static-buttons .ion-checkmark:not(.default):before,
+.static-buttons .ion-close:not(.default):before {
+  color: $medium_blue;
+}
+
+/***  Button used as 'New' with a select Float ********************************/
+div.select-new-container .button-collection {
+  width: calc(100% - 4px);
+  max-width: 100px;
+  margin: 18px 0 0 4px;
+}
+div.select-new-container  div.button-row {
+  height:50px;
+}
+
+/********************************************
+* ICONS
+********************************************/
+
+.ion-ios-checkmark:before,
+.ion-ios-close:before,
+.ion-ios-arrow-up:before,
+.ion-ios-arrow-down:before,
+.ion-thumbsdown:before,
+.ion-thumbsup:before {
+  top: 20px;
+  font-size: 30px;
+  position: absolute;
+  color: $background;
+  left: calc(50% - 15px);
+}
+
+.button-cell .material-icons,
+.button-cell.icon.ion-checkmark:before {
+  top: 20px;
+  font-size: 30px;
+  position: absolute;
+  color: #fff;
+  left: calc(50% - 15px);
+}
+
+#measurements-history-table .ion-ios-arrow-up:before,
+#measurements-history-table .ion-ios-arrow-down:before {
+  top: 0;
+  font-size: 55px;
+}
+
+#measurements-history-table .ion-ios-arrow-up:before,
+.ion-thumbsup:before,
+.ion-ios-checkmark:before {
+  color: $green; /*green */
+  text-shadow: 1px 2px 0px $icon_shadow;
+}
+#measurements-history-table .ion-ios-arrow-down:before,
+.ion-thumbsdown:before,
+.ion-ios-close:before {
+  color: $red; /* red */
+  text-shadow: 1px 2px 0px $icon_shadow;
+}
+.button-cell.ion-ios-close.icon:before,
+.button-cell.ion-ios-checkmark.icon:before,
+.button-cell.ion-ios-arrow-up.icon:before,
+.button-cell.ion-ios-arrow-down.icon:before {
+  top: 6px;
+}
+.button-cell.ion-thumbsdown.icon:before,
+.button-cell.ion-thumbsup.icon:before {
+  top: 0;
+  font-size: 40px;
+}
+
+
+/****** Notifications (Bell) *************************/
+.material-icons {
+  font-size:48px;
+  color: $darker_blue;
+  left: calc(50% - 20px);
+}
+.material-icons.small {
+  font-size:36px;
+  color: $medium_blue;
+}
+.button-cell .material-icons {
+  color: $background;
+}
+/********************************************
+* FIELDSET
+********************************************/
+form {
+  width:100%;
+}
+fieldset {
+  margin:0;
+  border:none;
+  padding:10px 5% 5px;
+  width: 90%
+}
+body fieldset h2 {
+  color: $medium_blue;
+  font-size:x-large;
+  font-weight:400;
+  text-align:center;
+  padding-top:5px;
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+body fieldset h3 {
+  font-size: large;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  margin:0;
+}
+fieldset.search {
+  margin: 0 0 15px;
+  padding: 15px;
+  background-color: $icon_shadow;
+}
+/***** Labels & Text ***************************/
+
+span.label,
+label {
+  text-transform:uppercase;
+  color: $medium_blue;
+  font-weight: 300;
+  font-size: large;
+  display: block;
+}
+span.label-control,
+label.control {
+  text-transform:uppercase;
+  color: $text;
+  font-weight: 500;
+  font-size: medium;
+}
+.grey span.label,
+.grey label {
+  color: $text;
+  font-weight: 500;
+  font-size: medium;
+}
+span.description.label,
+label.description {
+  font-size: smaller;
+  font-style:italic;
+  margin: 0 0 5px 2px;
+}
+p.units {
+  font-size: medium;
+  font-weight:700;
+  text-transform:uppercase;
+  text-align: center;
+  color: $medium_blue;
+  width:100%;
+}
+span.label.large,
+label.large {
+  font-weight:100;
+  font-size:large;
+  text-transform:uppercase;
+  color: $medium_blue;
+}
+.delphi-content fieldset p {
+  font-size: small;
+  text-align: center;
+}
+
+/********************************************
+* INPUT FIELDS
+********************************************/
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+  cursor: text;
+  border: 1px solid #cbcbcb;
+  display: block;
+  padding-top: 5px;
+  padding-left: 0.7em;
+  height: 40px;
+  color: $text;
+  vertical-align: middle;
+  font-size: medium;
+  line-height: 1.1em;
+  width:calc( 100% - 0.7em);
+  margin: 0 0 10px;
+}
+input[type="search"] {
+  border:none;
+  padding:5px;
+  height: 30px;
+}
+textarea {
+  height: 100px;
+}
+select {
+  background-color: $background_neutral;
+  border-radius: 0;
+  border: 1px solid #f1f1f1;
+  border-style: outset;
+  padding: 10px;
+  font-size: medium;
+  height: 50px;
+  width: 100%;
+}
+.blue select,
+.blue input,
+.grey select,
+.grey input {
+  background-color: $background;
+  border:none;
+}
+textarea.notes {
+  height:100px;
+  margin: 0 auto 10px;
+  width:100%;
+  border: 2px solid $background_input;
+  padding-top:10px;
+  font-size:medium;
+}
+input.large {
+  font-size:xx-large;
+  margin:10px auto;
+  width:100%;
+  max-width:400px;
+  font-weight: 300;
+  text-align:center;
+  display:inline-block;
+}
+input[type="number"].large {
+  height: 80px;
+  font-size:60px;
+}
+input[type="date"].large {
+  height: 55px;
+}
+
+input[type="date"].large::-webkit-datetime-edit-text {
+  text-align:center;
+}
+
+input[type="date"].large::-webkit-inner-spin-button {
+  display:none;
+}
+/******* Default values for the date field *****************
+ input[type="date"] {
+     -webkit-align-items: center;
+     display: -webkit-inline-flex;
+     font-family: monospace;
+     overflow: hidden;
+     padding: 0;
+     -webkit-padding-start: 1px;
+}
+
+input::-webkit-datetime-edit {
+    -webkit-flex: 1;
+    -webkit-user-modify: read-only !important;
+    display: inline-block;
+    min-width: 0;
+    overflow: hidden;
+}
+
+input::-webkit-datetime-edit-fields-wrapper {
+    -webkit-user-modify: read-only !important;
+    display: inline-block;
+    padding: 1px 0;
+    $background-space: pre;
+}
+******/
+input[type="date"].large::-webkit-datetime-edit
+input[type="date"].large::-webkit-datetime-edit-fields-wrapper
+input[type="date"].large::-webkit-datetime-edit-text
+input[type="date"].large::-webkit-datetime-edit-month-field
+input[type="date"].large::-webkit-datetime-edit-day-field
+input[type="date"].large::-webkit-datetime-edit-year-field
+input[type="date"].large::-webkit-inner-spin-button
+input[type="date"].large::-webkit-calendar-picker-indicator {}
+
+
+
+
+/********************************************
+TABLES
+
+.delphi-table - the container div
+
+.header
+.body
+** Types of Table **
+.data
+.expandable
+.select
+.subpanel
+(accordion)
+********************************************/
+table td {
+  font-size: small;
+  vertical-align: middle;
+  text-align: left;
+}
+/******  GENERIC TABLE  ************************/
+div.delphi-table {
+  table {
+    color: $text;
+    background-color: #f1f1f1;
+    width: 99%;
+    clear: both;
+    margin: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    tr {
+      border-bottom: 2px $background_input solid;
+    }
+    td {
+       padding-top:5px;
+       padding-bottom:5px;
+       position:relative;
+       vertical-align:middle;
+       height: 60px;
+     }
+    th {
+        background-color: $background;
+        font-size: small;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+        padding-bottom: 3px;
+        vertical-align:bottom;
+    }
+  }
+  div.scrollable-contents {
+    overflow-y:scroll;
+    overflow-x:hidden;
+  }
+  table.expandable > tbody {
+    > tr:nth-child(even) {
+      display:none;
+      background-color:$background;
+      border:1px #C1C1C1 solid;
+    }
+    > tr:nth-child(even) > td:not(.subprocess) {
+       padding:6px 12px 18px;
+     }
+    tr.expandable-details h1{
+        font-size: large;
+        padding-top:12px;
+    }
+  }
+}
+
+table.data-table td:first-child {
+  padding-left:15px;
+}
+
+/** Expandable Section ****************************/
+
+table.expandable table.subprocess tr:not(:first-child),
+div.delphi-table table.expandable > tbody > tr:nth-child(odd){
+  cursor:pointer;
+}
+
+
+/**** POINTS OF PAIN EXPANDING PANEL ****/
+div.delphi-table table.expandable tr.expandable-details hr {
+  border-color: $lighter_blue;
+  border-width: 6px;
+  margin-right: 20%;
+}
+div.delphi-table table.expandable tr.expandable-details .secondary div.button-row {
+  height: 65px;
+}
+
+
+/****** SUB-PANEL - table inside an expandable section **********/
+div.delphi-table table.subpanel {
+  background-color:$background;
+  margin-top:0;
+}
+div.delphi-table table.subpanel tr:last-of-type {
+  border-bottom: none;
+}
+div.delphi-table table.subpanel td {
+  padding-top: 5px;
+  padding-bottom: 10px;
+  font-size: small;
+  height:auto;
+}
+
+div.delphi-table table.subpanel td.date {
+  text-transform: uppercase;
+  vertical-align: middle;
+  text-align: right;
+  padding-right: 5px;
+  border-right: 1px solid #c5c5c5;
+  font-weight: 300;
+  color: #000;
+}
+div.delphi-table table.subpanel td.text-block {
+  text-align: justify;
+  padding-left: 5px;
+  line-height:1.1em;
+  font-size:small;
+}
+
+
+/***** SUBPROCESS - table inside an expandable section *********/
+div.delphi-table table.subprocess {
+  background-color:#fcfcfc;
+  width:100%;
+}
+
+div.delphi-table table.expandable td.subprocess {
+  padding: 0;
+}
+
+/********* Data Table datatype formats **********/
+div.delphi-table table td.text,
+div.delphi-table table td .text {
+  font-size: medium;
+  line-height: 1.1em;
+  display:block;
+}
+div.delphi-table table td.number,
+div.delphi-table table td .number  {
+  font-size:x-large;
+  text-align:center;
+  vertical-align:middle;
+}
+div.delphi-table table td.large-number,
+div.delphi-table table td .large-number {
+  font-size:x-large;
+  text-align:center;
+  vertical-align:middle;
+}
+div.delphi-table table td.bold-number,
+div.delphi-table table td .bold-number {
+  font-weight: 900;
+  font-size: large;
+  text-align: right;
+  padding-right: 15px;
+}
+div.delphi-table table td .date {
+  font-size:medium;
+  text-transorm:uppercase;
+  text-align:left;
+}
+
+/******  multi-select  ************************/
+/*** TURN THIS INTO A LIST **/
+div.delphi-table table.multi-select th {
+  text-align:left;
+  $background-space:nowrap;
+}
+div.delphi-table table.multi-select td {
+  padding-top:5px;
+  padding-bottom:5px;
+}
+div.delphi-table table.multi-select .title,
+div.delphi-table table.multi-select .subtitle {
+  font-size: small;
+}
+div.delphi-table table.multi-select .text {
+  font-weight: 400;
+}
+div.delphi-table table.multi-select tr.selected {
+  background-color: #c5c5c5;
+}
+
+/****** selected-customers  ************************/
+.table-container.scrollable-list {
+  margin:10px auto 5px;
+  border:2px solid $lighter_blue;
+  overflow-y:scroll;
+}
+table#affected-customers-table td:first-of-type {
+  display:none;
+}
+table#affected-customers-table td {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+table#affected-customers-table tr {
+  border-bottom: 1px $dark_blue solid;
+}
+table#affected-customers-table th {
+  background-color: transparent;
+  text-transform: None;
+}
+/****** measurements history  ************************/
+table#measurements-history-table  td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+
+
+
+
+
+/** Nested Table in a List ****************************/
+
+div.delphi-list ul table.nested-table {
+  width:100%;
+  margin: 15px 0;
+  background-color: #fafafa;
+}
+div.delphi-list ul table.nested-table tr {
+  border-bottom: 1px solid $background_input;
+}
+div.delphi-list ul table.nested-table th {
+  padding: 5px;
+  font-size: small;
+  font-weight: bold;
+  line-height: 12px;
+  text-align: center;
+}
+div.delphi-list ul table.nested-table td {
+  font-size: small;
+}
+
+
+/********************************************
+
+/********************************************
+* DELPHI-LIST
+* Delphi List controls the main attributes of Common Styling of ul/li and tables
+* for the core 'look and feel.  It iss attached to the container div of a list or group of lists
+********************************************/
+
+/***** TABLES / UL ***************/
+div.delphi-list ul {
+  list-style: none;
+  width:100%;
+  clear:both;
+  margin: 5px 0 20px;
+}
+/***** ROWS / LI ***************/
+
+div.delphi-list li {
+  padding: 0 15px;
+  height: 55px;
+  position:relative;
+  background-color: $background;
+  border-bottom: $light_blue solid 1px;
+}
+div.delphi-list li:last-of-type {
+  border-bottom-width: 2px;
+}
+div.delphi-list li:first-of-type {
+  border-top: $light_blue solid 2px;
+}
+
+
+/* Grey version of the list */
+div.delphi-list.grey li {
+  background-color: #f1f1f1;
+  border-bottom: $background_input solid 1.5px;
+}
+div.delphi-list.grey li:first-of-type {
+  border-top: $background_input solid 1.5px;
+}
+
+body div.delphi-table table td span,
+body div.delphi-list li span {
+  display:block;
+}
+
+
+/********************************************
+* COMBINED LIST & TABLE TEXT
+********************************************/
+
+body div.delphi-table table th h2,
+body div.delphi-list div>h2,
+body div.delphi-list>h2 {
+  font-weight:400;
+  text-align:left;
+  color: $medium_blue;
+  font-size: x-large;
+  margin: 75px 0 10px;
+  text-transform: none;
+}
+body div.delphi-table table th h2 {
+  padding:0 3px;
+  margin:0;
+}
+div.delphi-table table th h3,
+body div.delphi-list div>h3,
+body div.delphi-list>h3 {
+  text-align:left;
+  color: $text;
+  font-size: medium;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 20px 0 5px;
+  padding-left: 15px;
+}
+div.delphi-table table th {
+  padding:0 3px;
+  margin:0;
+}
+
+body div.delphi-list li h1 {
+  font-size: medium;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  font-weight: bold;
+}
+body div.delphi-list li h2 {
+  font-size: medium;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 0
+}
+div.delphi-table table td.large-title,
+div.delphi-table table td .large-title,
+div.delphi-list li.large-title,
+div.delphi-list li .large-title {
+  line-height: 1.1em;
+  color: $medium_blue;
+  font-size: large;
+  text-transform: uppercase;
+  font-weight: 300;
+  padding-left: 15px;
+}
+
+div.delphi-table table td.medium-title,
+div.delphi-table table td .medium-title,
+div.delphi-list li.medium-title,
+div.delphi-list li .medium-title {
+  line-height: 1.3em;
+  color: $medium_blue;
+  font-size: medium;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding-left: 10px;
+  text-align: right;
+}
+div.delphi-table table td.title,
+div.delphi-table table td .title,
+div.delphi-list li.title,
+div.delphi-list li .title {
+  line-height: 1.4em;
+  color: $medium_blue;
+  font-size: large;
+  text-transform: none;
+  font-weight: 400;
+  margin-bottom: 2px;
+}
+div.delphi-table table td.subtitle,
+div.delphi-table table td .subtitle,
+div.delphi-list li.subtitle,
+div.delphi-list li .subtitle {
+  color: $text;
+  font-size: medium;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding-top: 12px;
+}
+div.delphi-table td>.title+.subtitle,
+div.delphi-list li .title+.subtitle,
+div.delphi-list li .title+.subtitle {
+  padding-top: 0;
+  margin-top: -5px;
+}
+div.delphi-table table td.p,
+div.delphi-table table td .p,
+div.delphi-list li p {
+  font-size: small;
+  text-align: left;
+  line-height: 18px;
+  padding-right:10px;
+  line-height: 1.1em;
+}
+
+/***** MULTI-SELECT: ROWS / LI ***************/
+/* Attach multi-select to the UL of the list */
+
+div.delphi-list ul.multi-select li.selected {
+  background-color:  #f1f1f1;
+}
+div.delphi-list.grey ul.multi-select li.selected {
+  background-color:  #c5c5c5;
+}
+div.delphi-list ul.multi-select li:active {
+  color: $dark_blue;
+}
+/* this is the psuedo check-box */
+div.delphi-list ul.multi-select li:after {
+  content: "";
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 8px;
+  right: 15px;
+  border-radius: 5px;
+  background-color: $medium_blue;
+}
+div.delphi-list ul.multi-select li.selected:after {
+  color: #f1f1f1;
+}
+div.delphi-list.grey ul.multi-select li.selected:after {
+  color: #cbcbcb;
+}
+/* this is the psuedo check-box - when selected */
+div.delphi-list ul.multi-select li.selected:after {
+  content: "ÔÑ™";
+  display: inline-block;
+  font-family: "Ionicons";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-rendering: auto;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 23px;
+  text-align: center;
+  padding-top: 6px;
+}
+/***** SPECIFIC LIST CONTAINERS ***************/
+div.list-of-contacts-container,
+div.list-of-job-categories-container,
+div.list-of-process-stages-container {
+}
+/***** SPECIFIC LIST TYPES ***************/
+div.list-of-contacts,
+div.list-of-job-categories,
+div.list-of-process-stages {
+}
+
+/********************************************
+* GREEN & RED TOTALS
+********************************************/
+div.totals-container {
+  margin-top: 25px;
+}
+div.totals-container div.pop-total {
+  border: $transparent;
+  border-radius: 5px;
+  margin: 10px auto;
+  min-height: 64px;
+  color: #fff;
+  max-width: 75px;
+  padding-top: 3px;
+}
+div.totals-container div.pop-total.pass {
+  background-color: $green;
+}
+div.totals-container div.pop-total.fail {
+  background-color: $red;
+}
+div.totals-container div.pop-total span {
+  display: block;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  font-size: small;
+}
+div.totals-container div.pop-total span.data {
+  font-size: x-large;
+}
+div.totals-container div.pop-total span.label {
+  text-transform: uppercase;
+  font-weight: 900;
+  border-bottom: 1px $background solid;
+}
+/***** status box on the sub process *******/
+.status-checkbox {
+  border: 2px solid $light_blue;
+  height: 40px;
+  width:40px;
+  vertical-align:middle;
+  margin:0 auto;
+  background-color:$background;
+}
+.status-checkbox.none {
+  background-color: $lighter_blue;
+}
+.status-checkbox.notOK {
+  background-color: $green;
+}
+.status-checkbox.OK {
+  background-color: $green;
+}
+/**** ALERTS ****************************/
+td.status-none {
+  border: 3px solid $background_input;
+  background-color: $background;
+}
+td.status-green {
+  border: 3px solid $green;
+  background-color: $green;
+}
+td.status-red {
+  border: 3px solid $red;
+  background-color: $red;
+}
+td.status-low {
+  border: 3px solid $light_blue;
+  background-color: $light_blue;
+}
+td.status-medium {
+  border: 3px solid $medium_blue;
+  background-color: $medium_blue;
+}
+td.status-high {
+  border: 3px solid $dark_blue;
+  background-color: $dark_blue;
+}
+/***** Alerts for the expandable table, so it folds down nicely...  **/
+table.subprocess tH.status-none,
+table.subprocess td.status-none {
+  border: 3px solid $background_input;
+  background-color: $background;
+}
+table.subprocess tH.status-green,
+table.subprocess td.status-green {
+  border: 3px solid $green_faded;
+  background-color: $green_faded;
+}
+table.subprocess tH.status-red,
+table.subprocess td.status-red {
+  border: 3px solid $red_faded;
+  background-color: $red_faded;
+}
+table.subprocess tH.status-low,
+table.subprocess td.status-low {
+  border: 3px solid $light_blue_faded;
+  background-color: $light_blue_faded;
+}
+table.subprocess tH.status-medium,
+table.subprocess td.status-medium {
+  border: 3px solid $medium_blue_faded;
+  background-color: $medium_blue_faded;
+}
+table.subprocess tH.status-high,
+table.subprocess td.status-high {
+  border: 3px solid $dark_blue_faded;
+  background-color: $dark_blue_faded;
+}
+
+/********************************************
+* ATTACH PHOTO
+********************************************/
+div.photo-container {
+  margin-top: 0;
+}
+div.file-container {
+  padding-top: 50px;
+}
+div.photo-container .attach-from {
+  border: 2px solid $light_blue;
+  background-color:$background;
+  border-radius: 5px;
+  min-height: 75px;
+  color: $dark_blue;
+  max-width: 175px;
+  padding-top: 3px;
+  width:100%;
+  display: block;
+  cursor:pointer;
+}
+div.photo-container .attach-from span.icon i.material-icons {
+  color: $medium_blue;
+  text-align: center;
+  width: 100%;
+  padding-top: 8px;
+}
+div.photo-container .attach-from span.subtitle {
+  display: block;
+  text-align: center;
+  margin: -5px auto 13px;
+  font-size: medium;
+  font-weight: 900;
+  text-transform: capitalize;
+}
+
+/*** Upload File HACKS ***/
+.hide-from-sight {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+span.for-files-to-upload-A6 {
+  margin-top:35px;
+  font-size:small;
+
+}
+div#files-to-upload-A6 {
+  border: 1px solid #004b60;
+  min-height: 40px;
+  background-color: transparent;
+  padding: 8px;
+  font-size: small;
+  width: 100%;
+  display: inline-block;
+}
+
+/********************************************
+* TABS
+********************************************/
+#delphi-page .ui-tabs.top .ui-tabs-nav li {
+  height: 100%;
+  width: 50%;
+  text-align: center;
+  font-size: medium;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: roboto;
+}
