@@ -1,34 +1,81 @@
-<p id="notice"><%= notice %></p>
+<% content_for :ribbon do %>
+  <!-- RIBBON -->
+  <div id="ribbon">
 
-<p>
-  <strong>First name:</strong>
-  <%= @person.first_name %>
-</p>
+  <span class="ribbon-button-alignment">
+    <span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
+      <i class="fa fa-refresh"></i>
+    </span>
+  </span>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @person.last_name %>
-</p>
+    <!-- breadcrumb -->
+    <ol class="breadcrumb">
+      <li>Home</li><li>App Views</li><li>Profile</li>
+    </ol>
+  </div>
+  <!-- END RIBBON -->
+<% end %>
+<% content_for :html_id, "extr-page" %>
+<% content_for :body_class, "animated fadeInDown" %>
+<% content_for :top_right do %>
+  <span id="extr-page-header-space"> <span class="hidden-mobile hiddex-xs">Need an account?</span> <a href="register.html" class="btn btn-danger">Create account</a> </span>
+<% end %>
 
-<p>
-  <strong>Email:</strong>
-  <%= @person.email %>
-</p>
 
-<p>
-  <strong>Telephone:</strong>
-  <%= @person.telephone %>
-</p>
+<!-- MAIN CONTENT -->
+<div id="content" class="container">
 
-<p>
-  <strong>Organization:</strong>
-  <%= @person.organization.name %>
-</p>
+  <div class="col-sm-12">
 
-<p>
-  <strong>Job title:</strong>
-  <%= @person.job_title %>
-</p>
+    <div class="row">
 
-<%= link_to 'Edit', edit_organization_person_path(@organization, @person) %> |
-<%= link_to 'Back', organization_path( @organization ) %>
+      <div class="col-sm-3 profile-pic">
+        <%= image_tag 'avatars/sunny-big.png', alt: @person.last_name + ' ' + @person.last_name + ' image' %>'
+        <div class="padding-10">
+          <h4 class="font-md"><strong>1,543</strong>
+            <br>
+            <small>Followers</small></h4>
+          <br>
+          <h4 class="font-md"><strong>419</strong>
+            <br>
+            <small>Connections</small></h4>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <h1>
+          <%= @person.first_name %>
+          <span class="semi-bold"><%= @person.last_name %></span>
+          <br>
+          <small><%= @person.job_title %>, <%= @person.organization.name %></small>
+        </h1>
+
+        <ul class="list-unstyled">
+          <li>
+            <p class="text-muted">
+              <i class="fa fa-phone"></i>
+              &nbsp;&nbsp;<span class="txt-color-darken"><%= @person.telephone %></span>
+            </p>
+          </li>
+          <li>
+            <p class="text-muted">
+              <i class="fa fa-envelope"></i>&nbsp;&nbsp;<a href="mailto:<%= @person.email %>"><%= @person.email %></a>
+            </p>
+          </li>
+        </ul>
+        <br>
+        <a href="javascript:void(0);" class="btn btn-default btn-xs"><i class="fa fa-envelope-o"></i> Send Message</a>
+        <br>
+        <br>
+        <%= link_to '<span class="btn-label"><i class="glyphicon glyphicon-chevron-left"></i></span>Back'.html_safe, organization_path( @organization ), class: 'btn btn-labeled btn-primary' %>
+        <%= link_to '<span class="btn-label"><i class="glyphicon glyphicon-pencil"></i></span>Edit'.html_safe, edit_organization_person_path(@organization, @person), class: 'btn btn-labeled btn-primary' %>
+
+      </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+<footer>
+
+</footer>

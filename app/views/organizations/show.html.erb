@@ -1,21 +1,47 @@
-<p id="notice"><%= notice %></p>
+<% content_for :ribbon do %>
+  <!-- RIBBON -->
+  <div id="ribbon">
 
-  <h1><%= @organization.name %></h1>
-<hr>
-<p>
-  <span><%= @organization.address1 %></span>
-  <span><%= @organization.address2 %></span>
-  <span><%= @organization.city %>, <%= @organization.state %>, <%= @organization.country %></span>
-</p>
+  <span class="ribbon-button-alignment">
+    <span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
+      <i class="fa fa-refresh"></i>
+    </span>
+  </span>
 
-<hr>
+    <!-- breadcrumb -->
+    <ol class="breadcrumb">
+      <li>Home</li><li>App Views</li><li>Profile</li>
+    </ol>
+  </div>
+  <!-- END RIBBON -->
+<% end %>
+<% content_for :html_id, "extr-page" %>
+<% content_for :body_class, "animated fadeInDown" %>
+<% content_for :top_right do %>
+  <span id="extr-page-header-space"> <span class="hidden-mobile hiddex-xs">Need an account?</span> <a href="register.html" class="btn btn-danger">Create account</a> </span>
+<% end %>
 
-<%= render template: 'people/index' %>
 
-<hr>
+<!-- MAIN CONTENT -->
+<div id="content" class="container">
 
-  <%= link_to 'Add a Member', new_organization_person_path(@organization) %>
-| <%= link_to 'Edit', edit_organization_path(@organization) %>
-| <%= link_to 'See All Organizations', organizations_path %>
+  <row
+  <div class="col-sm-12">
 
-<hr>
+    <%= link_to 'See All Organizations', organizations_path, class: 'btn btn-primary btn-lg' %>
+    <div class="row">
+      <h1><%= @organization.name %></h1>
+      <hr>
+      <p>
+        <span><%= @organization.address1 %></span><br>
+        <span><%= @organization.address2 %></span><br>
+        <span><%= @organization.city %>, <%= @organization.state %><br><%= @organization.country %></span>
+
+        <%= link_to 'Edit', edit_organization_path(@organization), class: 'btn btn-primary btn-lg' %>
+      </p>
+    </div>
+    <div class="row">
+      <%= render template: 'people/index' %>
+    </div>>
+  </div>
+</div>

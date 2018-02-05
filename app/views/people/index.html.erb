@@ -1,31 +1,48 @@
-<p id="notice"><%= notice %></p>
+<h2>Members of <%= link_to @organization.name, organization_path( @organization ) %></h2>
 
-<h1>Members of <%= link_to @organization.name, organization_path( @organization ) %></h1>
 
-<table>
-  <thead>
+
+<div class="table-responsive">
+
+  <table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox">
+    <thead>
     <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Email</th>
-      <th>Telephone</th>
-      <th>Job title</th>
-      <th colspan="3"></th>
+      <th>
+        <label class="checkbox">
+          <input type="checkbox" name="checkbox-inline">
+          <i></i>
+        </label>
+      </th>
+      <th>Name<a href="javascript:void(0);" class="btn btn-xs btn-default pull-right"><i class="fa fa-filter"></i></a> </th>
+      <th>Job  Title<a href="javascript:void(0);" class="btn btn-xs btn-default pull-right"><i class="fa fa-filter"></i></a></th>
+      <th>Telephone<a href="javascript:void(0);" class="btn btn-xs btn-default pull-right"><i class="fa fa-filter"></i></a></th>
+      <th>Email<a href="javascript:void(0);" class="btn btn-xs btn-default pull-right"><i class="fa fa-filter"></i></a></th>
+      <th><%= link_to 'Add a Member', new_organization_person_path(@organization), class: 'btn btn-primary btn-sm' %></th>
     </tr>
-  </thead>
-
-  <tbody>
+    </thead>
+    <tbody>
     <% @people.each do |person| %>
       <tr>
-        <td><%= person.first_name %></td>
-        <td><%= person.last_name %></td>
-        <td><%= person.email %></td>
-        <td><%= person.telephone %></td>
+        <td>
+          <label class="checkbox">
+            <input type="checkbox" name="checkbox-inline">
+            <i></i>
+          </label>
+        </td>
+        <td><%= person.first_name + ' ' + person.last_name %></td>
         <td><%= person.job_title %></td>
-        <td><%= link_to 'Show', organization_person_path(@organization, person) %></td>
-        <td><%= link_to 'Edit', edit_organization_person_path(@organization, person) %></td>
-        <td><%= link_to 'Delete', [@organization, person], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= person.telephone %></td>
+        <td><%= person.email %></td>
+
+        <td>
+          <%= link_to 'Profile', organization_person_path(@organization, person), class: 'btn btn-default btn-sm' %>&nbsp;|&nbsp;
+          <%= link_to 'Edit', edit_organization_person_path(@organization, person), class: 'btn btn-default btn-sm' %>&nbsp;|&nbsp;
+          <%= link_to '<i class="glyphicon glyphicon-remove"></i>'.html_safe, [@organization, person], method: :delete, data: { confirm: 'Are you sure?' }, class: 'txt-color-red' %>
+        </td>
       </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+
+</div>
+

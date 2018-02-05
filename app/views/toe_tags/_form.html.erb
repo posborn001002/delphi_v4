@@ -17,9 +17,20 @@
   </div>
 
   <div class="field">
-    <%= form.label :Person_id %>
-    <%= form.text_field :Person_id, id: :toe_tag_Person_id %>
+    <%= form.label :big_small_now %>
+    <%= form.text_field :big_small_now, id: :toe_tag_big_small_now %>
   </div>
+
+  <div class="field">
+    <%= form.label :solution %>
+    <%= form.text_area :solution, id: :toe_tag_solution %>
+  </div>
+
+  <div class="field">
+    <%= form.label :success_measurement %>
+    <%= form.text_area :success_measurement, id: :toe_tag_success_measurement %>
+  </div>
+
 
   <div class="actions">
     <%= form.submit %>

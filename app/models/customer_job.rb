@@ -1,8 +1,8 @@
 class CustomerJob < ApplicationRecord
-  belongs_to :OrganizationRelationship
-  has_many :Contacts
-  has_many :Updates
-  has_many :ActionResults, through :action_results_customer_jobs
+  belongs_to :organization
+  has_many :contacts
+  has_many :updates
+  has_many :action_results
 
   validates :job_name, presence: true
 

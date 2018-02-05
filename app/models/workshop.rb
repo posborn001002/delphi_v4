@@ -1,4 +1,4 @@
 class Workshop < ApplicationRecord
-  belongs_to :DateLookup
-  belongs_to :Organization
+  belongs_to :date_lookup
+  belongs_to :organization
 end

@@ -69,6 +69,6 @@ class PainPointsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pain_point_params
-      params.require(:pain_point).permit(:Workshop_id, :description)
+      params.require(:pain_point).permit(:workshop_id, :description)
     end
 end

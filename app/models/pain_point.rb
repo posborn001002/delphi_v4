@@ -1,4 +1,4 @@
 class PainPoint < ApplicationRecord
-  belongs_to :Workshop
-  has_and belongs_to_many :ToeTags
+  belongs_to :workshop
+  has_and belongs_to_many :toe_tags
 end

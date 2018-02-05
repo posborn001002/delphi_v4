@@ -10079,13 +10079,17 @@ tr.unread.highlight td {
   border-radius: 0%;
   position: relative;
   border: 5px solid #ffffff;
+  /*
+  margin-bottom: -30px;
   top: -30px;
+  */
+  margin-bottom: 0;
+  top: 0;
   left: 10px;
   display: inline-block;
   text-align: right;
   z-index: 4;
   max-width: 100px;
-  margin-bottom: -30px;
 }
 .profile-carousel .carousel-inner {
   max-height: 150px;

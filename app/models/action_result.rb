@@ -1,8 +1,8 @@
 class ActionResult < ApplicationRecord
-  belongs_to :Organization
-  has_many :Metrics
-  has_and_belongs_to_many :PainPoints
-  has_many :Updates
+  belongs_to :organization
+  has_many :metrics
+  has_and_belongs_to_many :pain_points
+  has_many :updates
 
 
 end

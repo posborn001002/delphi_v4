@@ -1,5 +1,5 @@
 class Measurement < ApplicationRecord
-  belongs_to :DateLookup
-  belongs_to :Metric
-  belongs_to :Person
+  belongs_to :date_lookup
+  belongs_to :metric
+  belongs_to :person
 end

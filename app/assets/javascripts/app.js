@@ -488,11 +488,13 @@ var calc_navbar_height = function() {
  * DOCUMENT LOADED EVENT
  * Description: Fire when DOM is ready
  */
-	jQuery(document).ready(function() {
+	// jQuery(document).ready(function() {
+    jQuery(document).on('turbolinks:load', function() {
 		
 		initApp.SmartActions();
 		initApp.leftNav();
 		initApp.domReadyMisc();
+
 	
 	});
 /*

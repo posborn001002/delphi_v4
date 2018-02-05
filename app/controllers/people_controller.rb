@@ -51,10 +51,11 @@ class PeopleController < ApplicationController
   # POST /people
   # POST /people.json
   def create
-   # organization = Organization.build( person_params[:organization_attributes] )
+  #  @organization = Organization.build( person_params[:organization_attributes] )
     @person = Person.new( person_params )
    #
-  # @person = @organization.people.new( person_params )
+   # @organization = Organization.find( @person.organization_id )
+   @organization = @person.organization
 
     respond_to do |format|
     if @person.save

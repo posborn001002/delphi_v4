@@ -69,6 +69,6 @@ class UpdatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def update_params
-      params.require(:update).permit(:DateLookup_id, :Person_id, :ActionResult_id, :job_order_id, :job_order_type, :attachment, :text)
+      params.require(:update).permit(:date_lookup_id, :person_id, :action_result_id, :job_order_id, :job_order_type, :attachment, :text)
     end
 end

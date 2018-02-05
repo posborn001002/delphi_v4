@@ -69,6 +69,6 @@ class WorkshopsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def workshop_params
-      params.require(:workshop).permit(:DateLookup_id, :Person_id)
+      params.require(:workshop).permit(:date_lookup_id, :capability_goal, :process_name, :process_description, :left_boundary, :right_boundary)
     end
 end

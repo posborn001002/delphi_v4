@@ -69,6 +69,6 @@ class ToeTagsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def toe_tag_params
-      params.require(:toe_tag).permit(:priority, :Person_id)
+      params.require(:toe_tag).permit(:priority, :big_small_now, :solution, :success_measurement)
     end
 end

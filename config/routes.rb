@@ -1,15 +1,6 @@
 Rails.application.routes.draw do
-  resources :supplier_orders
-  resources :updates
-  resources :date_lookups
-  resources :pain_point_updates
-  resources :measurements
-  resources :metrics
-  resources :toe_tags
-  resources :workshops
-  resources :pain_points
-  resources :action_results
-  # devise_for :users
+
+  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout'}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'organizations#index'
@@ -32,12 +23,20 @@ Rails.application.routes.draw do
     resources :customer_jobs
   end
 
+  # Main Object Navigation
   resources :organizations
-
   resources :people
-
   resources :customer_jobs
-
+  resources :supplier_orders
+  resources :updates
+  resources :date_lookups
+  resources :pain_point_updates
+  resources :measurements
+  resources :metrics
+  resources :toe_tags
+  resources :workshops
+  resources :pain_points
+  resources :action_results
 
 
   # Miscellaneous

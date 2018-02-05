@@ -69,6 +69,6 @@ class PainPointUpdatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pain_point_update_params
-      params.require(:pain_point_update).permit(:PainPoint_id, :progress_id_id, :progress_type, :pass_fail)
+      params.require(:pain_point_update).permit(:pain_point_id, :progress_id, :pass_fail_status)
     end
 end

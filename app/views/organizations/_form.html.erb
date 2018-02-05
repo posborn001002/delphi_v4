@@ -1,4 +1,4 @@
-<%= form_with(model: organization, local: true, html: {autocomplete: "false"} ) do |form| %>
+<%= form_with(model: organization, local: true, html: {autocomplete: "false", novalidate: "novalidate"} , class: "smart-form") do |form| %>
   <% if organization.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(organization.errors.count, "error") %> prohibited this organization from being saved:</h2>
@@ -11,26 +11,6 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :organization_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address1 %>
-    <%= form.text_field :address1, id: :organization_address1 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address2 %>
-    <%= form.text_field :address2, id: :organization_address2 %>
-  </div>
-
-  <div class="field">
-    <%= form.label 'City & State' %>
-    <%= form.text_field :city_and_state, id: 'f_elem_city', class: 'ff_elem' %>
-  </div>
-
   <div class="hidden fields">
     <%= form.hidden_field :city, id: 'geobytescity' %>
     <%= form.hidden_field :state, id: 'geobytesregion' %>
@@ -39,26 +19,17 @@
     <%= form.hidden_field :longitude, id:'geobyteslongitude' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-
-<form id="order-form" class="smart-form" novalidate="novalidate">
-  <header>
-    Order services
-  </header>
 
   <fieldset>
     <div class="row">
       <section class="col col-6">
         <label class="input"> <i class="icon-append fa fa-user"></i>
-          <input type="text" name="name" placeholder="Name">
+          <%= form.text_field :name, id: :organization_name, placeholder: 'Organization Name' %>
         </label>
       </section>
       <section class="col col-6">
         <label class="input"> <i class="icon-append fa fa-briefcase"></i>
-          <input type="text" name="company" placeholder="Company">
+          <%= form.text_field :address1, id: :organization_address1, placeholder: 'Address 1' %>
         </label>
       </section>
     </div>
@@ -66,73 +37,21 @@
     <div class="row">
       <section class="col col-6">
         <label class="input"> <i class="icon-append fa fa-envelope-o"></i>
-          <input type="email" name="email" placeholder="E-mail">
+          <%= form.text_field :address2, id: :organization_address2, placeholder: 'Address 2' %>
         </label>
       </section>
       <section class="col col-6">
         <label class="input"> <i class="icon-append fa fa-phone"></i>
-          <input type="tel" name="phone" placeholder="Phone" data-mask="(999) 999-9999">
+          <%= form.text_field :city_and_state, id: 'f_elem_city', class: 'ff_elem', placeholder: 'City and State' %>
         </label>
       </section>
     </div>
   </fieldset>
 
-  <fieldset>
-    <div class="row">
-      <section class="col col-6">
-        <label class="select">
-          <select name="interested">
-            <option value="0" selected="" disabled="">Interested in</option>
-            <option value="1">design</option>
-            <option value="1">development</option>
-            <option value="2">illustration</option>
-            <option value="2">branding</option>
-            <option value="3">video</option>
-          </select> <i></i> </label>
-      </section>
-      <section class="col col-6">
-        <label class="select">
-          <select name="budget">
-            <option value="0" selected="" disabled="">Budget</option>
-            <option value="1">less than 5000$</option>
-            <option value="2">5000$ - 10000$</option>
-            <option value="3">10000$ - 20000$</option>
-            <option value="4">more than 20000$</option>
-          </select> <i></i> </label>
-      </section>
-    </div>
-
-    <div class="row">
-      <section class="col col-6">
-        <label class="input"> <i class="icon-append fa fa-calendar"></i>
-          <input type="text" name="startdate" id="startdate" placeholder="Expected start date">
-        </label>
-      </section>
-      <section class="col col-6">
-        <label class="input"> <i class="icon-append fa fa-calendar"></i>
-          <input type="text" name="finishdate" id="finishdate" placeholder="Expected finish date">
-        </label>
-      </section>
-    </div>
-
-    <section>
-      <div class="input input-file">
-        <span class="button"><input id="file2" type="file" name="file2" onchange="this.parentNode.nextSibling.value = this.value">Browse</span><input type="text" placeholder="Include some files" readonly="">
-      </div>
-    </section>
-
-    <section>
-      <label class="textarea"> <i class="icon-append fa fa-comment"></i>
-        <textarea rows="5" name="comment" placeholder="Tell us about your project"></textarea>
-      </label>
-    </section>
-  </fieldset>
   <footer>
-    <button type="submit" class="btn btn-primary">
-      Validate Form
-    </button>
+      <%= form.submit class: 'btn btn-primary btn-lg' %>
   </footer>
-</form>
 
-</div>
+
+<% end %>
 <!-- end widget content -->

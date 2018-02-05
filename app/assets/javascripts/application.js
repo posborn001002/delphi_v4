@@ -12,7 +12,8 @@
 //
 //= require jquery
 //= require jquery-ui
-//= require rails-ujs
+//= require turbolinks
+//= rewuire rails-ujs
 
 
 //= require delphi.js

@@ -69,6 +69,6 @@ class MeasurementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def measurement_params
-      params.require(:measurement).permit(:DateLookup_id, :Metric_id, :value)
+      params.require(:measurement).permit(:date_lookup_id, :metric_id, :value)
     end
 end

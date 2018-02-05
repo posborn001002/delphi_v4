@@ -6,11 +6,13 @@
   <title> SmartAdmin - Ruby on Rails </title>
   <%= csrf_meta_tags %>
   <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="author" content="Paul Osborn">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
   <%= stylesheet_link_tag 'application', media: 'screen' %>
+  <%= javascript_include_tag 'application' %>
+
 
   <!-- FAVICONS -->
   <%= favicon_link_tag 'favicon/favicon.ico' %>
@@ -18,6 +20,7 @@
 
   <!-- GOOGLE FONT -->
   <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700' %>
+  <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Roboto:400italic,700italic,100,300,400,500,700,900' %>
 
   <!-- Specifying a Webpage Icon for Web Clip
      Ref: https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html -->
@@ -82,7 +85,7 @@ Use search to find needed section.
   * 'fixed-page-footer' - Fixes footer
   * 'container'         - boxed layout mode (non-responsive: will not work with fixed-navigation & fixed-ribbon)
 -->
-<body class="<%= yield :body_class %>">
+<body class="smart-style-2 top-navigation container fixed-page-footer <%= yield :body_class %>">
 
 <!-- HEADER -->
 <%= render partial: 'layouts/header' unless @lock_screen %>
@@ -122,6 +125,9 @@ Use search to find needed section.
 <%= render partial: 'layouts/footer' if current_user && !@simulate_no_user %>
 <!-- END PAGE FOOTER -->
 
+
+<%= render partial: 'layouts/scripts' %>
+
 <!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
 Note: These tiles are completely responsive,
 you can add as many as you like
@@ -132,41 +138,7 @@ you can add as many as you like
 <!--================================================== -->
 
 <!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
-<%= javascript_include_tag 'plugin/pace/pace', 'data-pace-options' => '{ "restartOnRequestAfter": true }' %>
 
-<%= javascript_include_tag 'application' %>
-
-<% if current_user && !@simulate_no_user %>
-  <!-- Demo purpose only -->
-  <%= javascript_include_tag 'demo' %>
-<% end %>
-
-
-
-<!--[if IE 8]>
-
-<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
-
-<![endif]-->
-
-<%= yield(:scripts).present? ? yield(:scripts) : render(partial: 'layouts/scripts') %>
-
-<!-- Your GOOGLE ANALYTICS CODE Below -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script');
-    ga.type = 'text/javascript';
-    ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
 
 </body>
 

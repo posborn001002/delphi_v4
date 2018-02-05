@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_one: Person
+  has_one :person
 
   def remember_me
     (super == nil) ? '1' : super

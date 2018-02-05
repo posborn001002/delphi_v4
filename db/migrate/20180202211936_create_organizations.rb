@@ -7,9 +7,9 @@ class CreateOrganizations < ActiveRecord::Migration[5.1]
       t.string :city
       t.string :state
       t.string :country
-      t.string :organizations, :longitude, :decimal
-      t.string :organizations, :latitude, :decimal
-      t.string :organizations, :city_and_state, :string
+      t.decimal :longitude, column_options: { precision: 6, scale: 4 }
+      t.decimal :latitude, column_options: { precision: 7, scale: 4 }
+      t.string :city_and_state
 
       t.timestamps
     end

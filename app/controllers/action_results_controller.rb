@@ -24,7 +24,7 @@ class ActionResultsController < ApplicationController
   # POST /action_results
   # POST /action_results.json
   def create
-    @action_result = ActionResult.new(action_result_params)
+    @action_result = ActionResult.new( action_result_params )
 
     respond_to do |format|
       if @action_result.save
@@ -69,6 +69,6 @@ class ActionResultsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def action_result_params
-      params.require(:action_result).permit(:Organization_id, :ar_number, :action, :result)
+      params.require(:action_result).permit(:organization_id, :ar_number, :action, :result)
     end
 end

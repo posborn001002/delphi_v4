@@ -1,3 +1,31 @@
+<% content_for :ribbon do %>
+  <!-- RIBBON -->
+  <div id="ribbon">
 
-<%= render 'newcontact', {person: @person , organization: @organization} %>
+  <span class="ribbon-button-alignment">
+    <span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
+      <i class="fa fa-refresh"></i>
+    </span>
+  </span>
+
+    <!-- breadcrumb -->
+    <ol class="breadcrumb">
+      <li>Home</li><li>App Views</li><li>Profile</li>
+    </ol>
+  </div>
+  <!-- END RIBBON -->
+<% end %>
+<% content_for :html_id, "extr-page" %>
+<% content_for :body_class, "animated fadeInDown" %>
+<% content_for :top_right do %>
+  <span id="extr-page-header-space"> <span class="hidden-mobile hiddex-xs">Need an account?</span> <a href="register.html" class="btn btn-danger">Create account</a> </span>
+<% end %>
+
+
+<!-- MAIN CONTENT -->
+<div id="content" class="container">
+
+    <%= render 'newcontact', {person: @person , organization: @organization} %>
+
+</div>
 

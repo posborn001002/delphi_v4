@@ -1,6 +1,6 @@
 class SupplierOrder < ApplicationRecord
-  belongs_to :OrganizationRelationship
-  has_many :Contacts
-  has_many :Updates
-  has_many :ActionResults, through :action_results_supplier_orders
+  has_and_belongs_to_many :organizations, join_table => 'related_orgs'
+  has_many :contacts
+  has_many :updates
+  has_many :action_results
 end
