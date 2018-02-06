@@ -1,3 +1,5 @@
+
+
 <%= form_with(model: organization, local: true, html: {autocomplete: "false", novalidate: "novalidate"} , class: "smart-form") do |form| %>
   <% if organization.errors.any? %>
     <div id="error_explanation">
@@ -23,12 +25,12 @@
   <fieldset>
     <div class="row">
       <section class="col col-6">
-        <label class="input"> <i class="icon-append fa fa-user"></i>
+        <label class="input"> <i class="icon-append fa fa-building"></i>
           <%= form.text_field :name, id: :organization_name, placeholder: 'Organization Name' %>
         </label>
       </section>
       <section class="col col-6">
-        <label class="input"> <i class="icon-append fa fa-briefcase"></i>
+        <label class="input"> <i class="icon-append fa fa-street-view"></i>
           <%= form.text_field :address1, id: :organization_address1, placeholder: 'Address 1' %>
         </label>
       </section>
@@ -36,22 +38,19 @@
 
     <div class="row">
       <section class="col col-6">
-        <label class="input"> <i class="icon-append fa fa-envelope-o"></i>
+        <label class="input"></i>
           <%= form.text_field :address2, id: :organization_address2, placeholder: 'Address 2' %>
         </label>
       </section>
       <section class="col col-6">
-        <label class="input"> <i class="icon-append fa fa-phone"></i>
+        <label class="input"> <i class="icon-append fa fa-map-marker"></i>
           <%= form.text_field :city_and_state, id: 'f_elem_city', class: 'ff_elem', placeholder: 'City and State' %>
         </label>
       </section>
     </div>
   </fieldset>
-
   <footer>
       <%= form.submit class: 'btn btn-primary btn-lg' %>
   </footer>
-
-
 <% end %>
 <!-- end widget content -->

@@ -1,48 +1,8 @@
-<h2>Members of <%= link_to @organization.name, organization_path( @organization ) %></h2>
-
-
-
-<div class="table-responsive">
-
-  <table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox">
-    <thead>
-    <tr>
-      <th>
-        <label class="checkbox">
-          <input type="checkbox" name="checkbox-inline">
-          <i></i>
-        </label>
-      </th>
-      <th>Name<a href="javascript:void(0);" class="btn btn-xs btn-default pull-right"><i class="fa fa-filter"></i></a> </th>
-      <th>Job  Title<a href="javascript:void(0);" class="btn btn-xs btn-default pull-right"><i class="fa fa-filter"></i></a></th>
-      <th>Telephone<a href="javascript:void(0);" class="btn btn-xs btn-default pull-right"><i class="fa fa-filter"></i></a></th>
-      <th>Email<a href="javascript:void(0);" class="btn btn-xs btn-default pull-right"><i class="fa fa-filter"></i></a></th>
-      <th><%= link_to 'Add a Member', new_organization_person_path(@organization), class: 'btn btn-primary btn-sm' %></th>
-    </tr>
-    </thead>
-    <tbody>
-    <% @people.each do |person| %>
-      <tr>
-        <td>
-          <label class="checkbox">
-            <input type="checkbox" name="checkbox-inline">
-            <i></i>
-          </label>
-        </td>
-        <td><%= person.first_name + ' ' + person.last_name %></td>
-        <td><%= person.job_title %></td>
-        <td><%= person.telephone %></td>
-        <td><%= person.email %></td>
-
-        <td>
-          <%= link_to 'Profile', organization_person_path(@organization, person), class: 'btn btn-default btn-sm' %>&nbsp;|&nbsp;
-          <%= link_to 'Edit', edit_organization_person_path(@organization, person), class: 'btn btn-default btn-sm' %>&nbsp;|&nbsp;
-          <%= link_to '<i class="glyphicon glyphicon-remove"></i>'.html_safe, [@organization, person], method: :delete, data: { confirm: 'Are you sure?' }, class: 'txt-color-red' %>
-        </td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-
+<!-- MAIN CONTENT -->
+<div id="content" class="container">
+  <div class="col-sm-12">
+      <%= render template: 'people/_table' %>
+    </div>
+  </div>
 </div>
 

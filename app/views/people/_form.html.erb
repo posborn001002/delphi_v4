@@ -1,33 +1,8 @@
+<!-- New Person Form -->
 <%= form_with( model: @person, local: true, class: 'smart-form', html: { novalidate: 'novalidate' } ) do |form| %>
-  <% if person.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
-
-      <ul>
-      <% person.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <fieldset>
-    <div class="row">
-      <section class="col col-6">
-        <label class="select">
-        <%=  collection_select(:person, :organization_id, Organization.all.sort_by( ),
-          :id, :name,
-          {:prompt => 'Organization'})
-          %>
-          <i></i>
-        </label>
-      </section>
-      <section class="col col-6">
-        <label class="input"> <i class="icon-append fa fa-user"></i>
-          <%= form.text_field :job_title, id: :person_job_title, placeholder: 'Job Title' %>
-        </label>
-      </section>
-    </div>
+
+    <%= form.hidden_field :organization_id %>
 
     <div class="row">
       <section class="col col-6">
@@ -36,8 +11,16 @@
         </label>
       </section>
       <section class="col col-6">
-        <label class="input"> <i class="icon-append fa fa-user"></i>
+        <label class="input"></i>
           <%= form.text_field :last_name, id: :person_last_name, placeholder: 'Last Name' %>
+        </label>
+      </section>
+    </div>
+
+    <div class="row">
+      <section class="col col-sm-12">
+        <label class="input"> <i class="icon-append fa fa-sitemap"></i>
+          <%= form.text_field :job_title, id: :person_job_title, placeholder: 'Job Title' %>
         </label>
       </section>
     </div>
@@ -46,9 +29,6 @@
       <section class="col col-6">
         <label class="input"> <i class="icon-append fa fa-envelope-o"></i>
           <%= form.email_field :email, id: :person_email, placeholder: 'E-mail' %>
-          <b class="tooltip tooltip-top-right">
-            <i class="fa fa-warning txt-color-teal"></i>
-            Providing an email will allow update notifications to be sent.</b>
         </label>
       </section>
       <section class="col col-6">
@@ -59,15 +39,8 @@
     </div>
   </fieldset>
 
-
   <footer>
-    <%= form.submit class: 'btn btn-primary btn-lg' %>
+    <%= submit_button( {form: form}) %>
   </footer>
-
-  <%= link_to '<span class="btn-label"><i class="glyphicon glyphicon-chevron-left"></i></span>Back'.html_safe,
-              organization_people_path( @organization ),
-              class: 'btn btn-labeled btn-default',
-              html: {type: 'button'}
-  %>
 
 <% end %>

@@ -98,6 +98,10 @@ Sample Usage:
 
   </script>
 
+<a id="color-btn" class="btn btn-primary">Colors</a>
+<div id="color-output"></div>
+
+
 */
 
     var ntc = {

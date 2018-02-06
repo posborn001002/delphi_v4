@@ -23,25 +23,6 @@ class PeopleController < ApplicationController
   def new
     @person = @organization.people.new
   end
-
-  def newcontact
-    @organization = Organization.new
-    @person = @organization.people.new
-  end
-
-  def createcontact
-    @organization = Organization.find_or_create_by ( { name: params[:organization_name] } )
-    @person = @organization.people.create ( person_params )
-    respond_to do |format|
-      if @person.save
-        format.html { redirect_to organization_path( @organization ), notice: 'Person was successfully created.' }
-        format.json { head :no_content }
-      else
-        format.html { redirect_to organization_path( @organization ), notice: 'Person was not created.' }
-      end
-    end
-  end
-
   # GET /people/1/edit
   # organizations/16/people/11/edit
   def edit
@@ -54,12 +35,12 @@ class PeopleController < ApplicationController
   #  @organization = Organization.build( person_params[:organization_attributes] )
     @person = Person.new( person_params )
    #
-   # @organization = Organization.find( @person.organization_id )
-   @organization = @person.organization
+    @organization = Organization.find( @person.organization_id )
+   #@organization = @person.organization
 
     respond_to do |format|
     if @person.save
-        format.html { redirect_to [@organization, @person], notice: 'Person was successfully created.' }
+        format.html { redirect_to organization_path( @organization ), notice: 'Person was successfully created.' }
         format.json { render :show, status: :created, location: @person }
     else
     #  organization = Organization.create( person_params[:organization_attributes] )
@@ -78,7 +59,7 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       if @person.update( person_params )
-        format.html { redirect_to [@organization, @person], notice: 'Person was successfully updated.' }
+        format.html { redirect_to organization_path( @organization ), notice: 'Person was successfully updated.' }
         format.json { render :show, status: :ok, location: @person }
       else
         format.html { render :edit }

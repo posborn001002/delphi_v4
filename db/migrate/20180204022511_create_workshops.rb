@@ -2,6 +2,7 @@ class CreateWorkshops < ActiveRecord::Migration[5.1]
   def change
     create_table :workshops do |t|
       t.references  :date_lookup
+      t.references  :organization
       t.text        :capability_goal
       t.text        :process_name
       t.text        :process_description

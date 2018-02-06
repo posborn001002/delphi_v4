@@ -1,34 +1,8 @@
-<% content_for :ribbon do %>
-  <!-- RIBBON -->
-  <div id="ribbon">
 
-  <span class="ribbon-button-alignment">
-    <span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
-      <i class="fa fa-refresh"></i>
-    </span>
-  </span>
-
-    <!-- breadcrumb -->
-    <ol class="breadcrumb">
-      <li>Home</li><li>App Views</li><li>Profile</li>
-    </ol>
-  </div>
-  <!-- END RIBBON -->
-<% end %>
-<% content_for :html_id, "extr-page" %>
-<% content_for :body_class, "animated fadeInDown" %>
-<% content_for :top_right do %>
-  <span id="extr-page-header-space"> <span class="hidden-mobile hiddex-xs">Need an account?</span> <a href="register.html" class="btn btn-danger">Create account</a> </span>
-<% end %>
-
-
-<!-- MAIN CONTENT -->
+<!-- MAIN CONTENT: people/show -->
 <div id="content" class="container">
-
   <div class="col-sm-12">
-
     <div class="row">
-
       <div class="col-sm-3 profile-pic">
         <%= image_tag 'avatars/sunny-big.png', alt: @person.last_name + ' ' + @person.last_name + ' image' %>'
         <div class="padding-10">
@@ -66,16 +40,14 @@
         <a href="javascript:void(0);" class="btn btn-default btn-xs"><i class="fa fa-envelope-o"></i> Send Message</a>
         <br>
         <br>
-        <%= link_to '<span class="btn-label"><i class="glyphicon glyphicon-chevron-left"></i></span>Back'.html_safe, organization_path( @organization ), class: 'btn btn-labeled btn-primary' %>
-        <%= link_to '<span class="btn-label"><i class="glyphicon glyphicon-pencil"></i></span>Edit'.html_safe, edit_organization_person_path(@organization, @person), class: 'btn btn-labeled btn-primary' %>
-
+        <%= edit_button( { path: 'edit_organization_person_path(@organization, @person)', buttonType: 'primary' } ) %>
       </div>
 
       </div>
-
     </div>
-  </div>
-</div>
-<footer>
 
+</div>
+
+<footer>
+  <%= back_button( { path: 'organization_path( @organization )' }) %>
 </footer>

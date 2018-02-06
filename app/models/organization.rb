@@ -1,6 +1,7 @@
 class Organization < ApplicationRecord
   has_many :people
   has_many :customer_jobs
+  has_many :workshops
   accepts_nested_attributes_for :people
 
 #  belongs_to :partner, :polymorphic => true

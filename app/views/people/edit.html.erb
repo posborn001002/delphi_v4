@@ -1,6 +1,24 @@
-<h1>Editing <%= @person.first_name || ' ' + ' '+ @person.last_name || ' ' %></h1>
+<!-- MAIN CONTENT: people/edit -->
+<div id="content" class="container">
+
+  <h1><%= @person.first_name + ' '+ @person.last_name  %></h1>
+
+  <% if @person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+      <ul>
+        <% @person.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
 
 <%= render 'form', person: @person, organization: @organization %>
 
-<%= link_to 'Show', organization_person_path( @organization, @person ) %> |
-<%= link_to 'Back', organization_people_path( @organization ) %>
+<div id="content-footer">
+  <%= back_button({ path: 'organization_people_path( @organization )', label: 'Back' }) %>
+</div>
+

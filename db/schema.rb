@@ -220,6 +220,7 @@ ActiveRecord::Schema.define(version: 20180204022542) do
 
   create_table "workshops", force: :cascade do |t|
     t.integer "date_lookup_id"
+    t.integer "organization_id"
     t.text "capability_goal"
     t.text "process_name"
     t.text "process_description"
@@ -228,6 +229,7 @@ ActiveRecord::Schema.define(version: 20180204022542) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["date_lookup_id"], name: "index_workshops_on_date_lookup_id"
+    t.index ["organization_id"], name: "index_workshops_on_organization_id"
   end
 
 end

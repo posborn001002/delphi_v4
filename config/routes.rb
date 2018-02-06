@@ -23,6 +23,10 @@ Rails.application.routes.draw do
     resources :customer_jobs
   end
 
+  resources :organizations do
+    resources :workshops
+  end
+
   # Main Object Navigation
   resources :organizations
   resources :people

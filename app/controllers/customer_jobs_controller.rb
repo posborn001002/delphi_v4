@@ -17,12 +17,6 @@ class CustomerJobsController < ApplicationController
   def show
   end
 
-  def history
-    respond_to do |format|
-      format.js {render 'history', :customer_job => @customer_job }
-    end
-  end
-
   # GET /customer_jobs/new
   def new
     @customer_job = @organization.customer_jobs.new

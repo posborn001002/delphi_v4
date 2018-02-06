@@ -5,17 +5,27 @@
 <table>
   <thead>
     <tr>
-      <th>Datelookup</th>
-      <th>Person</th>
-      <th colspan="3"></th>
+      <th>date_lookup</th>
+      <th>capability_goal</th>
+      <th>process_name</th>
+      <th>process_description</th>
+      <th>left_boundary</th>
+      <th>right_boundary</th>
+      <th colspan="3">
+        <%= small_button( { label: 'New Workshop', path: 'new_workshop_path', class: 'right' } ) %>
+      </th>
     </tr>
   </thead>
 
   <tbody>
     <% @workshops.each do |workshop| %>
       <tr>
-        <td><%= workshop.DateLookup %></td>
-        <td><%= workshop.Person %></td>
+        <td><%= workshop.date_lookup %></td>
+        <td><%= workshop.capability_goal %></td>
+        <td><%= workshop.process_name %></td>
+        <td><%= workshop.process_description %></td>
+        <td><%= workshop.left_boundary %></td>
+        <td><%= workshop.right_boundary %></td>
         <td><%= link_to 'Show', workshop %></td>
         <td><%= link_to 'Edit', edit_workshop_path(workshop) %></td>
         <td><%= link_to 'Destroy', workshop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -26,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Workshop', new_workshop_path %>
+
