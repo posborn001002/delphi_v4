@@ -1,27 +1,42 @@
-<%= form_with(model: workshop, local: true) do |form| %>
-  <% if workshop.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(workshop.errors.count, "error") %> prohibited this workshop from being saved:</h2>
+<!-- render people/new.html -->
+<div class="row">
+  <div class="col">
+    <%= form_with( model: [@organization, resource], local: true, class: 'smart-form', html: { novalidate: 'novalidate' } ) do |form| %>
+      <fieldset>
 
-      <ul>
-      <% workshop.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+        <%= hidden_field( :organization, :id, value: @org_id ) %>
 
-  <div class="field">
-    <%= form.label :DateLookup_id %>
-    <%= form.text_field :DateLookup_id, id: :workshop_DateLookup_id %>
+
+        <div class="row">
+          <div class="col-sm">
+            <%= delphi_text_field( form, { label: 'Process Name', name: :process_name} ) %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm mr-sm-3">
+            <%= delphi_text_field( form, { label: 'Left Boundary', icon: 'fa fa-arrow-left', name: :left_boundary } ) %>
+          </div>
+          <div class="col-sm">
+            <%= delphi_text_field( form, { label: 'Right Boundary', icon: 'fa fa-arrow-right', name: :right_boundary } ) %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <%= delphi_text_area( form, { label: 'Process Description', name: :process_description } ) %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <%= delphi_text_field( form, { label: 'Capability Goal', name: :capability_goal } ) %>
+          </div>
+        </div>
+
+      </fieldset>
+
+      <footer>
+        <%= submit_button( form, {buttonType: 'primary', icon: 'glyphicon-save'}) %>
+      </footer>
+
+    <% end %>`
   </div>
-
-  <div class="field">
-    <%= form.label :Person_id %>
-    <%= form.text_field :Person_id, id: :workshop_Person_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

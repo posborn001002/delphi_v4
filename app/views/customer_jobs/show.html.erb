@@ -1,8 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-
-
-
-<%= link_to 'Edit', edit_customer_job_path(@customer_job) %> |
-<%= link_to 'Back', customer_jobs_path %>
-
+<!-- CONTENT: customer_jobs/show.html -->
+<%= page_title() %>
+  <%= render 'profile', resource: @customer_job %>
+<%= page_footer() %>
+  <%= back_button( { path: customer_jobs_path, class: "left"  }) %>
+  <%= edit_button( { path: edit_customer_job_path( @customer_job ), buttonType: 'primary', class: "right" } ) %>
+<%= page_end() %>

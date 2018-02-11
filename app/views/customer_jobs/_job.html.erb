@@ -1,8 +1,8 @@
 <div class="job">
-  <div class="job-header" role="tab" id="heading-<%=job.id%>">
+  <div class="job-header" role="tab" id="heading-<%=resource.id%>">
     <h5 class="mb-0">
-      <%= link_to job.job_name,
-                  history_of_path(job.id),
+      <%= link_to resource.job_name,
+                  history_of_path(resource.id),
                   remote: true,
                   :data => {  :toggle => "collapse",
                               :parent => "#accordion",
@@ -15,10 +15,10 @@
     </h5>
   </div>
 
-  <div id="collapse-<%=job.id%>"
+  <div id="collapse-<%=resource.id%>"
        class="collapse"
        role="tabpanel"
-       aria-labelledby="heading-<%=job.id%>">
+       aria-labelledby="heading-<%=resource.id%>">
   </div>
 
 </div>

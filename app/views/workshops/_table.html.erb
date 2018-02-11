@@ -1,32 +1,35 @@
-iv class="table-responsive">
-<table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox data-table">
-  <thead>
-  <tr>
-    <th><span>Process</span></th>
-    <th>
-      <span class="left">Participants</span>
-      <span><%= small_button( { label: 'New Workshop', path: 'new_organization_workshop_path(@organization)', class: 'right'} ) %></span>
-    </th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @workshops.each do |workshop| %>
-    <tr>
-      <td class="three-eigths">
-        <span class="date"><%= workshop.date_lookup_id %></span>
-        <span class="name"><%= workshop.process_name %></span>
-      </td>
-      <td class="five-eigths">
-        <span class="text">Facilitator: Paul Osborn</span>
-        <span class="text">Host: Freda Birke</span>
-        <span class="links">
-            <%= link_to 'View', organization_workshop_path(@organization, workshop), class: 'link' %>&nbsp;|&nbsp;
-          <%= link_to 'Edit', edit_organization_workshop_path(@organization, workshop), class: 'link' %>&nbsp;|&nbsp;
-          <%= link_to '<i class="glyphicon glyphicon-remove"></i>Delete'.html_safe, [@organization, workshop], method: :delete, data: { confirm: 'Are you sure?' }, class: 'txt-color-red' %>
-          </span>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<div class="row">
+  <div class="col table-responsive">
+    <table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox data-table">
+      <thead>
+      <tr>
+        <th colspan="3">
+          <%= small_button( { label: 'New Workshop', path: new_organization_workshop_path( @organization ), class: 'right' } ) %>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <% resource.each do |workshop| %>
+        <tr>
+          <td>
+            <span>Goal: <%= workshop.capability_goal %></span>
+            <span>Process Name: <%= workshop.process_name %></span>
+            <span>Process Description: <%= workshop.process_description %></span>
+            <span>Left Boundary: <%= workshop.left_boundary %></span>
+            <span>Right Boundary: <%= workshop.right_boundary %></span>
+            <span class="five-eigths">
+                <span class="text">Facilitator: Paul Osborn</span>
+                <span class="text">Host: Freda Birke</span>
+                <span class="links">
+                  <%= link_to 'View', workshop_path( workshop ), class: 'link' %>&nbsp;|&nbsp;
+                  <%= link_to 'Edit', edit_workshop_path( workshop ), class: 'link' %>&nbsp;|&nbsp;
+                  <%= link_to '<i class="glyphicon glyphicon-remove"></i>Delete'.html_safe, [workshop], method: :delete, data: { confirm: 'Are you sure?' }, class: 'txt-color-red' %>
+                </span>
+            </span>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

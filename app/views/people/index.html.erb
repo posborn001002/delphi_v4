@@ -1,8 +1,5 @@
-<!-- MAIN CONTENT -->
-<div id="content" class="container">
-  <div class="col-sm-12">
-      <%= render template: 'people/_table' %>
-    </div>
-  </div>
-</div>
-
+<!-- CONTENT: people.index.html -->
+<%= page_title( { title: 'Members of ' + @organization.name } ) %>
+  <%= render template: 'people/_table', resource: @people %>
+<%= page_footer() %>
+<%= page_end() %>

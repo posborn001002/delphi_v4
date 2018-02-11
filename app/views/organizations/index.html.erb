@@ -1,11 +1,5 @@
-<!-- MAIN CONTENT -->
-<div id="content" class="container">
-  <div class="col-sm-12">
-    <h1>All Organizations</h1>
-    <div class="row">
-      <%= render template: 'organizations/_table' %>
-    </div>
-  </div>
-</div>
-
-
+<!-- CONTENT: organizations/index.html -->
+<%= page_title( { title: 'All Organizations' } ) %>
+  <%= render 'table', resource: @organizations %>
+<%= page_footer() %>
+<%= page_end() %>

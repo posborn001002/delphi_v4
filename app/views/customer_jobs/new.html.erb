@@ -1,5 +1,6 @@
-<h1>New Job for <%= @organization.name %></h1>
-
-<%= render 'form', { customer_job: @customer_job, organization: @organization}  %>
-
-<%= link_to 'Back', customer_jobs_path %>
+<!-- CONTENT: customer_jobs/new,html -->
+<%= page_title( { title: 'New Job Details', form_for: @customer_job } ) %>
+  <%= render 'form', resource: @customer_job, dropdown: @dropdown %>
+<%= page_footer() %>
+  <%= back_button( { path: organization_path( @org_id ) }) %>
+<%= page_end() %>

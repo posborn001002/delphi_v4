@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require popper
+//= require bootstrap-sprockets
 //= require jquery-ui
 //= require turbolinks
 //= rewuire rails-ujs
@@ -29,9 +31,6 @@
 
 // JS TOUCH : include this plugin for mobile drag / drop touch events
 //= require plugin/jquery-touch/jquery.ui.touch-punch
-
-// BOOTSTRAP JS
-//= require bootstrap/bootstrap
 
 // CUSTOM NOTIFICATION
 //= require notification/SmartNotification
@@ -117,7 +116,6 @@
 //= require plugin/markdown/to-markdown
 //= require plugin/markdown/bootstrap-markdown
 //= require plugin/superbox/superbox
-
 
 
 // Morris Chart Dependencies

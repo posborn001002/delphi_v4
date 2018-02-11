@@ -1,6 +1,6 @@
-<h1>Editing Workshop</h1>
-
-<%= render 'form', workshop: @workshop %>
-
-<%= link_to 'Show', @workshop %> |
-<%= link_to 'Back', workshops_path %>
+<!-- CONTENT: people/edit -->
+<%= page_title( { title: 'Edit Workshop', form_for: @workshop } ) %>
+  <%= render 'form', resource: @workshop %>
+<%= page_footer() %>
+  <%= back_button({ path: organization_path( :org_id ), label: 'Back' }) %>
+<%= page_end() %>

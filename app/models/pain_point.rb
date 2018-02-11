@@ -1,4 +1,6 @@
 class PainPoint < ApplicationRecord
   belongs_to :workshop
-  has_and belongs_to_many :toe_tags
+  belongs_to :toe_tag
+  belongs_to :organization
+  belongs_to :action_result
 end

@@ -51,8 +51,10 @@ GEM
       activerecord (>= 4.0.0, < 5.2)
     bcrypt (3.1.11)
     bindex (0.5.0)
-    bootstrap-sass (3.2.0.2)
-      sass (~> 3.2)
+    bootstrap (4.0.0)
+      autoprefixer-rails (>= 6.0.3)
+      popper_js (>= 1.12.9, < 2)
+      sass (>= 3.5.2)
     builder (3.2.3)
     byebug (10.0.0)
     capybara (2.17.0)
@@ -92,6 +94,10 @@ GEM
     execjs (2.7.0)
     fast_gettext (1.6.0)
     ffi (1.9.18)
+    font-awesome-sass (4.7.0)
+      sass (>= 3.2)
+    font-ionicons-rails (2.0.1.5)
+      railties (>= 3.2, < 6.0)
     get_pomo (1.0.0)
     gettext (3.2.6)
       locale (>= 2.0.5)
@@ -129,10 +135,16 @@ GEM
     nio4r (2.2.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
+    octicons (5.2.0)
+      nokogiri (>= 1.6.3.1)
+    octicons_helper (4.2.0)
+      octicons (= 5.2.0)
+      rails
     orm_adapter (0.5.0)
     parallel (1.12.1)
     parser (2.4.0.2)
       ast (~> 2.3)
+    popper_js (1.12.9)
     powerpack (0.1.1)
     public_suffix (3.0.1)
     puma (3.11.2)
@@ -248,29 +260,36 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
-  autoprefixer-rails
+  autoprefixer-rails (>= 6.0.3)
   awesome_nested_set
-  bootstrap-sass (~> 3.2.0)
+  bootstrap (~> 4.0)
   byebug
-  capybara (~> 2.13)
+  capybara (>= 2.6.0)
   ckeditor
   coffee-rails (~> 4.2)
   devise
+  font-awesome-sass (~> 4.7.0)
+  font-ionicons-rails
   get_pomo
   gettext
   gettext_i18n_rails
   jbuilder (~> 2.5)
-  jquery-rails
+  jquery-rails (>= 3.1.0)
   jquery-ui-rails
   listen (~> 3.0.5)
+  octicons (>= 5.2.0)
+  octicons_helper (~> 4.2)
+  popper_js (>= 1.12.9, < 2)
   puma (~> 3.0)
   rails (~> 5.1.4)
   rails_best_practices
   rubocop
+  sass (>= 3.5.2)
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
+  sprockets-rails (>= 2.3.2)
   sqlite3
   turbolinks (~> 5)
   tzinfo-data

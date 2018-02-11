@@ -1,0 +1,42 @@
+<!-- render people/profile .html -->
+<div class="row">
+<!-- LEFT column -->
+  <div class="col-3 profile-pic">
+    <%= image_tag 'avatars/sunny-big.png', alt: resource.last_name + ' ' + resource.last_name + ' image' %>'
+    <div class="padding-10">
+      <h4 class="font-md"><strong>1,543</strong>
+        <br>
+        <small>Followers</small></h4>
+      <br>
+      <h4 class="font-md"><strong>419</strong>
+        <br>
+        <small>Connections</small></h4>
+    </div>
+  </div>
+
+  <!-- RIGHT Column -->
+  <div class="col-9">
+    <h1>
+      <%= resource.first_name %>
+      <span class="semi-bold"><%= resource.last_name %></span>
+      <br>
+      <small><%= resource.job_title %>, <%= resource.organization.name %></small>
+    </h1>
+
+    <ul class="list-unstyled">
+      <li>
+        <p class="text-muted">
+          <i class="fa fa-phone"></i>
+          &nbsp;&nbsp;<span class="txt-color-darken"><%= resource.telephone %></span>
+        </p>
+      </li>
+      <li>
+        <p class="text-muted">
+          <i class="fa fa-envelope"></i>&nbsp;&nbsp;<a href="mailto:<%= resource.email %>"><%= resource.email %></a>
+        </p>
+      </li>
+    </ul>
+    <br>
+    <a href="javascript:void(0);" class="btn btn-default btn-xs"><i class="fa fa-envelope-o"></i> Send Message</a>
+  </div>
+</div>

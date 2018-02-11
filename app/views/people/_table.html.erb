@@ -1,32 +1,35 @@
-<div class="table-responsive">
-  <table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox data-table">
-    <thead>
-    <tr>
-      <th><span>Name</span></th>
-      <th>
-        <span class="left">Contact Info</span>
-        <span><%= small_button( { label: 'Add a Member', path: 'new_organization_person_path(@organization)', class: 'right'} ) %></span>
-      </th>
-    </tr>
-    </thead>
-    <tbody>
-    <% @people.each do |person| %>
+<!-- render people/table.html -->
+<div class="row">
+  <div class="col table-responsive">
+    <table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox data-table">
+      <thead>
       <tr>
-        <td class="three-eigths">
-          <span class="name"><%= person.first_name + ' ' + person.last_name %></span>
-          <span class="job-title"><%= person.job_title %></span>
-        </td>
-        <td class="five-eigths">
-          <span class="telephone"><%= person.telephone%></span>
-          <span class="email"><%= person.email %></span>
-          <span class="links">
-            <%= link_to 'View', organization_person_path(@organization, person), class: 'link' %>&nbsp;|&nbsp;
-            <%= link_to 'Edit', edit_organization_person_path(@organization, person), class: 'link' %>&nbsp;|&nbsp;
-            <%= link_to '<i class="glyphicon glyphicon-remove"></i>Delete'.html_safe, [@organization, person], method: :delete, data: { confirm: 'Are you sure?' }, class: 'txt-color-red' %>
-          </span>
-        </td>
+        <th><span>Name</span></th>
+        <th>
+          <span class="left">Contact Info</span>
+          <span><%= small_button( { label: 'Add a Member', path: new_organization_person_path( @organization ), class: 'right'} ) %></span>
+        </th>
       </tr>
-    <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+      <% resource.each do |person| %>
+        <tr>
+          <td class="three-eigths">
+            <span class="name"><%= person.first_name + ' ' + person.last_name %></span>
+            <span class="job-title"><%= person.job_title %></span>
+          </td>
+          <td class="five-eigths">
+            <span class="telephone"><%= person.telephone %></span>
+            <span class="email"><%= person.email %></span>
+            <span class="links">
+              <%= link_to 'View', person_path( person ), class: 'link' %>&nbsp;|&nbsp;
+              <%= link_to 'Edit', edit_person_path(  person ), class: 'link' %>&nbsp;|&nbsp;
+              <%= link_to '<i class="glyphicon glyphicon-remove"></i>Delete'.html_safe, [person], method: :delete, data: { confirm: 'Are you sure?' }, class: 'txt-color-red' %>
+            </span>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

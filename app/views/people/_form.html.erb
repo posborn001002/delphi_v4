@@ -1,46 +1,39 @@
-<!-- New Person Form -->
-<%= form_with( model: @person, local: true, class: 'smart-form', html: { novalidate: 'novalidate' } ) do |form| %>
-  <fieldset>
+<!-- render people/new.html -->
+<div class="row">
+  <div class="col">
+    <%= form_with( model: [parent, resource] , local: true, class: 'smart-form', html: { novalidate: 'novalidate' } ) do |form| %>
+      <fieldset>
 
-    <%= form.hidden_field :organization_id %>
+        <%= hidden_field( :parent, :id, value: parent.id ) %>
 
-    <div class="row">
-      <section class="col col-6">
-        <label class="input"> <i class="icon-append fa fa-user"></i>
-          <%= form.text_field :first_name, id: :person_first_name, placeholder: 'First Name' %>
-        </label>
-      </section>
-      <section class="col col-6">
-        <label class="input"></i>
-          <%= form.text_field :last_name, id: :person_last_name, placeholder: 'Last Name' %>
-        </label>
-      </section>
-    </div>
+        <div class="row">
+          <div class="col-sm mr-sm-3">
+            <%= delphi_text_field( form, { label: 'First Name', name: :first_name } ) %>
+          </div>
+          <div class="col-sm">
+            <%= delphi_text_field( form, { label: 'Last Name', name: :last_name } ) %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <%= delphi_email_field( form, { label: 'Email', name: :email } ) %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm mr-sm-3">
+            <%= delphi_text_field( form, { label: 'Job Title', icon: 'fa fa-sitemap', name: :job_title } ) %>
+          </div>
+          <div class="col-sm">
+            <%= delphi_phone_field( form, { label: 'Phone', name: :telephone } ) %>
+          </div>
+        </div>
 
-    <div class="row">
-      <section class="col col-sm-12">
-        <label class="input"> <i class="icon-append fa fa-sitemap"></i>
-          <%= form.text_field :job_title, id: :person_job_title, placeholder: 'Job Title' %>
-        </label>
-      </section>
-    </div>
+      </fieldset>
 
-    <div class="row">
-      <section class="col col-6">
-        <label class="input"> <i class="icon-append fa fa-envelope-o"></i>
-          <%= form.email_field :email, id: :person_email, placeholder: 'E-mail' %>
-        </label>
-      </section>
-      <section class="col col-6">
-        <label class="input"> <i class="icon-append fa fa-phone"></i>
-          <%= form.telephone_field :telephone, id: :person_telephone , placeholder: 'Phone', data: { mask: '(999) 999-9999'} %>
-        </label>
-      </section>
-    </div>
-  </fieldset>
+      <footer>
+        <%= submit_button( form, { buttonType: 'primary', icon: 'glyphicon-save'}) %>
+      </footer>
 
-  <footer>
-    <%= submit_button( {form: form}) %>
-  </footer>
-
-<% end %>
+    <% end %>`
+  </div>
+</div>

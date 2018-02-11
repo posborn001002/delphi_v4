@@ -1,24 +1,6 @@
-<!-- MAIN CONTENT: people/new -->
-<div id="content" class="container">
-  <div id="content-header">
-    <%= back_button( {path: 'organization_path( @organization )'} ) %>
-  </div>
-
-  <h1>New Contact for <%= @organization.name %></h1>
-
-  <% if @person.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
-
-      <ul>
-        <% @person.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-</div>
-
-<%= render 'form', person: @person, organization: @organization %>
-
-
+<!-- CONTENT: people/new,html -->
+<%= page_title( { title: 'New Contact for' + @organization.name, form_for: @person } ) %>
+  <%= render 'form', resource: @person, organization: @organization %>
+<%= page_footer() %>
+  <%= back_button( { path: organization_path( @org_id ) }) %>
+<%= page_end() %>

@@ -1,0 +1,6 @@
+<!-- CONTENT: people/new,html -->
+<%= page_title( { title: 'New Update for' + @customer_job.job_name, form_for: @update } ) %>
+  <%= render 'form', resource: @status_update, parent: @customer_job %>
+<%= page_footer() %>
+  <%= back_button( { path: customer_job_path( @customer_job ) }) %>
+<%= page_end() %>

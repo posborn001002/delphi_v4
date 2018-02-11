@@ -1,61 +1,107 @@
 Rails.application.routes.draw do
 
-  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout'}
+  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout'}, :controllers => { :users => "users" }
+
+      #{ :sessions => "sessions" }
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root 'organizations#index'
+  root 'organizations#show'
 
   # Delphi
   get 'customer_jobs/:id/history',
     to: 'customer_jobs#history',
     as: 'history_of'
 
+  get 'organization',
+      to: 'organizations#show',
+      as: 'mycompany'
 
-  resources :people do
-    get 'newcontact', on: :new
+
+
+
+      ## Customers
+  shallow do
+    resources :organizations do
+      resources :people
+      resources :customers
+      resources :suppliers
+      resources :customer_jobs
+      resources :supplier_orders
+      resources :workshops
+    end
   end
 
-  resources :organizations do
-    resources :people
+  ## Customers
+  shallow do
+    resources :customers do
+      resources :customer_jobs
+      resources :contacts
+    end
+  shallow do
+    resources :customer_jobs do
+      resources :action_results
+      resources :status_updates
+    end
   end
 
-  resources :organizations do
-    resources :customer_jobs
+  ## Suppliers
+  end
+  shallow do
+    resources :suppliers do
+      resources :supplier_orders
+      resources :contacts
+    end
+  end
+  shallow do
+    resources :supplier_orders do
+      resources :action_results
+      resources :status_updates
+    end
   end
 
-  resources :organizations do
-    resources :workshops
+  shallow do
+    resources :people do
+      resources :updates
+      resources :pain_point_updates
+      resources :metrics
+    end
+  end
+
+  ## Workshops
+  shallow do
+    resources :workshops do
+      resources :action_results
+      resources :pain_points
+    end
+  end
+  shallow do
+    resources :action_results do
+      resources :toe_tags
+      resources :pain_points
+      resources :updates
+      resources :measurements
+    end
+  end
+  shallow do
+    resources :pain_points do
+      resources :pain_point_updates
+    end
+  end
+  shallow do
+    resources :metrics do
+      resources :measurements
+    end
   end
 
   # Main Object Navigation
-  resources :organizations
-  resources :people
-  resources :customer_jobs
-  resources :supplier_orders
-  resources :updates
+  resources :status_updates
   resources :date_lookups
   resources :pain_point_updates
   resources :measurements
-  resources :metrics
   resources :toe_tags
-  resources :workshops
   resources :pain_points
-  resources :action_results
 
-
-  # Miscellaneous
-  get 'miscellaneous/login',
-      to: 'miscellaneous#login',
-      as: :miscellaneous_login
-  get 'miscellaneous/register',
-      to: 'miscellaneous#register',
-      as: :miscellaneous_register
-  get 'miscellaneous/forgot_password',
-      to: 'miscellaneous#forgot_password',
-      as: :miscellaneous_forgot_password
-  get 'miscellaneous/locked_screen',
-      to: 'miscellaneous#locked_screen',
-      as: :miscellaneous_locked_screen
 
   # AJAX
   get 'ajax/email_compose',

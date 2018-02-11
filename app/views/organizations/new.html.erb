@@ -1,11 +1,6 @@
-<!-- MAIN CONTENT -->
-<div id="content" class="container">
-  <p id="notice"><%= notice %></p>
-  <h1>New Organization</h1>
-</div>
-
-<%= render 'form', organization: @organization %>
-
-<div class="content-foot ">
-  <%= back_button( { path: 'organizations_path' } ) %>
-</div>
+<!-- CONTENT: organizations/new.html -->
+<%= page_title( { title: 'New Organization' } ) %>
+  <%= render 'form', resource: @organization %>
+<%= page_footer() %>
+  <%= back_button( { label: 'All Organizations', path: organizations_path }) %>
+<%= page_end() %>

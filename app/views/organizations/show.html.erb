@@ -1,27 +1,17 @@
-<!-- MAIN CONTENT -->
-<div id="content" class="container">
-  <div class="col-sm-12">
-
-    <%= link_to 'All Organizations', organizations_path, class: 'right link' %>
-    <div class="row">
-      <h1 class="left"><%= @organization.name %></h1>
-      <hr class="clearboth">
-      <p>
-        <span><%= @organization.address1 %></span><br>
-        <%= (@organization.address2.length > 1   ? '<span>' + @organization.address2 + '</span><br>' : '').html_safe %>
-        <span><%= @organization.city %>, <%= @organization.state %><br><%= @organization.country %></span>
-      </p>
-    </div>
-    <div class="row">
-      <h3>Employees & Contacts</h3>
-      <%= render template: 'people/_table' %>
-    </div>
-    <div class="row">
-      <h3>Workshops</h3>
-      <%= render template: 'workshops/_table' %>
-    </div>
-    <footer>
-      <%= edit_button( { path: 'edit_organization_path(@organization)' } ) %>
-    </footer>
-  </div>
-</div>
+<!-- CONTENT: organizations/show.html -->
+<%= page_title( { title: 'Organization Profile' } ) %>
+      <%= render 'profile', resource: @organization  %>
+    <%= section_title( { title: 'Employees & Contacts' }) %>
+      <%= render 'people/table', resource:  @people %>
+    <%= section_title( { title: 'Workshops' }) %>
+      <%= render 'workshops/table',resource:  @workshops %>
+    <%= section_title( { title: 'Jobs' }) %>
+      <%= render 'customer_jobs/table', resource:  @customer_jobs %>
+    <%= section_title( { title: 'Customers' }) %>
+      <%= render 'customers/table', resource:  @customers %>
+    <%= section_title( { title: 'Suppliers' }) %>
+      <%= render 'suppliers/table', resource:  @suppliers %>
+<%= page_footer() %>
+  <%= back_button( { label: 'All Organizations', path: organizations_path, buttonType: 'primary', class: 'left' }) %>
+  <%= edit_button( { path: edit_organization_path( @org_id ), buttonType: 'primary', class: 'right' } ) %>
+<%= page_end() %>

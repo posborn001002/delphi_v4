@@ -1,11 +1,4 @@
-class OrganizationsController < ApplicationController
-
-  before_action :authenticate_user!
-
-  #initiailize @organization
-  before_action :set_organization, only: [:show, :edit, :update, :destroy]
-
-
+class OrganizationsController < ProcessOwnerController
 
   # GET /organizations
   # GET /organizations.json
@@ -18,6 +11,9 @@ class OrganizationsController < ApplicationController
   def show
     @people = @organization.people.all
     @workshops = @organization.workshops.all
+    @customers = @organization.customers.all
+    @customer_jobs = @organization.customer_jobs.all
+    @suppliers = @organization.suppliers.all
   end
 
   # GET /organizations/new
@@ -72,9 +68,9 @@ class OrganizationsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_organization
-      @organization = Organization.find(params[:id])
-    end
+ #   def set_organization
+  #    @organization = Organization.find(params[:id])
+  #  end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def organization_params

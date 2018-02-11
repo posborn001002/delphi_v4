@@ -1,8 +1,9 @@
 class Person < ApplicationRecord
   belongs_to :organization
-  has_one :user
+  belongs_to :user, inverse_of: :person
   accepts_nested_attributes_for :organization
   validates_associated :organization
+  accepts_nested_attributes_for :user
 
   has_many :Measurements
 #  has_many :Workshops, through attendees
@@ -15,5 +16,9 @@ class Person < ApplicationRecord
     self.organization = Organization.find_or_create_by( name: name )
   end
 
+
+  has_many :updates, inverse_of: :person
+
+  has_many :job_contacts, inverse_of: :person
 
 end

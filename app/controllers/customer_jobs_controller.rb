@@ -1,16 +1,14 @@
 class CustomerJobsController < ApplicationController
-  before_action :set_customer_job, only: [:show, :edit, :update, :destroy, :history]
-  before_action :load_organization, only: [:show, :edit, :destroy, :new]
-  before_action :load_organization_update, only: [:update, :create]
+
+  before_action :set_customer_job, only: [:edit, :show, :update, :destroy, :history]
 
   protect_from_forgery :except => :history
 
   # GET /customer_jobs
   # GET /customer_jobs.json
   def index
-   # @customer_jobs = CustomerJob.where(depth: 0).order('job_name ASC')
-   @customer_jobs = CustomerJob.all.order('job_name ASC')
-  end
+   @customer_jobs = @organization.customer_jobs.all.order('job_name ASC')
+   end
 
   # GET /customer_jobs/1
   # GET /customer_jobs/1.json
@@ -19,22 +17,26 @@ class CustomerJobsController < ApplicationController
 
   # GET /customer_jobs/new
   def new
-    @customer_job = @organization.customer_jobs.new
+    @customer_job = CustomerJob.new
+    # create an array of current customers so we don't add them in again....
+    @dropdown = @organization.customers.distinct.order( name: :asc )
   end
 
   # GET /customer_jobs/1/edit
   def edit
+    @dropdown = @organization.customers.distinct.order( name: :asc )
   end
 
   # POST /customer_jobs
   # POST /customer_jobs.json
   def create
+    @customer = @organization.customers.find( params[:customer_job][:customer_id] )
+    @customer_job = @organization.customer_jobs.new( customer_job_params )
 
-    @customer_job = CustomerJob.new( customer_job_params )
 
     respond_to do |format|
       if @customer_job.save
-        format.html { redirect_to customer_jobs_url, notice: 'Customer job was successfully created.' }
+        format.html { redirect_to organization_path( @organization ), notice: 'Customer job was successfully created.' }
         format.json { render :show, status: :created, location: @customer_job }
       else
         format.html { render :new }
@@ -69,22 +71,19 @@ class CustomerJobsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_customer_job
-      @customer_job = CustomerJob.find(params[:id])
-    end
+  def set_customer_job
+    @customer_job = CustomerJob.find( params[:id] )
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-  #     # Never trust parameters from the scary internet, only allow the white list through.
+
+  # Never trust parameters from the scary internet, only allow the white list through.
     def customer_job_params
-      params.require(:customer_job).permit(:job_name, :organization_id )
+      params.require(:customer_job).permit(:job_name, :organization_id, :customer_id, :job_description, :ref_number, :active )
     end
 
-    def load_organization
-      @organization = Organization.find( params[:organization_id] )
-    end
 
-    def load_organization_update
-      @organization = Organization.find( params[:customer_job][:organization_id] )
-    end
+  def customer_params
+    params.require( :organization).permit(:id, :partner_id );
+  end
 
 end

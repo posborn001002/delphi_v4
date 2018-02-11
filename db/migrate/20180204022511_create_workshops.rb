@@ -8,8 +8,10 @@ class CreateWorkshops < ActiveRecord::Migration[5.1]
       t.text        :process_description
       t.text        :left_boundary
       t.text        :right_boundary
+      t.boolean     :active, :default => 1
 
       t.timestamps
     end
+    add_index :workshops, :active
   end
 end

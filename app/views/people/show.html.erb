@@ -1,53 +1,7 @@
-
-<!-- MAIN CONTENT: people/show -->
-<div id="content" class="container">
-  <div class="col-sm-12">
-    <div class="row">
-      <div class="col-sm-3 profile-pic">
-        <%= image_tag 'avatars/sunny-big.png', alt: @person.last_name + ' ' + @person.last_name + ' image' %>'
-        <div class="padding-10">
-          <h4 class="font-md"><strong>1,543</strong>
-            <br>
-            <small>Followers</small></h4>
-          <br>
-          <h4 class="font-md"><strong>419</strong>
-            <br>
-            <small>Connections</small></h4>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <h1>
-          <%= @person.first_name %>
-          <span class="semi-bold"><%= @person.last_name %></span>
-          <br>
-          <small><%= @person.job_title %>, <%= @person.organization.name %></small>
-        </h1>
-
-        <ul class="list-unstyled">
-          <li>
-            <p class="text-muted">
-              <i class="fa fa-phone"></i>
-              &nbsp;&nbsp;<span class="txt-color-darken"><%= @person.telephone %></span>
-            </p>
-          </li>
-          <li>
-            <p class="text-muted">
-              <i class="fa fa-envelope"></i>&nbsp;&nbsp;<a href="mailto:<%= @person.email %>"><%= @person.email %></a>
-            </p>
-          </li>
-        </ul>
-        <br>
-        <a href="javascript:void(0);" class="btn btn-default btn-xs"><i class="fa fa-envelope-o"></i> Send Message</a>
-        <br>
-        <br>
-        <%= edit_button( { path: 'edit_organization_person_path(@organization, @person)', buttonType: 'primary' } ) %>
-      </div>
-
-      </div>
-    </div>
-
-</div>
-
-<footer>
-  <%= back_button( { path: 'organization_path( @organization )' }) %>
-</footer>
+<!-- CONTENT: people/show.html -->
+<%= page_title() %>
+    <%= render 'profile', resource: @person %>
+<%= page_footer() %>
+  <%= back_button( { path: organization_path( @org_id ), class: "left"  }) %>
+  <%= edit_button( { path: edit_person_path( @person ), buttonType: 'primary', class: "right" } ) %>
+<%= page_end() %>

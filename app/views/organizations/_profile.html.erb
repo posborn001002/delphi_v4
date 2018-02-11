@@ -1,0 +1,14 @@
+<!-- render organizations/profile.html -->
+<div class="row">
+  <div class="col-sm">
+    <h1><%= resource.name %></h1>
+  </div>
+  <div class="col-sm">
+    <address style="text-align:right;">
+      <%= resource.address1 %><br>
+      <%= ( !!resource.address2.present?   ? '<span>' + resource.address2 + '</span><br>' : '').html_safe %>
+      <%= resource.city %>, <%= resource.state %><br>
+      <%= resource.country %>
+    </address>
+  </div>
+</div>

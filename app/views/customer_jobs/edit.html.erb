@@ -1,6 +1,6 @@
-<h1>Editing Customer Job</h1>
-
-<%= render 'form', customer_job: @customer_job %>
-
-<%= link_to 'Show', @customer_job %> |
-<%= link_to 'Back', customer_jobs_path %>
+<!-- CONTENT: people/edit -->
+<%= page_title( { title: @customer_job.job_name, form_for: @customer_job } ) %>
+  <%= render 'form', resource: @customer_job, dropdown: @dropdown %>
+<%= page_footer() %>
+  <%= back_button({ path: customer_job_path, label: 'Back' }) %>
+<%= page_end() %>

@@ -1,33 +1,35 @@
-<div class="table-responsive">
-  <table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox data-table">
-    <thead>
-    <tr>
-      <th>
-        <span class="left">Organization</span>
-        <span ><%= small_button( { path: 'new_organization_path', class: 'right' } ) %></span>
+<!-- render organizations/table.html -->
+<div class="row">
+  <div class="col table-responsive">
 
-      </th>
-    </tr>
-    </thead>
-    <tbody>
-    <% @organizations.each do |organization| %>
-      <tr>
-        <td class="full">
-          <span class="name"><%= organization.name %></span>
-          <span>
-            <%= organization.city %>, <%= organization.state %>
-            <%= organization.country %>
-          </span>
-          <span class="links">
-            <%= link_to 'Show', organization %> |
-            <%= link_to 'Edit', edit_organization_path(organization) %>|
-            <%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %>|
-            <%= link_to 'New Person', new_organization_person_path(organization) %>|
-            <%= link_to 'New Job', new_organization_customer_job_path( organization ) %>
-          </span>
-        </td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
+      <table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox data-table">
+        <thead>
+        <tr>
+          <th>
+            <span class="left">Organization</span>
+            <span ><%= small_button( { path: :new_organization, class: 'right' } ) %></span>
+
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <% resource.each do |organization| %>
+          <tr>
+            <td class="full">
+              <span class="name"><%= organization.name %></span>
+              <span>
+                <%= organization.city %>, <%= organization.state %>
+                <%= organization.country %>
+              </span>
+              <span class="links">
+                <%= link_to 'Show', organization %> |
+                <%= link_to 'Edit', edit_organization_path(organization) %>|
+                <%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </span>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+  </div>
 </div>

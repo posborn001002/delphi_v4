@@ -1,0 +1,6 @@
+<!-- CONTENT: customers/new.html -->
+<%= page_title( { title: 'Add Customer' } ) %>
+  <%= render 'form', resource: @customer, dropdown: @dropdown %>
+<%= page_footer() %>
+  <%= back_button( { label: 'All Organizations', path: organizations_path }) %>
+<%= page_end() %>

@@ -4,9 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_one :person
+  has_one :person, inverse_of: :user
+  has_one :organization, :through => :people
 
   def remember_me
     (super == nil) ? '1' : super
-    end
+  end
+
+
+
+
 end

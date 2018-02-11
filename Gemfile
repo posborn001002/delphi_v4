@@ -12,7 +12,6 @@ gem 'rails', '~> 5.1.4'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
-gem 'bootstrap-sass', '~> 3.2.0'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -24,7 +23,7 @@ gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', ' >= 3.1.0'
 gem 'jquery-ui-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
@@ -43,7 +42,7 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'rails_best_practices'
 
-  gem 'capybara', '~> 2.13'
+  gem 'capybara', '>= 2.6.0'
   gem 'selenium-webdriver'
   # Use sqlite3 as the database for Active Record only for development or
   # testing
@@ -79,5 +78,15 @@ gem 'devise'
 gem 'gettext_i18n_rails'
 
 gem 'awesome_nested_set'
-gem 'autoprefixer-rails'
 
+# Bootstrap 4.0 dependencies
+gem 'font-awesome-sass', '~> 4.7.0'
+gem 'sprockets-rails', '>= 2.3.2'
+gem 'autoprefixer-rails', '>= 6.0.3'
+gem 'popper_js', '< 2', '>= 1.12.9'
+gem 'sass', '>= 3.5.2'
+gem 'bootstrap', '~> 4.0'
+
+gem "font-ionicons-rails"
+gem 'octicons', '>=5.2.0'
+gem 'octicons_helper', '~> 4.2'

@@ -10,27 +10,27 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- * Basic Styles
- *= require bootstrap
- *= require font-awesome
- *
- * SmartAdmin Styles : Caution! DO NOT change the order
- *= require smartadmin-production
- *= require smartadmin-skins
- *
- * We recommend you use "your_style.scss" to override SmartAdmin
- * specific styles this will also ensure you retrain your customization with
- * each SmartAdmin update.
- * Delphi themed files
- *= require delphi-skins
- *= require delphi
- *
- *= require_self
- *
- * Invoice related styles
- *= require invoice
- *
- * Lock screen related styles
- *= require lockscreen
- *
  */
+
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "glyphicon";
+@import "ionicons";
+
+// SmartAdmin Styles : Caution! DO NOT change the order
+@import "smartadmin-production";
+@import "smartadmin-skins";
+
+/* We recommend you use "your_style.scss" to override SmartAdmin
+* specific styles this will also ensure you retrain your customization with
+* each SmartAdmin update.
+* Delphi themed files
+*/
+@import "delphi-skins";
+@import "delphi";
+// Invoice related styles
+@import "invoice";
+
+// Lock screen related styles
+@import "lockscreen";

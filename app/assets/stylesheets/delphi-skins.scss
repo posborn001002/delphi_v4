@@ -1,5 +1,33 @@
 @import '_color-palette.scss';
 
+
+
+
+/** Collapsable  */
+.list-group-item {
+  cursor:pointer;
+  position: relative;
+  display: block;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: -1px;
+  background-color: $background_neutral;
+  border-bottom: 1px solid $background_emphasis;
+  border-left: none;
+  border-right: none;
+  .active {
+    z-index: 2;
+    color: #fff;
+    background-color: $light_blue;
+    border-color: #007bff;
+  }
+}
+.list-group-item:first-child,
+.list-group-item:last-child {
+    border-top: 2px solid #00000020;
+}
+
+
+
 /* DelphiSkin1 ******************************************************************************************************* */
 body,
 html {
@@ -344,9 +372,10 @@ body.delphi-skin-1 {
     background: $medium_blue;
   }
   #content {
-    margin-left: 30px;
-    margin-right: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
     margin-top: 20px;
+    margin-bottom: 20px;
   }
   #content > .row {
     margin-bottom: 20px;
@@ -674,45 +703,72 @@ body.delphi-skin-1 {
   .checkbox label > input[type=checkbox]:focus:after {
     visibility: visible;
   }
-  .smart-form .checkbox input:focus + i,
-  .smart-form .input input:focus,
-  .smart-form .radio input:focus + i,
-  .smart-form .select select:focus,
-  .smart-form .textarea textarea:focus,
-  .smart-form .toggle input:focus + i {
-    border-color: $medium_blue;
-  }
-  .smart-form .rating input:checked ~ label,
-  .smart-form .checkbox input + i:after {
-    color: $medium_blue;
+  // SMART-FORM OPTIONS *****************************************************
+
+  .smart-form {
+    .checkbox input:focus + i,
+    .input input:focus,
+    .radio input:focus + i,
+    .select select:focus,
+    .textarea textarea:focus,
+    .toggle input:focus + i {
+      border-color: $medium_blue;
+    }
+    .rating input:checked ~ label,
+    .checkbox input + i:after {
+      color: $medium_blue;
+    }
+    .input input,
+    .select select,
+    .textarea textarea {
+      height: 40px;
+      line-height: 32px;
+      font: 16px;
+      color: $text;
+    }
+    .checkbox input:checked + i,
+    .radio input:checked + i,
+    .toggle input:checked + i {
+      border-color: transparent;
+    }
+    .icon-append,
+    .icon-prepend,
+    .input input,
+    .select select,
+    .textarea textarea {
+      border-width: 1px;
+    }
+    label {
+      text-transform: uppercase;
+      color: $medium_blue;
+      font-weight: 300;
+      font-size: 16px;
+      display: block;
+    }
   }
   .form-control[disabled],
   .form-control[readonly],
   .fieldset[disabled] .form-control,
   .smart-form .select select,
   .smart-form .textarea textarea {
-    border-bottom: 1px dashed #E0E0E0;
+    border: 2px dashed #E0E0E0;
   }
   .form-control-feedback {
     width: auto;
     height: auto;
   }
-  .smart-form .checkbox input:checked + i,
-  .smart-form .radio input:checked + i,
-  .smart-form .toggle input:checked + i {
-    border-color: transparent;
+  .form-control, {
+    border-width: 1px;
+    padding-left: 0px;
   }
-  .form-control,
   .smart-form .icon-append,
-  .smart-form .icon-prepend,
-  .smart-form .input input,
-  .smart-form .select select,
-  .smart-form .textarea textarea {
-    border-top-width: 0px;
-    border-left-width: 0px;
-    border-right-width: 0px;
+  .smart-form .icon-prepend {
+    color: $medium_blue;
+    font-size: 18px;
+    width: 30px;
+    top: 10px;
+    height: 28px;
   }
-  .form-control,
   .smart-form .icon-append,
   .smart-form .icon-prepend,
   .smart-form .select select,
@@ -724,8 +780,10 @@ body.delphi-skin-1 {
   }
   .input-icon-left input[type="text"].form-control,
   .icon-addon > input[type="text"] {
-    padding-left: 32px;
+    padding-left: 35px;
   }
+
+  // ****************************************************
   input[type=checkbox],
   input[type=radio] {
     margin-top: 2px;
@@ -889,7 +947,7 @@ body.delphi-skin-1 {
   #sparks {
     display: none;
   }
-  
+
   .page-footer .txt-color-blueLight {
     color: #ffffff !important;
   }

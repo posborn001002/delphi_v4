@@ -1,8 +1,6 @@
-<div id="content" class=container">
-  <h1><%= @organization.name %></h1>
-
-  <%= render 'form', organization: @organization %>
-
+<!-- CONTENT: organizations/edit.html -->
+<%= page_title( { title: @organization.name } ) %>
+<%= render 'form', resource: @organization %>
+<%= page_footer() %>
   <%= back_button( { path: 'organizations_path' } ) %>
-
-</div>
+<%= page_end() %>
