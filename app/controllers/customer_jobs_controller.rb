@@ -8,11 +8,12 @@ class CustomerJobsController < ApplicationController
   # GET /customer_jobs.json
   def index
    @customer_jobs = @organization.customer_jobs.all.order('job_name ASC')
-   end
+  end
 
   # GET /customer_jobs/1
   # GET /customer_jobs/1.json
   def show
+    @status_updates = StatusUpdate.sort_by_date(["job_order_id = ? and job_order_type = ?", @customer_job.id, 'Customer' ])
   end
 
   # GET /customer_jobs/new

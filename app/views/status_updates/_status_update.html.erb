@@ -1,0 +1,50 @@
+<section id="widget-grid" class="">
+  <!-- row -->
+  <div class="row">
+    <!-- a blank row to get started -->
+    <div class="col-sm-6 col-lg-4">
+      <!-- your contents here -->
+      <div class="panel panel-default">
+        <div class="panel-body status">
+          <div class="who clearfix">
+            <%= image_tag 'avatars/5.png', alt: 'img', class: 'online' %>
+            <span class="name"><b><%= status_update.full_name %></b> shared a status update</span>
+            <span class="from"><b>on <%= status_update.date %></b> for <%= status_update.job_order_name %></span>
+          </div>
+          <div>
+            <span class="notes"><%= status_update.text %></span>
+          </div>
+          <div class="image"><%= image_tag 'realestate/6.png', alt: 'img' %>
+          </div>
+          <ul class="links">
+            <li>
+              <a href="javascript:void(0);"><i class="fa fa-thumbs-o-up"></i> Like</a>
+            </li>
+            <li>
+              <a href="javascript:void(0);"><i class="fa fa-comment-o"></i> Comment</a>
+            </li>
+            <li>
+              <a href="javascript:void(0);"><i class="fa fa-share-square-o"></i> Share</a>
+            </li>
+          </ul>
+          <ul class="comments">
+            <li>
+              <%= image_tag 'avatars/sunny.png', alt: 'img', class: 'online' %>
+              <span class="name">John Doe</span>
+              Looks like a nice house, when did you get it? Are we having the party there next week? ;)
+            </li>
+            <li>
+              <%= image_tag 'avatars/2.png', alt: 'img', class: 'online' %>
+              <span class="name">Alice Wonder</span>
+              Seems cool.
+            </li>
+            <li>
+              <%= image_tag 'avatars/sunny.png', alt: 'img', class: 'online' %>
+              <input type="text" class="form-control" placeholder="Post your comment...">
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

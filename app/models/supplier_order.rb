@@ -3,4 +3,9 @@ class SupplierOrder < ApplicationRecord
   has_many :contacts
   has_many :status_updates, as: :job_order
   has_many :action_results
+
+  def name
+    return self.order_name
+  end
+
 end

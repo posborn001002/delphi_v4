@@ -1,39 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Datelookup:</strong>
-  <%= @update.DateLookup %>
-</p>
-
-<p>
-  <strong>Person:</strong>
-  <%= @update.Person %>
-</p>
-
-<p>
-  <strong>Actionresult:</strong>
-  <%= @update.ActionResult %>
-</p>
-
-<p>
-  <strong>Job order:</strong>
-  <%= @update.job_order_id %>
-</p>
-
-<p>
-  <strong>Job order type:</strong>
-  <%= @update.job_order_type %>
-</p>
-
-<p>
-  <strong>Attachment:</strong>
-  <%= @update.attachment %>
-</p>
-
-<p>
-  <strong>Text:</strong>
-  <%= @update.text %>
-</p>
-
-<%= link_to 'Edit', edit_update_path(@update) %> |
-<%= link_to 'Back', updates_path %>
+<!-- CONTENT: people/show.html -->
+<%= page_title() %>
+<%= render resource: @status_update %>
+<%= page_footer() %>
+<%= back_button( { path: customer_job_path( @status_update.job_order_id ), class: "left"  }) %>
+<%= edit_button( { path: edit_status_update_path( @status_update ), buttonType: 'primary', class: "right" } ) %>
+<%= page_end() %>

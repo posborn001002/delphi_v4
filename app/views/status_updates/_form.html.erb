@@ -7,10 +7,12 @@
 
         <%= hidden_field( :status_update, :job_order_type, value: @status_update.job_order_type ) %>
         <%= hidden_field( :status_update, :job_order_id, value: @status_update.job_order_id ) %>
+        <%= hidden_field( :status_update, :person_id, value: @author.id) %>
+        <%= hidden_field( :status_update, :person_id, value: @author.id) %>
 
         <div class="row">
           <div class="col-sm">
-            By Paul Osborn
+            <span>By <%= @author.full_name %></span>
           </div>
         </div>
         <div class="row">

@@ -17,9 +17,6 @@ Rails.application.routes.draw do
       to: 'organizations#show',
       as: 'mycompany'
 
-
-
-
       ## Customers
   shallow do
     resources :organizations do

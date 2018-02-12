@@ -1,6 +1,7 @@
 <!-- CONTENT: customer_jobs/show.html -->
 <%= page_title() %>
   <%= render 'profile', resource: @customer_job %>
+  <%= render partial: 'status_updates/status_update', collection: @status_updates %>
 <%= page_footer() %>
   <%= back_button( { path: customer_jobs_path, class: "left"  }) %>
   <%= edit_button( { path: edit_customer_job_path( @customer_job ), buttonType: 'primary', class: "right" } ) %>

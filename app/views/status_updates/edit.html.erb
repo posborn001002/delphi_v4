@@ -1,6 +1,6 @@
-<h1>Editing Update</h1>
-
-<%= render 'form', update: @update %>
-
-<%= link_to 'Show', @update %> |
-<%= link_to 'Back', updates_path %>
+<!-- CONTENT: people/edit -->
+<%= page_title( { title:  ('Status Update for ' + @status_update.job_order_name + ' on ' + @status_update.date.strftime('%F')).html_safe , form_for: @status_update } ) %>
+  <%= render 'form', resource: @status_update, parent: @parent %>
+<%= page_footer() %>
+<%= back_button({ path: customer_job_path(  @parent ), label: 'Back' }) %>
+<%= page_end() %>
