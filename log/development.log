@@ -2620,3 +2620,320 @@ Processing by CustomerJobsController#index as HTML
 Completed 200 OK in 627ms (Views: 616.0ms | ActiveRecord: 4.5ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-02-18 11:32:40 -0800
+Processing by StaticPagesController#home as HTML
+  [1m[36mOrganization Load (0.4ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Organization Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE ProcessOwner Load (0.1ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (3.3ms)
+  Rendered layouts/_ribbon.html.erb (1.0ms)
+  Rendered layouts/_scripts.html.erb (0.6ms)
+Completed 200 OK in 17971ms (Views: 17877.2ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-18 11:34:46 -0800
+Processing by StaticPagesController#home as HTML
+  [1m[36mOrganization Load (0.3ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Organization Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE ProcessOwner Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_header.html.erb (5.3ms)
+  Rendered layouts/_ribbon.html.erb (1.6ms)
+  Rendered layouts/_scripts.html.erb (1.2ms)
+Completed 200 OK in 743ms (Views: 737.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-18 11:41:47 -0800
+Processing by StaticPagesController#home as HTML
+  [1m[36mOrganization Load (1.6ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Organization Load (0.1ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE ProcessOwner Load (0.1ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (16.0ms)
+  Rendered layouts/_header.html.erb (6.2ms)
+  Rendered layouts/_ribbon.html.erb (1.5ms)
+  Rendered layouts/_scripts.html.erb (1.0ms)
+Completed 200 OK in 1200ms (Views: 1174.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-18 11:42:10 -0800
+Processing by StaticPagesController#home as HTML
+  [1m[36mOrganization Load (0.2ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Organization Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE ProcessOwner Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.0ms)
+Completed 401 Unauthorized in 21ms (ActiveRecord: 0.3ms)
+
+
+  
+SyntaxError (/Users/paulosborn/RubymineProjects/delphi_v4/app/views/static_pages/home.html.erb:10: syntax error, unexpected ')', expecting keyword_end
+...ent ), class: "button-cell" ) );@output_buffer.safe_append='
+...                              ^):
+  
+app/views/static_pages/home.html.erb:10: syntax error, unexpected ')', expecting keyword_end
+Started GET "/" for 127.0.0.1 at 2018-02-18 11:42:32 -0800
+Processing by StaticPagesController#home as HTML
+  [1m[36mOrganization Load (0.2ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Organization Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE ProcessOwner Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.5ms)
+Completed 401 Unauthorized in 20ms (ActiveRecord: 0.3ms)
+
+
+  
+SyntaxError (/Users/paulosborn/RubymineProjects/delphi_v4/app/views/static_pages/home.html.erb:10: syntax error, unexpected ')', expecting keyword_end
+...ent ), class: "button-cell" ) );@output_buffer.safe_append='
+...                              ^):
+  
+app/views/static_pages/home.html.erb:10: syntax error, unexpected ')', expecting keyword_end
+Started GET "/" for 127.0.0.1 at 2018-02-18 11:42:54 -0800
+Processing by StaticPagesController#home as HTML
+  [1m[36mOrganization Load (0.3ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Organization Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE ProcessOwner Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (686.2ms)
+Completed 401 Unauthorized in 707ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `parent' for #<#<Class:0x00007fc2f7a9c100>:0x00007fc2e279dba8>
+Did you mean?  @parent
+               print):
+     7:       <div id="open2-02" class="button-cell">Project Status &amp; Measurements</div>
+     8:     </div>
+     9:     <div class="button-row" >
+    10:       <%= link_to "Customer Jobs &amp;<br>Process Capabilities".html_safe, process_owner_customer_jobs_path( parent ), class: "button-cell" %>
+    11:     </div>
+    12:   </div>
+    13: </div>
+  
+app/views/static_pages/home.html.erb:10:in `_app_views_static_pages_home_html_erb___3930724111959236856_70237500013380'
+Started GET "/" for 127.0.0.1 at 2018-02-18 11:43:56 -0800
+Processing by StaticPagesController#home as HTML
+  [1m[36mOrganization Load (0.2ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Organization Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE ProcessOwner Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_header.html.erb (5.5ms)
+  Rendered layouts/_ribbon.html.erb (1.3ms)
+  Rendered layouts/_scripts.html.erb (1.0ms)
+Completed 200 OK in 673ms (Views: 666.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/process_owners/1/customer_jobs" for 127.0.0.1 at 2018-02-18 11:44:02 -0800
+Processing by CustomerJobsController#index as HTML
+  Parameters: {"process_owner_id"=>"1"}
+  [1m[36mOrganization Load (0.3ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Organization Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE ProcessOwner Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProcessOwner Load (0.4ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering customer_jobs/index.html.erb within layouts/application
+  [1m[36mCustomerJob Load (0.3ms)[0m  [1m[34mSELECT "customer_jobs".* FROM "customer_jobs" WHERE "customer_jobs"."process_owner_id" = ? ORDER BY "customer_jobs"."job_name" ASC[0m  [["process_owner_id", 1]]
+  [1m[36mCustomerJobUpdate Load (3.3ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.0ms)
+  [1m[36mCACHE CustomerJobUpdate Load (0.0ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.0ms)
+  [1m[36mCACHE CustomerJobUpdate Load (0.0ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.0ms)
+  [1m[36mCACHE CustomerJobUpdate Load (0.0ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.0ms)
+  Rendered collection of customer_jobs/_customer_job.html.erb [4 times] (41.6ms)
+  Rendered customer_jobs/index.html.erb within layouts/application (61.7ms)
+  Rendered layouts/_header.html.erb (5.6ms)
+  Rendered layouts/_ribbon.html.erb (1.4ms)
+  Rendered layouts/_scripts.html.erb (1.7ms)
+Completed 200 OK in 978ms (Views: 878.5ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/process_owners/1/customer_jobs" for 127.0.0.1 at 2018-02-18 11:56:12 -0800
+Processing by CustomerJobsController#index as HTML
+  Parameters: {"process_owner_id"=>"1"}
+  [1m[36mOrganization Load (2.1ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Organization Load (0.1ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE ProcessOwner Load (0.1ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProcessOwner Load (0.8ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering customer_jobs/index.html.erb within layouts/application
+  [1m[36mCustomerJob Load (0.8ms)[0m  [1m[34mSELECT "customer_jobs".* FROM "customer_jobs" WHERE "customer_jobs"."process_owner_id" = ? ORDER BY "customer_jobs"."job_name" ASC[0m  [["process_owner_id", 1]]
+  [1m[36mCustomerJobUpdate Load (2.5ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.1ms)
+  [1m[36mCACHE CustomerJobUpdate Load (0.1ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.0ms)
+  [1m[36mCACHE CustomerJobUpdate Load (0.0ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.0ms)
+  [1m[36mCACHE CustomerJobUpdate Load (0.0ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.1ms)
+  Rendered collection of customer_jobs/_customer_job.html.erb [4 times] (35.4ms)
+  Rendered customer_jobs/index.html.erb within layouts/application (47.9ms)
+  Rendered layouts/_header.html.erb (5.2ms)
+  Rendered layouts/_ribbon.html.erb (1.2ms)
+  Rendered layouts/_scripts.html.erb (0.8ms)
+Completed 200 OK in 1231ms (Views: 1203.3ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/process_owners/1/customer_jobs" for 127.0.0.1 at 2018-02-18 11:56:51 -0800
+Processing by CustomerJobsController#index as HTML
+  Parameters: {"process_owner_id"=>"1"}
+  [1m[36mOrganization Load (0.3ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Organization Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE ProcessOwner Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProcessOwner Load (0.3ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering customer_jobs/index.html.erb within layouts/application
+  [1m[36mCustomerJob Load (0.5ms)[0m  [1m[34mSELECT "customer_jobs".* FROM "customer_jobs" WHERE "customer_jobs"."process_owner_id" = ? ORDER BY "customer_jobs"."job_name" ASC[0m  [["process_owner_id", 1]]
+  [1m[36mCustomerJobUpdate Load (1.2ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.0ms)
+  [1m[36mCACHE CustomerJobUpdate Load (0.0ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.0ms)
+  [1m[36mCACHE CustomerJobUpdate Load (0.0ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.0ms)
+  [1m[36mCACHE CustomerJobUpdate Load (0.0ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.0ms)
+  Rendered collection of customer_jobs/_customer_job.html.erb [4 times] (31.9ms)
+  Rendered customer_jobs/index.html.erb within layouts/application (40.3ms)
+  Rendered layouts/_header.html.erb (5.7ms)
+  Rendered layouts/_ribbon.html.erb (1.3ms)
+  Rendered layouts/_scripts.html.erb (1.0ms)
+Completed 200 OK in 833ms (Views: 824.0ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/process_owners/1/customer_jobs" for 127.0.0.1 at 2018-02-18 12:01:15 -0800
+Processing by CustomerJobsController#index as HTML
+  Parameters: {"process_owner_id"=>"1"}
+  [1m[36mOrganization Load (0.2ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Organization Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE ProcessOwner Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProcessOwner Load (0.2ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering customer_jobs/index.html.erb within layouts/application
+  [1m[36mCustomerJob Load (0.4ms)[0m  [1m[34mSELECT "customer_jobs".* FROM "customer_jobs" WHERE "customer_jobs"."process_owner_id" = ? ORDER BY "customer_jobs"."job_name" ASC[0m  [["process_owner_id", 1]]
+  [1m[36mCustomerJobUpdate Load (2.6ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.0ms)
+  [1m[36mCACHE CustomerJobUpdate Load (0.0ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.0ms)
+  [1m[36mCACHE CustomerJobUpdate Load (0.0ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.0ms)
+  [1m[36mCACHE CustomerJobUpdate Load (0.1ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.0ms)
+  Rendered collection of customer_jobs/_customer_job.html.erb [4 times] (32.5ms)
+  Rendered customer_jobs/index.html.erb within layouts/application (59.2ms)
+  Rendered layouts/_header.html.erb (3.5ms)
+  Rendered layouts/_ribbon.html.erb (1.0ms)
+  Rendered layouts/_scripts.html.erb (1.1ms)
+Completed 200 OK in 780ms (Views: 694.7ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-18 12:03:12 -0800
+Processing by StaticPagesController#home as HTML
+  [1m[36mOrganization Load (0.2ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Organization Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE ProcessOwner Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_header.html.erb (5.6ms)
+  Rendered layouts/_ribbon.html.erb (1.2ms)
+  Rendered layouts/_scripts.html.erb (1.0ms)
+Completed 200 OK in 1449ms (Views: 1337.9ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/process_owners/1/customer_jobs" for 127.0.0.1 at 2018-02-18 12:03:20 -0800
+Processing by CustomerJobsController#index as HTML
+  Parameters: {"process_owner_id"=>"1"}
+  [1m[36mOrganization Load (0.3ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Organization Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE ProcessOwner Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProcessOwner Load (0.3ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering customer_jobs/index.html.erb within layouts/application
+  [1m[36mCustomerJob Load (0.5ms)[0m  [1m[34mSELECT "customer_jobs".* FROM "customer_jobs" WHERE "customer_jobs"."process_owner_id" = ? ORDER BY "customer_jobs"."job_name" ASC[0m  [["process_owner_id", 1]]
+  [1m[36mCustomerJobUpdate Load (4.5ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.2ms)
+  [1m[36mCACHE CustomerJobUpdate Load (0.0ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.0ms)
+  [1m[36mCACHE CustomerJobUpdate Load (0.0ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.1ms)
+  [1m[36mCACHE CustomerJobUpdate Load (0.0ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.0ms)
+  Rendered collection of customer_jobs/_customer_job.html.erb [4 times] (53.4ms)
+  Rendered customer_jobs/index.html.erb within layouts/application (81.6ms)
+  Rendered layouts/_header.html.erb (6.9ms)
+  Rendered layouts/_ribbon.html.erb (1.4ms)
+  Rendered layouts/_scripts.html.erb (0.9ms)
+Completed 200 OK in 1327ms (Views: 1257.4ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/process_owners/1/customer_jobs" for 127.0.0.1 at 2018-02-18 12:04:32 -0800
+Processing by CustomerJobsController#index as HTML
+  Parameters: {"process_owner_id"=>"1"}
+  [1m[36mOrganization Load (0.5ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Organization Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE ProcessOwner Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProcessOwner Load (0.3ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering customer_jobs/index.html.erb within layouts/application
+  [1m[36mCustomerJob Load (0.4ms)[0m  [1m[34mSELECT "customer_jobs".* FROM "customer_jobs" WHERE "customer_jobs"."process_owner_id" = ? ORDER BY "customer_jobs"."job_name" ASC[0m  [["process_owner_id", 1]]
+  [1m[36mCustomerJobUpdate Load (0.8ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.0ms)
+  [1m[36mCACHE CustomerJobUpdate Load (0.0ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.1ms)
+  [1m[36mCACHE CustomerJobUpdate Load (0.0ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.0ms)
+  [1m[36mCACHE CustomerJobUpdate Load (0.0ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.1ms)
+  Rendered collection of customer_jobs/_customer_job.html.erb [4 times] (30.8ms)
+  Rendered customer_jobs/index.html.erb within layouts/application (37.8ms)
+  Rendered layouts/_header.html.erb (5.5ms)
+  Rendered layouts/_scripts.html.erb (1.6ms)
+Completed 200 OK in 789ms (Views: 777.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/process_owners/1/customer_jobs" for 127.0.0.1 at 2018-02-18 12:05:28 -0800
+Processing by CustomerJobsController#index as HTML
+  Parameters: {"process_owner_id"=>"1"}
+  [1m[36mOrganization Load (0.3ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Organization Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE ProcessOwner Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProcessOwner Load (0.2ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering customer_jobs/index.html.erb within layouts/application
+  [1m[36mCustomerJob Load (0.4ms)[0m  [1m[34mSELECT "customer_jobs".* FROM "customer_jobs" WHERE "customer_jobs"."process_owner_id" = ? ORDER BY "customer_jobs"."job_name" ASC[0m  [["process_owner_id", 1]]
+  [1m[36mCustomerJobUpdate Load (5.2ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.0ms)
+  [1m[36mCACHE CustomerJobUpdate Load (0.0ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.1ms)
+  [1m[36mCACHE CustomerJobUpdate Load (0.0ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.0ms)
+  [1m[36mCACHE CustomerJobUpdate Load (0.0ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.1ms)
+  Rendered collection of customer_jobs/_customer_job.html.erb [4 times] (34.4ms)
+  Rendered customer_jobs/index.html.erb within layouts/application (60.4ms)
+  Rendered layouts/_header.html.erb (3.5ms)
+  Rendered layouts/_scripts.html.erb (1.1ms)
+Completed 200 OK in 781ms (Views: 693.8ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/process_owners/1/customer_jobs" for 127.0.0.1 at 2018-02-18 12:12:55 -0800
+Processing by CustomerJobsController#index as HTML
+  Parameters: {"process_owner_id"=>"1"}
+  [1m[36mOrganization Load (0.4ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Organization Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE ProcessOwner Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProcessOwner Load (0.2ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering customer_jobs/index.html.erb within layouts/application
+  [1m[36mCustomerJob Load (0.4ms)[0m  [1m[34mSELECT "customer_jobs".* FROM "customer_jobs" WHERE "customer_jobs"."process_owner_id" = ? ORDER BY "customer_jobs"."job_name" ASC[0m  [["process_owner_id", 1]]
+  [1m[36mCustomerJobUpdate Load (5.6ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.0ms)
+  [1m[36mCACHE CustomerJobUpdate Load (0.1ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.0ms)
+  [1m[36mCACHE CustomerJobUpdate Load (0.0ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.1ms)
+  [1m[36mCACHE CustomerJobUpdate Load (0.1ms)[0m  [1m[34mSELECT "status_updates".* FROM "status_updates" WHERE "status_updates"."type" IN ('CustomerJobUpdate')[0m
+  Rendered collection of status_updates/_status_update.html.erb [0 times] (0.1ms)
+  Rendered collection of customer_jobs/_customer_job.html.erb [4 times] (53.1ms)
+  Rendered customer_jobs/index.html.erb within layouts/application (89.3ms)
+  Rendered layouts/_header.html.erb (6.3ms)
+  Rendered layouts/_scripts.html.erb (1.4ms)
+Completed 200 OK in 1225ms (Views: 1077.0ms | ActiveRecord: 11.9ms)
+
+

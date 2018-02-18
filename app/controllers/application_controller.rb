@@ -1,12 +1,12 @@
 # :nodoc:
 class ApplicationController < ActionController::Base
 
+  :set_gettext_locale
+  :authenticate_user!
   before_action :authenticate_authorize_user
   protect_from_forgery with: :exception
 
   def authenticate_authorize_user
-  #  :set_gettext_locale
-  #  :authenticate_user!
     if current_user != nil
       @my_organization = current_user.organization
       @my_org = current_user.organization.id

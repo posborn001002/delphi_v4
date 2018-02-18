@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
 
+  get 'static_pages/home', as: :home
+
+  get 'static_pages/help', as: :help
+
+  get 'static_pages/about', as: :about
+
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout'}, :controllers => { :users => "users" }
 
       #{ :sessions => "sessions" }
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root 'organizations#index'
+  root 'static_pages#home'
 
   # Delphi
 
