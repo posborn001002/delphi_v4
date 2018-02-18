@@ -3984,7 +3984,7 @@
 
     $.fn.bootstrapValidator.validators.imo = {
         /**
-         * Validate IMO (International Maritime Organization)
+         * Validate IMO (International Maritime ProcessOwner)
          * Examples:
          * - Valid: IMO 8814275, IMO 9176187
          * - Invalid: IMO 8814274

@@ -1,29 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Pain Points</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Workshop</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pain_points.each do |pain_point| %>
-      <tr>
-        <td><%= pain_point.Workshop %></td>
-        <td><%= pain_point.description %></td>
-        <td><%= link_to 'Show', pain_point %></td>
-        <td><%= link_to 'Edit', edit_pain_point_path(pain_point) %></td>
-        <td><%= link_to 'Destroy', pain_point, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Pain Point', new_pain_point_path %>
+<!-- CONTENT: pain_points/index.html -->
+<%= page_title( { title: 'Pain Points' } ) %>
+  <div class="list-group">
+    <%= render @pain_points %>
+  </div> <!--End of List Group -->
+<%= page_footer %>
+<%= page_end %>

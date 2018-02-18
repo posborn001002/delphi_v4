@@ -1,6 +1,6 @@
 <!-- CONTENT: customer_jobs/new,html -->
-<%= page_title( { title: 'New Job Details', form_for: @customer_job } ) %>
-  <%= render 'form', resource: @customer_job, dropdown: @dropdown %>
+<%= page_title title: 'New Job Details', form_for: @resource %>
+  <%= render 'form', resource: @resource, parent: @parent, dropdown: @parent.customers.all.order( :name ), edit_parent: @parent %>
 <%= page_footer() %>
-  <%= back_button( { path: organization_path( @org_id ) }) %>
+  <%= back_button( { path: process_owner_path( @parent ) }) %>
 <%= page_end() %>

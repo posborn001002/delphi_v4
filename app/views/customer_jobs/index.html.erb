@@ -1,7 +1,7 @@
-<!-- CONTENT: customerjobs/index.html -->
+<!-- CONTENT: customer_jobs/index.html -->
 <%= page_title( { title: 'Customer Jobs' } ) %>
   <div class="list-group">
-    <%= render @customer_jobs %>
+    <%= render @customer_jobs, parent: @parent %>
   </div> <!--End of List Group -->
 <%= page_footer %>
 <%= page_end %>

@@ -1,60 +1,44 @@
-class CustomersController < ApplicationController
-  include InitializeOrganization
+class CustomersController < OrganizationsController
 
-  before_action :set_organization, only: [:index, :new]
-  before_action :set_customer_and_organization, only: [:show, :update, :destroy]
-  before_action :set_customer, only: [:edit]
-  before_action :set_org_id, only: [:create]
+  before_action :set_parent_from_url, only: [:index, :new, :show, :update, :destroy, :create]
+  before_action :set_edit_parent_from_url, only: [:new,  :edit]
+  before_action :initialize_resource, only: [:show, :update, :destroy, :edit]
+  before_action :initialize_new_resource, only: [:new]
+  before_action :create_new_resource, only: [:create]
+  before_action :initialize_resource_collection, only: [:index]
 
-
-  # GET /customers.json
-
-  # GET organizations/1/customers
+  # GET process_owners/1/customers
   def index
-    @customers = @organization.customers.all
   end
 
-  # GET /customers/1
-  # GET /customers/1.json
+  # GET process_owners/1/customers/4
   def show
   end
 
-  # GET organization/1/customers/new
-  #
+  # GET process_owners/1/customers/new
   def new
-    @customer = Customer.new
-    # create an array of current customers so we don't add them in again....
-    array = ( !!@organization.customers.empty? ? [] : @organization.customers.map(&:id) ) << @organization.id
-    @dropdown = Organization.where.not( id: array).order( name: :asc )
-
   end
-  # GET /customers/1/edit
-  # organizations/16/customers/11/edit
+
+  # GET process_owners/1/customers/4/edit
   def edit
+
   end
 
-  # POST /customers
-  # POST /customers.json
+  # POST /process_owners/1/customers/4/create
   def create
-
-    @organization = Organization.find( organization_params[:id] )
-    if !params[:customer][:id].empty?
-      @partner = Organization.find( customer_params[:id] )
+    if !!params[:customer][:id].present? then
+      @sql = RelatedOrg.create( { partner_id: params[:customer][:id], process_owner_id: @parent.id, partner_type: 'Customer' } )
+      @resource = @parent.customers.last
     else
-      @partner = Organization.create( customer_params )
+      @resource = @parent.customers.create( customer_params )
     end
-    @customer = Customer.new( partner_id: @partner.id, organization_id: @org_id, partner_type: 'Customer' )
-
-
     respond_to do |format|
-      if @customer.save
-        format.html { redirect_to organization_path( @organization ), notice: 'customer was successfully created.' }
-        format.json { render :show, status: :created, location: @customer }
+      if @resource.save
+        format.html { redirect_to process_owner_path( @parent ), notice: 'Customer successfully created.' }
+        format.json { render :show, status: :created, location: @resource }
       else
-        #  organization = Organization.create( customer_params[:organization_attributes] )
-        # @customer = organization.customers.build( customer_params )
         format.html { render :new  }
-        format.json { render json: @customer.errors, status: :unprocessable_entity }
+        format.json { render json: @resource.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -63,12 +47,12 @@ class CustomersController < ApplicationController
   # PATCH/PUT /customers/1.json
   def update
     respond_to do |format|
-      if @customer.update( customer_params )
-        format.html { redirect_to organization_path( @organization ), notice: 'customer was successfully updated.' }
-        format.json { render :show, status: :ok, location: @customer }
+      if @resource.update( customer_params )
+        format.html { redirect_to process_owner_path( @parent ), notice: 'Customer was successfully updated.' }
+        format.json { render :show, status: :ok, location: @resource }
       else
         format.html { render :edit }
-        format.json { render json: @customer.errors, status: :unprocessable_entity }
+        format.json { render json: @resource.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -76,46 +60,57 @@ class CustomersController < ApplicationController
   # DELETE /customers/1
   # DELETE /customers/1.json
   def destroy
-    @customer = @organization.customers.find( params[:id])
-    @customer.destroy
+    @resource = @parent.customers.find( params[:id])
+    @resource.destroy
     respond_to do |format|
-      format.html { redirect_to organization_path( @organization ), notice: 'customer was successfully deleted.' }
+      format.html { redirect_to process_owner_path( @parent ), notice: 'customer was successfully deleted.' }
       format.json { head :no_content }
     end
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
-  #  Ser customer applies to everthing except 'new'
-  # Set organization should not be done for 'edit' because routing is not set up (shallow) f
-  # params[:organization_id] || organization_params[:id] || @customer.organization_id
-  # params[:organization_is] is set when we come here from an organization
-  # organization_params is set after editing
-  # if jsut coming here from a customer, then @customer.organization_id is set.
-  def set_customer
-    @customer = Customer.find( params[:id] )
-    @org_id = @customer.organization_id
-  end
-  def set_organization
-    @organization = Organization.find( params[:organization_id] )
-    @org_id = @organization.id
-  end
-  def set_customer_and_organization
-    set_customer()
-    @organization = Organization.find( @customer.organization_id )
-  end
-  def set_org_id
-    @org_id =  params[:organization_id] || organization_params[:id]
-  end
 
+  def set_parent_from_url
+    @parent = ProcessOwner.find( params[:process_owner_id] || params[:process_owner][:id] )
+  end
+  def set_edit_parent_from_url
+    @edit_parent = ProcessOwner.find( params[:process_owner_id] )
+  end
+  def initialize_resource
+    @resource = Customer.find( params[:id] )
+  end
+  def initialize_new_resource
+    @resource = @parent.customers.new
+  end
+  def initialize_resource_collection
+    @resources = @parent.customers.all
+  end
+  def create_new_resource
+  end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def customer_params
-    params.require(:customer).permit(:id, :partner_id, :organization_id, :partner_type, :name, :address1, :address2, :city, :state, :city_and_state, :latitude, :longitude, :country)
+    params.require(:customer).permit(
+        :id,
+        :partner_id,
+        :process_owner_id,
+        :partner_type,
+        :name,
+        :address1,
+        :address2,
+        :city,
+        :state,
+        :country,
+        :city_and_state,
+        :latitude,
+        :longitude
+    )
   end
 
-  def organization_params
-    params.require(:organization).permit(:id );
+  def process_owner_params
+    params.require(:process_owner).permit(
+        :id
+    );
   end
 
 end

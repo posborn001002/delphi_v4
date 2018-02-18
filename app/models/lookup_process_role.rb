@@ -1,0 +1,2 @@
+class LookupProcessRole < Lookup
+end

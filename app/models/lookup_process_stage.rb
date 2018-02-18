@@ -1,0 +1,2 @@
+class LookupProcessStage < Lookup
+end

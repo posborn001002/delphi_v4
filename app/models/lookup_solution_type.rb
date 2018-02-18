@@ -1,0 +1,2 @@
+class LookupSolutionType < Lookup
+end

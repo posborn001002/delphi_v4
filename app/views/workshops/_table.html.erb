@@ -4,26 +4,26 @@
       <thead>
       <tr>
         <th colspan="3">
-          <%= small_button( { label: 'New Workshop', path: new_organization_workshop_path( @organization ), class: 'right' } ) %>
+          <%= small_button( { label: 'New Workshop', path: new_workshop_path( parent ), class: 'right' } ) %>
         </th>
       </tr>
       </thead>
       <tbody>
-      <% resource.each do |workshop| %>
+      <% resources.each do |row| %>
         <tr>
           <td>
-            <span>Goal: <%= workshop.capability_goal %></span>
-            <span>Process Name: <%= workshop.process_name %></span>
-            <span>Process Description: <%= workshop.process_description %></span>
-            <span>Left Boundary: <%= workshop.left_boundary %></span>
-            <span>Right Boundary: <%= workshop.right_boundary %></span>
+            <span>Goal: <%= row.capability_goal %></span>
+            <span>Process Name: <%= row.process_name %></span>
+            <span>Process Description: <%= row.process_description %></span>
+            <span>Left Boundary: <%= row.left_boundary %></span>
+            <span>Right Boundary: <%= row.right_boundary %></span>
             <span class="five-eigths">
                 <span class="text">Facilitator: Paul Osborn</span>
                 <span class="text">Host: Freda Birke</span>
                 <span class="links">
-                  <%= link_to 'View', workshop_path( workshop ), class: 'link' %>&nbsp;|&nbsp;
-                  <%= link_to 'Edit', edit_workshop_path( workshop ), class: 'link' %>&nbsp;|&nbsp;
-                  <%= link_to '<i class="glyphicon glyphicon-remove"></i>Delete'.html_safe, [workshop], method: :delete, data: { confirm: 'Are you sure?' }, class: 'txt-color-red' %>
+                  <%= link_to 'View', workshop_path( row ), class: 'link' %>&nbsp;|&nbsp;
+                  <%= link_to 'Edit', edit_workshop_path( row ), class: 'link' %>&nbsp;|&nbsp;
+                  <%= link_to '<i class="glyphicon glyphicon-remove"></i>Delete'.html_safe, [row], method: :delete, data: { confirm: 'Are you sure?' }, class: 'txt-color-red' %>
                 </span>
             </span>
           </td>

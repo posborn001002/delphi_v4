@@ -1,0 +1,2 @@
+class LookupProjectRole < Lookup
+end

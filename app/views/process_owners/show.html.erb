@@ -1,0 +1,18 @@
+<!-- CONTENT: process_owners/show.html -->
+<%= page_title( { title: 'Process Owner Profile' } ) %>
+    <%= render 'profile', resource: @resource  %>
+  <%= section_title title: 'Employees' %>
+    <%= render 'people/table', resources: @resource.people, parent: @resource %>
+  <%= section_title title: 'Customers' %>
+    <%= render 'customers/table', resources: @resource.customers, parent: @resource %>
+  <%= section_title title: 'Customer Jobs' %>
+    <%= render 'customer_jobs/table', resources: @resource.customer_jobs, parent: @resource %>
+  <%= section_title title: 'Suppliers' %>
+    <%= render 'suppliers/table', resources: @resource.suppliers, parent: @resource %>
+  <%= section_title title: 'Supplier Orders' %>
+    <%= render 'suppliers/table', resources: @resource.supplier_orders, parent: @resource %>
+  <%= section_title title: 'Status Updates'  %>
+    <%= link_to 'New Update', new_process_owner_update_path( @resource ), class: 'btn btn-primary' %>
+    <%= render partial: 'status_updates/status_update', collection: @resource.process_owner_updates.sort_by_date %>
+<%= page_footer() %>
+<%= page_end() %>

@@ -5,20 +5,20 @@
       <thead>
         <tr>
           <th>
-            <span><%= small_button( { label: 'Enter a New Job', path: new_organization_customer_job_path( @organization ), class: 'right'} ) %></span>
+            <span><%= small_button( { label: 'Enter a New Job', path: new_process_owner_customer_job_path( parent ), class: 'right'} ) %></span>
           </th>
         </tr>
       </thead>
       <tbody>
-      <% resource.each do |job| %>
+      <% resources.each do |row| %>
         <tr>
           <td >
-            <span class="name"><%= job.job_name %></span>
-            <span class="reference"><%= job.ref_number %></span>
+            <span class="name"><%= row.job_name %></span>
+            <span class="reference"><%= row.ref_number %></span>
             <span class="links">
-              <%= link_to 'View', customer_job_path( job ), class: 'link' %>&nbsp;|&nbsp;
-              <%= link_to 'Edit', edit_customer_job_path(  job ), class: 'link' %>&nbsp;|&nbsp;
-              <%= link_to '<i class="glyphicon glyphicon-remove"></i>Delete'.html_safe, job, method: :delete, data: { confirm: 'Are you sure?' }, class: 'txt-color-red' %>
+              <%= link_to 'View', process_owner_customer_job_path( parent, row ), class: 'link' %>&nbsp;|&nbsp;
+              <%= link_to 'Edit', edit_process_owner_customer_job_path( parent, row ), class: 'link' %>&nbsp;|&nbsp;
+              <%= link_to '<i class="glyphicon glyphicon-remove"></i>Delete'.html_safe, row, method: :delete, data: { confirm: 'Are you sure?' }, class: 'txt-color-red' %>
             </span>
           </td>
         </tr>

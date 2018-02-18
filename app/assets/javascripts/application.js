@@ -19,12 +19,6 @@
 
 
 //= require delphi.js
-//= require organizations.js
-//= require organizations.coffee
-//= require customer_jobs.js
-//= require customer_jobs.coffee
-//= require people.js
-//= require people.coffee
 
 // IMPORTANT: APP CONFIG
 //= require app.config

@@ -6,89 +6,87 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root 'organizations#show'
+  root 'organizations#index'
 
   # Delphi
-  get 'customer_jobs/:id/history',
-    to: 'customer_jobs#history',
-    as: 'history_of'
 
-  get 'organization',
-      to: 'organizations#show',
-      as: 'mycompany'
-
-      ## Customers
-  shallow do
-    resources :organizations do
-      resources :people
-      resources :customers
-      resources :suppliers
-      resources :customer_jobs
-      resources :supplier_orders
-      resources :workshops
-    end
+  resources :organizations do
+    resources :users
+    resources :people
   end
+
+
+  ## Process Owners
+  resources :process_owners do
+    resources :people
+    resources :users
+    resources :customers
+    resources :suppliers
+    resources :customer_jobs
+    resources :supplier_orders
+    resources :workshops
+  end
+
+
+  resources :action_result_updates
+  resources :customer_job_updates
+  resources :customer_updates
+  resources :metric_updates
+  resources :pain_point_updates
+  resources :process_owner_updates
+  resources :supplier_updates
+  resources :supplier_order_updates
+  resources :toe_tag_updates
+  resources :workshop_updates
 
   ## Customers
-  shallow do
-    resources :customers do
-      resources :customer_jobs
-      resources :contacts
-    end
-  shallow do
-    resources :customer_jobs do
-      resources :action_results
-      resources :status_updates
-    end
+  resources :customers do
+    resources :customer_jobs
+    resources :contacts
+    resources :users
   end
-
+  resources :customer_jobs do
+    resources :action_results
+    resources :status_updates
+    resources :customer_job_updates
+  end
   ## Suppliers
+  resources :suppliers do
+    resources :supplier_orders
+    resources :users
+    resources :contacts
   end
-  shallow do
-    resources :suppliers do
-      resources :supplier_orders
-      resources :contacts
-    end
+  resources :supplier_orders do
+    resources :action_results
+    resources :status_updates
   end
-  shallow do
-    resources :supplier_orders do
-      resources :action_results
-      resources :status_updates
-    end
+  resources :people do
+    resources :status_updates
+    resources :pain_point_updates
+    resources :metrics
   end
-
-  shallow do
-    resources :people do
-      resources :updates
-      resources :pain_point_updates
-      resources :metrics
-    end
+  resources :workshops do
+    resources :workshop_updates
   end
-
-  ## Workshops
-  shallow do
-    resources :workshops do
-      resources :action_results
-      resources :pain_points
-    end
+  resources :workshops do
+    resources :action_results
+    resources :toe_tags
+    resources :pain_points
   end
-  shallow do
-    resources :action_results do
-      resources :toe_tags
-      resources :pain_points
-      resources :updates
-      resources :measurements
-    end
+  resources :action_results do
+    resources :toe_tags
+    resources :pain_points
+    resources :updates
+    resources :measurements
   end
-  shallow do
-    resources :pain_points do
-      resources :pain_point_updates
-    end
+  resources :toe_tags do
+    resources :status_updates
   end
-  shallow do
-    resources :metrics do
-      resources :measurements
-    end
+  resources :pain_points do
+    resources :pain_point_updates
+  end
+  resources :metrics do
+    resources :measurements
   end
 
   # Main Object Navigation

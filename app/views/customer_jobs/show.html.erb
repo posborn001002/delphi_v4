@@ -1,8 +1,11 @@
 <!-- CONTENT: customer_jobs/show.html -->
-<%= page_title() %>
-  <%= render 'profile', resource: @customer_job %>
-  <%= render partial: 'status_updates/status_update', collection: @status_updates %>
+<%= page_title title: 'Customer Job' %>
+  <%= render 'profile', resource: @resource, parent: @parent %>
+  <%= render 'people/table', resources: @resource.people, parent: @resource %>
+  <%= section_title title: 'Status Updates' %>
+    <%= link_to 'New Update', new_customer_job_customer_job_update_path( @resource ), class: 'btn btn-primary' %>
+    <%= render partial: 'status_updates/status_update', collection: @resource.customer_job_updates.sort_by_date %>
 <%= page_footer() %>
   <%= back_button( { path: customer_jobs_path, class: "left"  }) %>
-  <%= edit_button( { path: edit_customer_job_path( @customer_job ), buttonType: 'primary', class: "right" } ) %>
+  <%= edit_button( { path: edit_customer_job_path( @resource ), buttonType: 'primary', class: "right" } ) %>
 <%= page_end() %>

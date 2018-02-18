@@ -1,33 +1,9 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Toe Tags</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Priority</th>
-      <th>Big/Small</th>
-      <th>Solution</th>
-      <th>Success Measurement</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @toe_tags.each do |toe_tag| %>
-      <tr>
-        <td><%= toe_tag.priority %></td>
-        <td><%= toe_tag.big_small_now %></td>
-        <td><%= toe_tag.solution %></td>
-        <td><%= toe_tag.success_measurement %></td>
-        <td><%= link_to 'Show', toe_tag %></td>
-        <td><%= link_to 'Edit', edit_toe_tag_path(toe_tag) %></td>
-        <td><%= link_to 'Destroy', toe_tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Toe Tag', new_toe_tag_path %>
+<!-- CONTENT: toe_tags/index.html -->
+<%= page_title( { title: 'Improvement Plan' } ) %>
+<div class="list-group">
+  <%= render @toe_tags %>
+</div> <!--End of List Group -->
+<%= page_footer %>
+  <%= back_button label: 'Workshop', path: workshop_path( @parent ), buttonType: 'primary', class: 'left'  %>
+  <%= back_button label: 'My Profile', path: process_owner_path( @process_owner ), buttonType: 'primary', class: 'left'  %>
+<%= page_end %>

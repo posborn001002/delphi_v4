@@ -1,0 +1,29 @@
+<!-- render toe_tag/_table.html -->
+<div class="row">
+  <div class="col table-responsive">
+    <table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox data-table">
+      <thead>
+      <tr>
+        <th>
+          <span><%= small_button( { label: 'New Toe Tag', path: new_workshop_toe_tag_path( parent ), class: 'right'} ) %></span>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <% resources.each do |row| %>
+        <tr>
+          <td>
+            <span class="solution"><%= row.solution %></span>
+            <span class="priority"><%= row.priority %>: </span><span class="big_small"><%= row.big_small_now %></span>
+            <span class="links">
+              <%= link_to 'Show', workshop_toe_tags_path( row ) %> |
+              <%= link_to 'Edit', edit_toe_tag_path(row) %> |
+              <%= link_to 'Destroy', row, method: :delete, data: {confirm: 'Are you sure?'} %>
+             </span>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

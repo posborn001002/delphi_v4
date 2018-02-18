@@ -1,5 +1,6 @@
-<h1>New Pain Point</h1>
-
-<%= render 'form', pain_point: @pain_point %>
-
-<%= link_to 'Back', pain_points_path %>
+<!-- CONTENT: pain_points/new,html -->
+<%= page_title( { title: 'New Point of Pain', form_for: @pain_point } ) %>
+  <%= render 'form', resource: @pain_point, dropdown: @dropdown %>
+<%= page_footer() %>
+  <%= back_button( { path: workshop_path( @parent ) }) %>
+<%= page_end() %>

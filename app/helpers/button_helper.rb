@@ -2,7 +2,7 @@ module ButtonHelper
 
   def back_button( args = {} )
     args[:label] || args[:label]  = "Back";
-    args[:path] || args[:path]  = eval( "organizations_path" );
+    args[:path] || args[:path]  = eval( "ProcessOwners_path" );
     args[:buttonType] || args[:buttonType]  = "primary";
     args[:class] || args[:class]  = "";
 
@@ -14,7 +14,7 @@ module ButtonHelper
 
   def edit_button( args = {} )
     args[:label] || args[:label]  = "Edit";
-    args[:path] || args[:path]  = eval( "organizations_path" );
+    args[:path] || args[:path]  = eval( "ProcessOwners_path" );
     args[:buttonType] || args[:buttonType]  = "primary";
     args[:class] || args[:class]  = "";
 

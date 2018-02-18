@@ -1,5 +1,5 @@
-class PainPointUpdate < ApplicationRecord
-  belongs_to :pain_point
-  belongs_to :progress_id, polymorphic: true
+class PainPointUpdate < StatusUpdate
+
+  belongs_to :pain_point, inverse_of: :pain_point_updates
 
 end

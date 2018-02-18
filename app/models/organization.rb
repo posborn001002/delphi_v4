@@ -1,34 +1,20 @@
 class Organization < ApplicationRecord
   validates :name, presence: true
+  self.inheritance_column = :_type_disabled
 
+  ## THIS WORKS - creates a user, a person, and an ProcessOwner
+  # user_2 = User.create( { email: 'brae@obmfg.com', password: 'letmein',
+  # person_attributes: { first_name: 'Brian', last_name: 'Rae', job_title: 'Operations Manager', telephone: '123-456',
+  # 	ProcessOwner_attributes: { name: 'Out of The Box Manufacturing', address1: '1600 SW 43rd St Suite 200', city: 'Renton', state: 'WA', zip: '98057', country: 'United States'}
+  # 	}
+  # } )
+  #
 
-  has_many :people
+  has_many :people, inverse_of: :organization
   accepts_nested_attributes_for :people
 
-  has_many :users, inverse_of: :organization
+  has_many :users, through: :people, inverse_of: :organization
+   accepts_nested_attributes_for :users
 
-  has_many :workshops
-  accepts_nested_attributes_for :workshops
-
-  has_many :toe_tags
-  has_many :pain_points
-
-  has_many :customer_associations,  -> {where partner_type: "Customer" }, :class_name => "Customer"
-  has_many :customers, :through => :customer_associations, :source => :related_org
-  accepts_nested_attributes_for :customers
-
-   has_many :customer_jobs, inverse_of: :organization
-   accepts_nested_attributes_for :customer_jobs
-
-  # has_many :inverse_customers, :class_name => "RelatedOrg", :foreign_key => "partner_id"
-  # has_many :inverse_related_orgs, :through => :inverse_customers, :source => :organization
-
-  has_many :supplier_associations,  -> {where partner_type: "Supplier" }, :class_name => "Supplier"
-  has_many :suppliers, :through => :supplier_associations, :source => :related_org
-#  has_many :inverse_customers, :class_name => "RelatedOrg", :foreign_key => "partner_id"
-#  has_many :inverse_related_orgs, :through => :inverse_customers, :source => :organization
-
- # has_many :supplier_orders, through: :suppliers, inverse_of: :organization
-  # accepts_nested_attributes_for :customer_jobs
 
 end

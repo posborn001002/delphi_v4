@@ -1,27 +1,33 @@
-<%= form_with(model: pain_point, local: true) do |form| %>
-  <% if pain_point.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(pain_point.errors.count, "error") %> prohibited this pain_point from being saved:</h2>
+<!-- render people/new.html -->
+<div class="row">
+  <div class="col-sm">
+    <%= form_with( model: [ resource ] , local: true, class: 'smart-form', html: { novalidate: 'novalidate' } ) do |form| %>
+      <fieldset>
 
-      <ul>
-      <% pain_point.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+        <div class="row">
+          <div class="col-sm">
+            <%= collection_select( :pain_point, :action_result_id, dropdown, :id, :name, {:prompt =>'Which Action Result Location?'} ) %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm mr-sm-3">
+            <%= delphi_text_field( form, { label: 'Job Name', name: :job_name} ) %>
+          </div>
+          <div class="col-sm">
+            <%= delphi_text_field( form,{ label: 'Reference #', name: :symptom} ) %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <%= delphi_text_area(form, { label: 'Job Description', name: :impact} ) %>
+          </div>
+        </div>
+      </fieldset>
 
-  <div class="field">
-    <%= form.label :Workshop_id %>
-    <%= form.text_field :Workshop_id, id: :pain_point_Workshop_id %>
+      <footer>
+        <%= submit_button( form, { buttonType: 'primary', icon: 'glyphicon-save'}) %>
+      </footer>
+
+    <% end %>`
   </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :pain_point_description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

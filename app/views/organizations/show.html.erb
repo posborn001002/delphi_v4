@@ -1,17 +1,9 @@
-<!-- CONTENT: organizations/show.html -->
+<!-- CONTENT: Organizations/show.html -->
 <%= page_title( { title: 'Organization Profile' } ) %>
-      <%= render 'profile', resource: @organization  %>
-    <%= section_title( { title: 'Employees & Contacts' }) %>
-      <%= render 'people/table', resource:  @people %>
-    <%= section_title( { title: 'Workshops' }) %>
-      <%= render 'workshops/table',resource:  @workshops %>
-    <%= section_title( { title: 'Jobs' }) %>
-      <%= render 'customer_jobs/table', resource:  @customer_jobs %>
-    <%= section_title( { title: 'Customers' }) %>
-      <%= render 'customers/table', resource:  @customers %>
-    <%= section_title( { title: 'Suppliers' }) %>
-      <%= render 'suppliers/table', resource:  @suppliers %>
+      <%= render 'profile', resource: @resource  %>
+    <%= section_title( { title: 'Employees' }) %>
+      <%= render 'people/table', resources: @resource.people, parent: @resource %>
 <%= page_footer() %>
   <%= back_button( { label: 'All Organizations', path: organizations_path, buttonType: 'primary', class: 'left' }) %>
-  <%= edit_button( { path: edit_organization_path( @org_id ), buttonType: 'primary', class: 'right' } ) %>
+  <%= edit_button( { path: edit_organization_path( @resource ), buttonType: 'primary', class: 'right' } ) %>
 <%= page_end() %>

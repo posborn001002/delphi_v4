@@ -15,9 +15,9 @@
       <div class="col-sm">
         <div class="row">
           <div class="col-sm">
-            <%= link_to 'New Update', new_customer_job_status_update_path( customer_job ), class: 'btn btn-primary' %>
-            <%= link_to 'View', customer_job_path( customer_job ), class: 'link' %>&nbsp;|&nbsp;
-            <%= link_to 'Edit', edit_customer_job_path(  customer_job ), class: 'link' %>&nbsp;|&nbsp;
+            <%= link_to 'New Update', new_customer_job_customer_job_update_path( customer_job ), class: 'btn btn-primary' %>
+            <%= link_to 'View', process_owner_customer_job_path( parent, customer_job ), class: 'link' %>&nbsp;|&nbsp;
+            <%= link_to 'Edit', edit_process_owner_customer_job_path(  parent, customer_job ), class: 'link' %>&nbsp;|&nbsp;
             <%= link_to '<i class="glyphicon glyphicon-remove"></i>Delete'.html_safe, customer_job, method: :delete, data: { confirm: 'Are you sure?' }, class: 'txt-color-red' %>
             <div class="job_description">
               <%= customer_job.job_description %>
@@ -25,7 +25,7 @@
           </div>
         </div>
 
-        <% @status_updates = StatusUpdate.sort_by_date(["job_order_id = ? and job_order_type = ?", customer_job.id, 'Customer' ], 2 ) %>
+        <% @status_updates = CustomerJobUpdate.sort_by_date %>
         <%= render partial: 'status_updates/status_update', collection: @status_updates %>
 
       </div>

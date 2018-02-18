@@ -1,6 +1,6 @@
 <!-- CONTENT: people/edit -->
-<%= page_title( { title: @person.first_name + ' ' + @person.last_name, form_for: @person } ) %>
-  <%= render 'form', resource: @person %>
+<%= page_title( { title: @resource.first_name + ' ' + @resource.last_name, form_for: @person } ) %>
+  <%= render 'form', resource: @resource, parent: @parent %>
 <%= page_footer() %>
-  <%= back_button({ path: organization_path(  @org_id ), label: 'Back' }) %>
+  <%= back_button({ path: organization_path(  @parent ), label: 'Back' }) %>
 <%= page_end() %>

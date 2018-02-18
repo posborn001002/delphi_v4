@@ -10,22 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180204022542) do
+ActiveRecord::Schema.define(version: 20180217193548) do
 
   create_table "action_results", force: :cascade do |t|
-    t.integer "organization_id"
     t.integer "workshop_id"
+    t.integer "lookup_process_stage_id"
     t.integer "ar_number"
     t.string "action"
     t.string "result"
     t.boolean "active", default: true
-    t.integer "version", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["active"], name: "index_action_results_on_active"
     t.index ["ar_number"], name: "index_action_results_on_ar_number"
-    t.index ["organization_id"], name: "index_action_results_on_organization_id"
-    t.index ["version"], name: "index_action_results_on_version"
+    t.index ["lookup_process_stage_id"], name: "index_action_results_on_lookup_process_stage_id"
     t.index ["workshop_id"], name: "index_action_results_on_workshop_id"
   end
 
@@ -43,26 +41,30 @@ ActiveRecord::Schema.define(version: 20180204022542) do
     t.index ["supplier_order_id"], name: "index_action_results_supplier_orders_on_supplier_order_id"
   end
 
-  create_table "attendees", id: false, force: :cascade do |t|
-    t.integer "workshop_id", null: false
-    t.integer "person_id", null: false
-    t.index ["person_id"], name: "index_attendees_on_person_id"
-    t.index ["workshop_id"], name: "index_attendees_on_workshop_id"
+  create_table "comments", force: :cascade do |t|
+    t.integer "status_update_id"
+    t.integer "comment_id"
+    t.integer "person_id"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_comments_on_comment_id"
+    t.index ["person_id"], name: "index_comments_on_person_id"
+    t.index ["status_update_id"], name: "index_comments_on_status_update_id"
   end
 
   create_table "customer_jobs", force: :cascade do |t|
-    t.integer "organization_id"
+    t.integer "process_owner_id"
     t.integer "customer_id"
     t.string "job_name"
     t.text "job_description"
     t.string "ref_number"
     t.boolean "active", default: true
-    t.boolean "index", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["active"], name: "index_customer_jobs_on_active"
     t.index ["customer_id"], name: "index_customer_jobs_on_customer_id"
-    t.index ["organization_id"], name: "index_customer_jobs_on_organization_id"
+    t.index ["process_owner_id"], name: "index_customer_jobs_on_process_owner_id"
   end
 
   create_table "date_lookups", force: :cascade do |t|
@@ -78,15 +80,32 @@ ActiveRecord::Schema.define(version: 20180204022542) do
     t.index ["date"], name: "index_date_lookups_on_date"
   end
 
-  create_table "job_contacts", id: false, force: :cascade do |t|
-    t.integer "customer_job_id", null: false
-    t.integer "person_id", null: false
-    t.index ["customer_job_id"], name: "index_job_contacts_on_customer_job_id"
-    t.index ["person_id"], name: "index_job_contacts_on_person_id"
+  create_table "group_associations", force: :cascade do |t|
+    t.string "type"
+    t.integer "person_id"
+    t.integer "workshop_id"
+    t.integer "customer_job_id"
+    t.integer "supplier_order_id"
+    t.integer "toe_tag_id"
+    t.integer "lookup_id"
+    t.index ["customer_job_id"], name: "index_group_associations_on_customer_job_id"
+    t.index ["lookup_id"], name: "index_group_associations_on_lookup_id"
+    t.index ["person_id"], name: "index_group_associations_on_person_id"
+    t.index ["supplier_order_id"], name: "index_group_associations_on_supplier_order_id"
+    t.index ["toe_tag_id"], name: "index_group_associations_on_toe_tag_id"
+    t.index ["workshop_id"], name: "index_group_associations_on_workshop_id"
+  end
+
+  create_table "lookups", force: :cascade do |t|
+    t.string "type"
+    t.integer "sequence"
+    t.string "short_text"
+    t.string "long_text"
+    t.text "description"
   end
 
   create_table "measurements", force: :cascade do |t|
-    t.integer "organization_id"
+    t.integer "process_owner_id"
     t.integer "date_lookup_id"
     t.integer "metric_id"
     t.integer "person_id"
@@ -97,12 +116,12 @@ ActiveRecord::Schema.define(version: 20180204022542) do
     t.index ["active"], name: "index_measurements_on_active"
     t.index ["date_lookup_id"], name: "index_measurements_on_date_lookup_id"
     t.index ["metric_id"], name: "index_measurements_on_metric_id"
-    t.index ["organization_id"], name: "index_measurements_on_organization_id"
     t.index ["person_id"], name: "index_measurements_on_person_id"
+    t.index ["process_owner_id"], name: "index_measurements_on_process_owner_id"
   end
 
   create_table "metrics", force: :cascade do |t|
-    t.integer "organization_id"
+    t.integer "process_owner_id"
     t.integer "action_result_id"
     t.string "name"
     t.string "datatype"
@@ -111,14 +130,7 @@ ActiveRecord::Schema.define(version: 20180204022542) do
     t.datetime "updated_at", null: false
     t.index ["action_result_id"], name: "index_metrics_on_action_result_id"
     t.index ["active"], name: "index_metrics_on_active"
-    t.index ["organization_id"], name: "index_metrics_on_organization_id"
-  end
-
-  create_table "order_contacts", id: false, force: :cascade do |t|
-    t.integer "supplier_job_id", null: false
-    t.integer "person_id", null: false
-    t.index ["person_id"], name: "index_order_contacts_on_person_id"
-    t.index ["supplier_job_id"], name: "index_order_contacts_on_supplier_job_id"
+    t.index ["process_owner_id"], name: "index_metrics_on_process_owner_id"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -133,49 +145,24 @@ ActiveRecord::Schema.define(version: 20180204022542) do
     t.decimal "latitude"
     t.string "city_and_state"
     t.boolean "active", default: true
-    t.boolean "process_owner", default: true
+    t.boolean "process_owner", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["active"], name: "index_organizations_on_active"
     t.index ["process_owner"], name: "index_organizations_on_process_owner"
   end
 
-  create_table "pain_point_updates", force: :cascade do |t|
-    t.integer "organization_id"
-    t.integer "pain_point_id"
-    t.integer "progress_id"
-    t.integer "pass_fail_status"
-    t.boolean "active", default: true
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["active"], name: "index_pain_point_updates_on_active"
-    t.index ["organization_id"], name: "index_pain_point_updates_on_organization_id"
-    t.index ["pain_point_id"], name: "index_pain_point_updates_on_pain_point_id"
-    t.index ["progress_id"], name: "index_pain_point_updates_on_progress_id"
-  end
-
   create_table "pain_points", force: :cascade do |t|
-    t.integer "organization_id"
-    t.integer "workshop_id"
     t.integer "action_result_id"
     t.integer "toe_tag_id"
     t.text "symptom"
     t.text "impact"
-    t.boolean "active"
+    t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["action_result_id"], name: "index_pain_points_on_action_result_id"
     t.index ["active"], name: "index_pain_points_on_active"
-    t.index ["organization_id"], name: "index_pain_points_on_organization_id"
     t.index ["toe_tag_id"], name: "index_pain_points_on_toe_tag_id"
-    t.index ["workshop_id"], name: "index_pain_points_on_workshop_id"
-  end
-
-  create_table "pain_points_toe_tags", id: false, force: :cascade do |t|
-    t.integer "toe_tag_id", null: false
-    t.integer "pain_point_id", null: false
-    t.index ["pain_point_id"], name: "index_pain_points_toe_tags_on_pain_point_id"
-    t.index ["toe_tag_id"], name: "index_pain_points_toe_tags_on_toe_tag_id"
   end
 
   create_table "people", force: :cascade do |t|
@@ -183,10 +170,9 @@ ActiveRecord::Schema.define(version: 20180204022542) do
     t.integer "user_id"
     t.string "first_name"
     t.string "last_name"
-    t.string "email"
     t.string "telephone"
     t.string "job_title"
-    t.boolean "active", default: false
+    t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["active"], name: "index_people_on_active"
@@ -195,20 +181,27 @@ ActiveRecord::Schema.define(version: 20180204022542) do
   end
 
   create_table "related_orgs", force: :cascade do |t|
-    t.integer "organization_id"
+    t.integer "process_owner_id"
     t.string "partner_type"
     t.integer "partner_id"
-    t.index ["organization_id"], name: "index_related_orgs_on_organization_id"
     t.index ["partner_type", "partner_id"], name: "index_related_orgs_on_partner_type_and_partner_id"
+    t.index ["process_owner_id"], name: "index_related_orgs_on_process_owner_id"
   end
 
   create_table "status_updates", force: :cascade do |t|
-    t.integer "organization_id"
     t.integer "date_lookup_id"
     t.integer "person_id"
+    t.integer "process_owner_id"
+    t.integer "customer_id"
+    t.integer "supplier_id"
+    t.integer "customer_job_id"
+    t.integer "supplier_order_id"
+    t.integer "toe_tag_id"
     t.integer "action_result_id"
-    t.string "job_order_type"
-    t.integer "job_order_id"
+    t.integer "pain_point_id"
+    t.integer "workshop_id"
+    t.integer "metric_id"
+    t.text "type"
     t.text "attachment"
     t.text "text"
     t.boolean "active", default: true
@@ -216,14 +209,21 @@ ActiveRecord::Schema.define(version: 20180204022542) do
     t.datetime "updated_at", null: false
     t.index ["action_result_id"], name: "index_status_updates_on_action_result_id"
     t.index ["active"], name: "index_status_updates_on_active"
+    t.index ["customer_id"], name: "index_status_updates_on_customer_id"
+    t.index ["customer_job_id"], name: "index_status_updates_on_customer_job_id"
     t.index ["date_lookup_id"], name: "index_status_updates_on_date_lookup_id"
-    t.index ["job_order_type", "job_order_id"], name: "index_status_updates_on_job_order_type_and_job_order_id"
-    t.index ["organization_id"], name: "index_status_updates_on_organization_id"
+    t.index ["metric_id"], name: "index_status_updates_on_metric_id"
+    t.index ["pain_point_id"], name: "index_status_updates_on_pain_point_id"
     t.index ["person_id"], name: "index_status_updates_on_person_id"
+    t.index ["process_owner_id"], name: "index_status_updates_on_process_owner_id"
+    t.index ["supplier_id"], name: "index_status_updates_on_supplier_id"
+    t.index ["supplier_order_id"], name: "index_status_updates_on_supplier_order_id"
+    t.index ["toe_tag_id"], name: "index_status_updates_on_toe_tag_id"
+    t.index ["workshop_id"], name: "index_status_updates_on_workshop_id"
   end
 
   create_table "supplier_orders", force: :cascade do |t|
-    t.integer "organization_id"
+    t.integer "process_owner_id"
     t.integer "supplier_id"
     t.string "order_name"
     t.string "ref_number"
@@ -232,30 +232,21 @@ ActiveRecord::Schema.define(version: 20180204022542) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["active"], name: "index_supplier_orders_on_active"
-    t.index ["organization_id"], name: "index_supplier_orders_on_organization_id"
+    t.index ["process_owner_id"], name: "index_supplier_orders_on_process_owner_id"
     t.index ["supplier_id"], name: "index_supplier_orders_on_supplier_id"
   end
 
-  create_table "teams", id: false, force: :cascade do |t|
-    t.integer "toe_tag_id", null: false
-    t.integer "person_id", null: false
-    t.index ["person_id"], name: "index_teams_on_person_id"
-    t.index ["toe_tag_id"], name: "index_teams_on_toe_tag_id"
-  end
-
   create_table "toe_tags", force: :cascade do |t|
-    t.integer "organization_id"
     t.integer "workshop_id"
     t.integer "priority"
     t.string "big_small_now"
-    t.string "ADTE"
+    t.string "lookup_solution_type"
     t.string "solution"
     t.string "success_measurement"
     t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["active"], name: "index_toe_tags_on_active"
-    t.index ["organization_id"], name: "index_toe_tags_on_organization_id"
     t.index ["workshop_id"], name: "index_toe_tags_on_workshop_id"
   end
 
@@ -283,7 +274,7 @@ ActiveRecord::Schema.define(version: 20180204022542) do
 
   create_table "workshops", force: :cascade do |t|
     t.integer "date_lookup_id"
-    t.integer "organization_id"
+    t.integer "process_owner_id"
     t.text "capability_goal"
     t.text "process_name"
     t.text "process_description"
@@ -294,7 +285,7 @@ ActiveRecord::Schema.define(version: 20180204022542) do
     t.datetime "updated_at", null: false
     t.index ["active"], name: "index_workshops_on_active"
     t.index ["date_lookup_id"], name: "index_workshops_on_date_lookup_id"
-    t.index ["organization_id"], name: "index_workshops_on_organization_id"
+    t.index ["process_owner_id"], name: "index_workshops_on_process_owner_id"
   end
 
 end

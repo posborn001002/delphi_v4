@@ -6,25 +6,25 @@
         <thead>
         <tr>
           <th>
-            <span class="left">Organization</span>
+            <span class="left">organization</span>
             <span ><%= small_button( { path: :new_organization, class: 'right' } ) %></span>
 
           </th>
         </tr>
         </thead>
         <tbody>
-        <% resource.each do |organization| %>
+        <% resource.each do |loop| %>
           <tr>
             <td class="full">
-              <span class="name"><%= organization.name %></span>
+              <span class="name"><%= loop.name %></span>
               <span>
-                <%= organization.city %>, <%= organization.state %>
-                <%= organization.country %>
+                <%= loop.city %>, <%= loop.state %>
+                <%= loop.country %>
               </span>
               <span class="links">
-                <%= link_to 'Show', organization %> |
-                <%= link_to 'Edit', edit_organization_path(organization) %>|
-                <%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= link_to 'Show', loop %> |
+                <%= link_to 'Edit', edit_organization_path(loop) %>|
+                <%= link_to 'Destroy', loop, method: :delete, data: { confirm: 'Are you sure?' } %>
               </span>
             </td>
           </tr>

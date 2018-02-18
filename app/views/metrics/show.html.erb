@@ -1,19 +1,10 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Actionresult:</strong>
-  <%= @metric.ActionResult %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @metric.name %>
-</p>
-
-<p>
-  <strong>Datatype:</strong>
-  <%= @metric.datatype %>
-</p>
-
-<%= link_to 'Edit', edit_metric_path(@metric) %> |
-<%= link_to 'Back', metrics_path %>
+<!-- CONTENT: metrics/show.html -->
+<%= page_title( { title: 'Toe Tag' } ) %>
+  <%=  render 'table', resource: @resource, parent: @parent  %>
+<%= section_title title: 'Status Updates'  %>
+  <%= link_to 'New Update', new_metric_update_path( @resource ), class: 'btn btn-primary' %>
+  <%= render partial: 'status_updates/status_update', collection: @resource.metric_updates.sort_by_date %>
+<%= page_footer() %>
+<%= back_button( { label: 'My Profile', path: workshop_metrics_path( @parent ), buttonType: 'primary', class: 'left' }) %>
+<%= edit_button( { path: edit_metric_path( @resource ), buttonType: 'primary', class: 'right' } ) %>
+<%= page_end() %>

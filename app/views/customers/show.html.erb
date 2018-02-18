@@ -1,0 +1,10 @@
+<!-- CONTENT: customers/show.html -->
+<%= page_title( { title: 'Customer Profile' } ) %>
+    <%= render 'profile', resource: @resource  %>
+  <%= section_title title: 'Employees' %>
+    <%= render 'people/table', resources: @resource.people, parent: @resource %>
+  <%= section_title title: 'Status Updates'  %>
+    <%= link_to 'New Update', new_toe_tag_update_path( @resource ), class: 'btn btn-primary' %>
+    <%= render partial: 'status_updates/status_update', collection: @resource.customer_updates.sort_by_date %>
+<%= page_footer() %>
+<%= page_end() %>

@@ -1,0 +1,3 @@
+class GroupAssociation < ApplicationRecord
+
+end

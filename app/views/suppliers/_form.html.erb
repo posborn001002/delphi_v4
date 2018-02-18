@@ -1,0 +1,52 @@
+<!-- render customers/new.html -->
+<div class="row">
+  <div class="col-sm">
+    <%= form_with( model:  [parent, resource] , local: true, class: 'smart-form', html: { novalidate: 'novalidate' } ) do |form| %>
+      <fieldset>
+
+        <div class="hidden fields">
+          <%= hidden_field( :process_owner, :id, value:@edit_parent.id ) %>
+          <%= form.hidden_field :city, id: 'geobytescity' %>
+          <%= form.hidden_field :state, id: 'geobytesregion' %>
+          <%= form.hidden_field :country, id:'geobytescountry' %>
+          <%= form.hidden_field :latitude, id:'geobyteslatitude' %>
+          <%= form.hidden_field :longitude, id:'geobyteslongitude' %>
+        </div>
+
+        <fieldset>
+          <% if !!resource.id.nil? %>
+            <div class="row">
+              <div class="col-sm">
+                <%= collection_select('supplier', :id, edit_parent.non_suppliers, :id, :name, {:prompt => 'Which Supplier?'}) %>
+              </div>
+          </div>
+          <% end %>
+          <div class="row">
+            <div class="col-sm">
+              <%= delphi_text_field( form, { label: 'Name', name: :name, icon: 'fa fa-building' } ) %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm mr-sm-3">
+              <%= delphi_text_field( form, { label: 'Address 1', name: :address1, icon: 'fa fa-street-view'} ) %>
+            </div>
+            <div class="col-sm">
+              <%= delphi_text_field( form, { label: 'Address 2', name: :address2, icon: 'fa fa-street-view' } ) %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm">
+              <%= delphi_text_field( form, { label: 'City & State', name: :city_and_state, id: 'f_elem_city', icon: 'fa fa-map-marker'} ) %>
+            </div>
+          </div>
+        </fieldset>
+
+      </fieldset>
+
+      <footer>
+        <%= submit_button( form, { buttonType: 'primary', icon: 'glyphicon-save'}) %>
+      </footer>
+
+    <% end %>`
+  </div>
+</div>

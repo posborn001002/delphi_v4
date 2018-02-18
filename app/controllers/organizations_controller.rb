@@ -1,65 +1,70 @@
-class OrganizationsController < ProcessOwnerController
+class OrganizationsController < ApplicationController
 
-  # GET /organizations
-  # GET /organizations.json
+  before_action :initialize_resource, only: [:show, :update, :destroy, :edit]
+  before_action :initialize_new_resource, only: [:new]
+  before_action :initialize_resource_collection, only: [:index]
+
+
+   # before_action :set_parent_from_url, only: [:index, :new, :show, :update, :destroy, :create]
+   # before_action :set_edit_parent_from_url, only: [:new,  :edit]
+   # before_action :initialize_resource, only: [:show, :update, :destroy, :edit]
+   # before_action :initialize_new_resource, only: [:new]
+   # before_action :create_new_resource, only: [:create]
+   # before_action :initialize_resource_collection, only: [:index]
+
+
+  # GET /Organizations
+  # GET /Organizations.json
   def index
-    @organizations = Organization.all
   end
 
-  # GET /organizations/1
-  # GET /organizations/1.json
+  # GET /Organizations/1
+  # GET /Organizations/1.json
   def show
-    @people = @organization.people.all
-    @workshops = @organization.workshops.all
-    @customers = @organization.customers.all
-    @customer_jobs = @organization.customer_jobs.all
-    @suppliers = @organization.suppliers.all
   end
 
-  # GET /organizations/new
+  # GET /Organizations/new
   def new
-    @organization = Organization.new
-  #  @person = @organization.people.build
   end
 
-  # GET /organizations/1/edit
+  # GET /Organizations/1/edit
   def edit
   end
 
-  # POST /organizations
-  # POST /organizations.json
+  # POST /Organizations
+  # POST /Organizations.json
   def create
-    @organization = Organization.create( organization_params )
+    @resource = Organization.create( permitted_params )
 
     respond_to do |format|
-      if @organization.save
-        format.html { redirect_to @organization, notice: 'Organization was successfully created.' }
-        format.json { render :show, status: :created, location: @organization }
+      if @resource.save
+        format.html { redirect_to @resource, notice: 'Organization was successfully created.' }
+        format.json { render :show, status: :created, location: @resource }
       else
         format.html { render :new }
-        format.json { render json: @organization.errors, status: :unprocessable_entity }
+        format.json { render json: @resource.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /organizations/1
-  # PATCH/PUT /organizations/1.json
+  # PATCH/PUT /Organizations/1
+  # PATCH/PUT /Organizations/1.json
   def update
     respond_to do |format|
-      if @organization.update(organization_params)
-        format.html { redirect_to @organization, notice: 'Organization was successfully updated.' }
-        format.json { render :show, status: :ok, location: @organization }
+      if @resource.update( permitted_params )
+        format.html { redirect_to @resource, notice: 'Organization was successfully updated.' }
+        format.json { render :show, status: :ok, location: @resource }
       else
         format.html { render :edit }
-        format.json { render json: @organization.errors, status: :unprocessable_entity }
+        format.json { render json: @resource.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /organizations/1
-  # DELETE /organizations/1.json
+  # DELETE /Organizations/1
+  # DELETE /Organizations/1.json
   def destroy
-    @organization.destroy
+    @resource.destroy
     respond_to do |format|
       format.html { redirect_to organizations_url, notice: 'Organization was successfully destroyed.' }
       format.json { head :no_content }
@@ -67,13 +72,39 @@ class OrganizationsController < ProcessOwnerController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
- #   def set_organization
-  #    @organization = Organization.find(params[:id])
-  #  end
+
+  def initialize_resource
+    @resource = Organization.find( params[:id] )
+  end
+  def initialize_new_resource
+    @resource = Organization.new
+  end
+  def initialize_resource_collection
+    @resources = Organization.all
+  end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def organization_params
-      params.require(:organization).permit(:name, :address1, :address2, :city, :state, :city_and_state, :latitude, :longitude, :country, { people_attributes: [:name, :address1, :address2, :city, :state, :country] })
+    def permitted_params
+      params.require(:organization).permit(
+        :name,
+        :address1,
+        :address2,
+        :city,
+        :state,
+        :country,
+        :city_and_state,
+        :latitude,
+        :longitude,
+        people_attributes: [
+          :first_name,
+          :last_name,
+          :telephone,
+          :job_title
+          ],
+        user_attributes: [
+          :email,
+          :password
+      ]
+      )
     end
 end

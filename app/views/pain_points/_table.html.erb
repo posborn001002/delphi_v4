@@ -1,0 +1,29 @@
+<!-- render pain_points/table.html -->
+<div class="row">
+  <div class="col table-responsive">
+    <table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox data-table">
+      <thead>
+        <tr>
+          <th>
+            <span><%= small_button( { label: 'Enter a New Job', path: new_workshop_pain_point_path( parent ), class: 'right'} ) %></span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+      <% resources.each do |row| %>
+        <tr>
+          <td >
+            <span class="name"><%= row.symptom %></span>
+            <span class="reference"><%= row.impact %></span>
+            <span class="links">
+              <%= link_to 'View', pain_point_path( row ), class: 'link' %>&nbsp;|&nbsp;
+              <%= link_to 'Edit', edit_pain_point_path(  row ), class: 'link' %>&nbsp;|&nbsp;
+              <%= link_to '<i class="glyphicon glyphicon-remove"></i>Delete'.html_safe, row, method: :delete, data: { confirm: 'Are you sure?' }, class: 'txt-color-red' %>
+            </span>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div> 

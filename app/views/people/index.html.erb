@@ -1,5 +1,5 @@
 <!-- CONTENT: people.index.html -->
-<%= page_title( { title: 'Members of ' + @organization.name } ) %>
-  <%= render template: 'people/_table', resource: @people %>
+<%= page_title( { title: 'Members of ' + @parent.name } ) %>
+  <%= render 'people/table', resources: @resources, parent: @parent %>
 <%= page_footer() %>
 <%= page_end() %>

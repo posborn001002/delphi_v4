@@ -1,22 +1,22 @@
-<!-- render customers/table.html -->
+<!-- render suppliers/table.html -->
 <div class="row">
   <div class="col table-responsive">
     <table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox data-table">
       <thead>
       <tr>
         <th>
-          <span><%= small_button( { label: 'Add a Customer', path: new_organization_customer_job_path( @organization ), class: 'right'} ) %></span>
+          <span><%= small_button( { label: 'Add a Supplier', path: new_process_owner_supplier_path( parent ), class: 'right'} ) %></span>
         </th>
       </tr>
       </thead>
       <tbody>
-      <% @suppliers.each do |supplier| %>
+      <% resources.each do |row| %>
         <tr>
           <td >
-            <span class="name"><%= supplier.name %></span>
+            <span class="name"><%= row.name %></span>
             <span class="links">
-              <%= link_to 'View', organization_path( supplier ), class: 'link' %>&nbsp;|&nbsp;
-              <%= link_to 'Edit', edit_organization_path(  supplier ), class: 'link' %>&nbsp;|&nbsp;
+              <%= link_to 'View', process_owner_supplier_path( parent, row ), class: 'link' %>&nbsp;|&nbsp;
+              <%= link_to 'Edit', edit_process_owner_supplier_path( parent, row ), class: 'link' %>&nbsp;|&nbsp;
             </span>
           </td>
         </tr>

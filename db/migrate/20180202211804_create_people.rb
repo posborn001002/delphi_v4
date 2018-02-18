@@ -5,10 +5,9 @@ class CreatePeople < ActiveRecord::Migration[5.1]
       t.references :user
       t.string :first_name
       t.string :last_name
-      t.string :email
       t.string :telephone
       t.string :job_title
-      t.boolean :active, :default => 0
+      t.boolean :active, default: true
 
       t.timestamps
     end

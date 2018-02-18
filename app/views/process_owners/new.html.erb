@@ -1,0 +1,6 @@
+<!-- CONTENT: customers/new.html -->
+<%= page_title( { title: 'Add Customer' } ) %>
+  <%= render 'form', resource: @resource,  edit_parent: @edit_parent, parent: @parent %>
+<%= page_footer() %>
+  <%= back_button( { label: 'My Profile', path: process_owner_path( @parent ) }) %>
+<%= page_end() %>

@@ -4,7 +4,7 @@
     <%= form_with( model: [parent, resource] , local: true, class: 'smart-form', html: { novalidate: 'novalidate' } ) do |form| %>
       <fieldset>
 
-        <%= hidden_field( :parent, :id, value: parent.id ) %>
+        <%= hidden_field( :parent, :id, value: edit_parent.id ) %>
 
         <div class="row">
           <div class="col-sm mr-sm-3">

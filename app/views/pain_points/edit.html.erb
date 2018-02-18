@@ -1,6 +1,6 @@
-<h1>Editing Pain Point</h1>
-
-<%= render 'form', pain_point: @pain_point %>
-
-<%= link_to 'Show', @pain_point %> |
-<%= link_to 'Back', pain_points_path %>
+<!-- CONTENT: people/edit -->
+<%= page_title( { title: @pain_point.symptom, form_for: @pain_point } ) %>
+  <%= render 'form', resource: @pain_point, dropdown: @dropdown %>
+<%= page_footer() %>
+  <%= back_button({ path: pain_point_path, label: 'Back' }) %>
+<%= page_end() %>

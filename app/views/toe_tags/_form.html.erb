@@ -1,38 +1,49 @@
-<%= form_with(model: toe_tag, local: true) do |form| %>
-  <% if toe_tag.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(toe_tag.errors.count, "error") %> prohibited this toe_tag from being saved:</h2>
+<!-- render toe_tags/_form.html -->
+<div class="row">
+  <div class="col-sm">
+    <%= form_with( model:  [parent, resource] , local: true, class: 'smart-form', html: { novalidate: 'novalidate' } ) do |form| %>
+      <fieldset>
 
-      <ul>
-      <% toe_tag.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+        <div class="hidden fields">
+          <%= hidden_field( :workshop, :id, value: @edit_parent.id ) %>
+        </div>
 
-  <div class="field">
-    <%= form.label :priority %>
-    <%= form.number_field :priority, id: :toe_tag_priority %>
+        <fieldset>
+          <div class="row">
+            <div class="col-sm">
+
+              <select name="toe_tag[priority]">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+              </select>
+
+          </div>
+          <div class="row">
+            <div class="col-sm mr-sm-3">
+              <%= delphi_text_field( form, { label: 'Big Now / Small Now', name: :big_small_now} ) %>
+            </div>
+            <div class="col-sm">
+              <%= delphi_text_field( form, { label: 'Solution', name: :solution, icon: 'fa fa-street-view' } ) %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm">
+              <%= delphi_text_field( form, { label: 'Success Measurement', name: :success_measurement } ) %>
+            </div>
+          </div>
+        </fieldset>
+
+      </fieldset>
+
+      <footer>
+        <%= submit_button( form, { buttonType: 'primary', icon: 'glyphicon-save'}) %>
+      </footer>
+
+    <% end %>`
   </div>
-
-  <div class="field">
-    <%= form.label :big_small_now %>
-    <%= form.text_field :big_small_now, id: :toe_tag_big_small_now %>
-  </div>
-
-  <div class="field">
-    <%= form.label :solution %>
-    <%= form.text_area :solution, id: :toe_tag_solution %>
-  </div>
-
-  <div class="field">
-    <%= form.label :success_measurement %>
-    <%= form.text_area :success_measurement, id: :toe_tag_success_measurement %>
-  </div>
-
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

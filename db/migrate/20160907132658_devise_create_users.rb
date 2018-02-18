@@ -19,8 +19,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.datetime :last_sign_in_at
       t.string   :current_sign_in_ip
       t.string   :last_sign_in_ip
-      t.boolean  :active, :default => 1
-      t.boolean  :banned, :default => 0
+      t.boolean  :active, default: true
+      t.boolean  :banned, default: false
 
       ## Confirmable
       # t.string   :confirmation_token

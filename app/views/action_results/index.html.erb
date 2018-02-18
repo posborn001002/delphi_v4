@@ -1,33 +1,9 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Action Results</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Organization</th>
-      <th>Ar number</th>
-      <th>Action</th>
-      <th>Result</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @action_results.each do |action_result| %>
-      <tr>
-        <td><%= action_result.Organization %></td>
-        <td><%= action_result.ar_number %></td>
-        <td><%= action_result.action %></td>
-        <td><%= action_result.result %></td>
-        <td><%= link_to 'Show', action_result %></td>
-        <td><%= link_to 'Edit', edit_action_result_path(action_result) %></td>
-        <td><%= link_to 'Destroy', action_result, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Action Result', new_action_result_path %>
+<!-- CONTENT: action_results/index.html -->
+<%= page_title( { title: 'Improvement Plan' } ) %>
+<div class="list-group">
+  <%= render 'table', resource: @resource, parent: @parent %>
+</div> <!--End of List Group -->
+<%= page_footer %>
+  <%= back_button label: 'Workshop', path: workshop_path( @parent ), buttonType: 'primary', class: 'left'  %>
+  <%= back_button label: 'My Profile', path: process_owner_path( @process_owner ), buttonType: 'primary', class: 'left'  %>
+<%= page_end %>

@@ -1,6 +1,6 @@
-<!-- CONTENT: workshops/new,html -->
-<%= page_title( { title: 'New Workshop', form_for: @workshop } ) %>
-  <%= render 'form', resource: @workshop, organization: @organization %>
+<!-- CONTENT: workshops/new.html -->
+<%= page_title( { title: 'New Workshop ', form_for: @resource } ) %>
+  <%= render 'form', resource: @resource, parent: @parent, edit_parent: @edit_parent %>
 <%= page_footer() %>
-  <%= back_button( { path: organization_path( @organization ) }) %>
+  <%= back_button( { path: process_owner_path( @parent ) }) %>
 <%= page_end() %>

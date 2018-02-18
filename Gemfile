@@ -41,12 +41,20 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rubocop', require: false
   gem 'rails_best_practices'
+  gem 'rspec-rails', '~>3.7'
+  gem 'factory_bot_rails'
 
-  gem 'capybara', '>= 2.6.0'
   gem 'selenium-webdriver'
   # Use sqlite3 as the database for Active Record only for development or
   # testing
   gem 'sqlite3'
+end
+
+group :test do
+  gem 'faker'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'launchy'
 end
 
 group :development do

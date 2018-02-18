@@ -1,6 +1,6 @@
 <!-- CONTENT: organizations/edit.html -->
-<%= page_title( { title: @organization.name } ) %>
-<%= render 'form', resource: @organization %>
+<%= page_title( { title: @resource.name } ) %>
+<%= render 'form', resource: @resource %>
 <%= page_footer() %>
-  <%= back_button( { path: 'organizations_path' } ) %>
+  <%= back_button( { path: organizations_path } ) %>
 <%= page_end() %>

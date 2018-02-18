@@ -1,10 +1,15 @@
 class MeasurementsController < ApplicationController
-  before_action :set_measurement, only: [:show, :edit, :update, :destroy]
+
+  before_action :set_parent_from_url, only: [:index, :new, :show, :update, :destroy, :create]
+  before_action :set_edit_parent_from_url, only: [:new,  :edit]
+  before_action :initialize_resource, only: [:show, :update, :destroy, :edit]
+  before_action :initialize_new_resource, only: [:new]
+  before_action :create_new_resource, only: [:create]
+  before_action :initialize_resource_collection, only: [:index]
 
   # GET /measurements
   # GET /measurements.json
   def index
-    @measurements = Measurement.all
   end
 
   # GET /measurements/1
@@ -14,7 +19,6 @@ class MeasurementsController < ApplicationController
 
   # GET /measurements/new
   def new
-    @measurement = Measurement.new
   end
 
   # GET /measurements/1/edit
@@ -24,15 +28,13 @@ class MeasurementsController < ApplicationController
   # POST /measurements
   # POST /measurements.json
   def create
-    @measurement = Measurement.new(measurement_params)
-
     respond_to do |format|
-      if @measurement.save
-        format.html { redirect_to @measurement, notice: 'Measurement was successfully created.' }
-        format.json { render :show, status: :created, location: @measurement }
+      if @resource.save
+        format.html { redirect_to workshop_path( @parent ), notice: 'Measurement successfully created.' }
+        format.json { render :show, status: :created, location: @resource }
       else
-        format.html { render :new }
-        format.json { render json: @measurement.errors, status: :unprocessable_entity }
+        format.html { render :new, notice: 'An error occured!'  }
+        format.json { render json: @resource.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,12 +43,12 @@ class MeasurementsController < ApplicationController
   # PATCH/PUT /measurements/1.json
   def update
     respond_to do |format|
-      if @measurement.update(measurement_params)
-        format.html { redirect_to @measurement, notice: 'Measurement was successfully updated.' }
-        format.json { render :show, status: :ok, location: @measurement }
+      if @resource.update( measurement_params )
+        format.html { redirect_to @resource, notice: 'Measurement successfully updated.' }
+        format.json { render :show, status: :ok, location: @resource }
       else
         format.html { render :edit }
-        format.json { render json: @measurement.errors, status: :unprocessable_entity }
+        format.json { render json: @resource.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -62,13 +64,36 @@ class MeasurementsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_measurement
-      @measurement = Measurement.find(params[:id])
-    end
+  def set_parent_from_url
+    @parent = Workshop.find( params[:workshop_id] || params[:workshop][:id] )
+  end
+  def set_edit_parent_from_url
+    @edit_parent = Workshop.find( params[:workshop_id] )
+  end
+  def initialize_resource
+    @resource = Measurement.find( params[:id] )
+  end
+  def initialize_new_resource
+    @resource = @parent.measurements.new
+  end
+  def initialize_resource_collection
+    @resources = @parent.measurements.all.order( :priority )
+    @measurements = @resources
+  end
+  def create_new_resource
+    @resource = @parent.measurements.new( measurement_params )
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def measurement_params
-      params.require(:measurement).permit(:date_lookup_id, :metric_id, :value)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def measurement_params
+    params.require(:measurement).permit(
+        :process_owner_id,
+        :date_lookup_id,
+        :metric_id,
+        :person_id,
+        :value,
+        :active
+    )
+  end
+
 end

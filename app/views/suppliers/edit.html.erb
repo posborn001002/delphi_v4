@@ -1,0 +1,6 @@
+<!-- CONTENT: organizations/edit.html -->
+<%= page_title( { title: @resource.name } ) %>
+  <%= render 'form', resource: @resource, parent: @parent %>
+<%= page_footer() %>
+  <%= back_button( { path: process_owner_path( @edit_parent) } ) %>
+<%= page_end() %>

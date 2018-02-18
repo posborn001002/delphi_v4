@@ -1,5 +1,5 @@
 <!-- CONTENT: workshps/index.html -->
-<%= page_title( { title: 'Workshops Taken By ' + @organization.name } ) %>
-<%= render template: 'workshops/_table', resource: @workshops, organization: @organization %>
+<%= page_title title: 'Workshops Taken By ' + @parent.name %>
+  <%= render  'workshops/table', resources: @resources, parent: @parent %>
 <%= page_footer() %>
 <%= page_end() %>

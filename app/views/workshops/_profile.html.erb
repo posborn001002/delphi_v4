@@ -1,1 +1,11 @@
-TBD
+<!-- render workshops/profile.html -->
+<div class="row">
+  <div class="col-sm">
+    <h1><%= resource.process_name %></h1>
+  </div>
+  <div class="col-sm">
+      <%= resource.capability_goal %><br>
+      <%= resource.left_boundary %>, <%= resource.right_boundary %><br>
+      <%= resource.process_description %>
+  </div>
+</div>

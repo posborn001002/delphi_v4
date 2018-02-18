@@ -1,7 +1,5 @@
-<!-- CONTENT: people/show.html -->
+<!-- CONTENT: status_updates/show.html -->
 <%= page_title() %>
-<%= render resource: @status_update %>
+  <%= render resource: @status_update %>
 <%= page_footer() %>
-<%= back_button( { path: customer_job_path( @status_update.job_order_id ), class: "left"  }) %>
-<%= edit_button( { path: edit_status_update_path( @status_update ), buttonType: 'primary', class: "right" } ) %>
-<%= page_end() %>
+ <%= page_end() %>

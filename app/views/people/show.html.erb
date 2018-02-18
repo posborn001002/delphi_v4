@@ -1,7 +1,7 @@
 <!-- CONTENT: people/show.html -->
 <%= page_title() %>
-    <%= render 'profile', resource: @person %>
+    <%= render 'profile', resource: @resource %>
 <%= page_footer() %>
-  <%= back_button( { path: organization_path( @org_id ), class: "left"  }) %>
-  <%= edit_button( { path: edit_person_path( @person ), buttonType: 'primary', class: "right" } ) %>
+  <%= back_button( { path: organization_path( @parent ), class: "left"  }) %>
+  <%= edit_button( { path: edit_person_path( @resource ), buttonType: 'primary', class: "right" } ) %>
 <%= page_end() %>

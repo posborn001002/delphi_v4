@@ -1,14 +1,10 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Workshop:</strong>
-  <%= @pain_point.Workshop %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @pain_point.description %>
-</p>
-
-<%= link_to 'Edit', edit_pain_point_path(@pain_point) %> |
-<%= link_to 'Back', pain_points_path %>
+<!-- CONTENT: pain_points/show.html -->
+<%= page_title() %>
+  <%= render 'profile', resource: @resource %>
+  <%= section_title title: 'Status Updates' %>
+    <%= link_to 'New Update', new_pain_point_update_path( @resource ), class: 'btn btn-primary' %>
+    <%= render partial: 'status_updates/status_update', collection: @resource.pain_point_updates.sort_by_date %>
+<%= page_footer() %>
+  <%= back_button( { path: pain_points_path, class: "left"  }) %>
+  <%= edit_button( { path: edit_pain_point_path( @resource ), buttonType: 'primary', class: "right" } ) %>
+<%= page_end() %>

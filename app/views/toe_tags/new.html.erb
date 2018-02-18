@@ -1,5 +1,6 @@
-<h1>New Toe Tag</h1>
-
-<%= render 'form', toe_tag: @toe_tag %>
-
-<%= link_to 'Back', toe_tags_path %>
+<!-- CONTENT: toe_tags/new.html -->
+<%= page_title title: 'New Toe Tag', form_for: @toe_tag %>
+  <%= render 'form', resource: @resource, parent: @parent %>
+<%= page_footer() %>
+  <%= back_button( { path: workshop_path( @parent ) }) %>
+<%= page_end() %>

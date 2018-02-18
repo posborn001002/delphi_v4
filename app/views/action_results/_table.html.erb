@@ -1,0 +1,30 @@
+<!-- render action_result/_table.html -->
+<div class="row">
+  <div class="col table-responsive">
+    <table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox data-table">
+      <thead>
+      <tr>
+        <th>
+          <span><%= small_button( { label: 'New Toe Tag', path: new_workshop_action_result_path( parent ), class: 'right'} ) %></span>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <% resources.each do |row| %>
+        <tr>
+          <td>
+            <span class="priority"><%= row.ar_number %> </span>
+            <span class="big_small"><%= row.action %></span>
+            <span class="solution"><%= row.result %></span>
+            <span class="links">
+              <%= link_to 'Show', workshop_action_results_path( row ) %> |
+              <%= link_to 'Edit', edit_action_result_path(row) %> |
+              <%= link_to 'Destroy', row, method: :delete, data: {confirm: 'Are you sure?'} %>
+             </span>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

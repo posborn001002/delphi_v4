@@ -1,0 +1,31 @@
+<!-- EXPANDABLE - toe_tags/_toe_tag.html -->
+
+    <div class="row list-group-item"
+         data-toggle="collapse"
+         href="#collapse_<%= toe_tag.id %>"
+         role="button"
+         aria-expanded="false"
+         aria-controls="collapse_<%= toe_tag.id %>">
+      <div class="col-sm">
+        <span class="solution"><%= toe_tag.solution %></span>
+        <span class="priority"><%= toe_tag.priority %>: </span><span class="big_small"><%= toe_tag.big_small_now %></span>
+      </div>
+    </div>
+    <div id="collapse_<%= toe_tag.id %>" class="row collapse" class="list-group-item">
+      <div class="col-sm">
+        <div class="row">
+          <div class="col-sm">
+            <%= link_to 'New Update', new_toe_tag_update_path( toe_tag ), class: 'btn btn-primary' %>
+            <%= link_to 'View', toe_tag_path( toe_tag ), class: 'link' %>&nbsp;|&nbsp;
+            <%= link_to 'Edit', edit_toe_tag_path(  toe_tag ), class: 'link' %>&nbsp;|&nbsp;
+            <%= link_to '<i class="glyphicon glyphicon-remove"></i>Delete'.html_safe, toe_tag, method: :delete, data: { confirm: 'Are you sure?' }, class: 'txt-color-red' %>
+            <div class="job_description">
+              <%= toe_tag.success_measurement %>
+            </div>
+          </div>
+        </div>
+
+        <%= render partial: 'status_updates/status_update', collection: toe_tag.toe_tag_updates.sort_by_date %>
+
+      </div>
+    </div><!--End of CustomerJob <%= toe_tag.id %> -->

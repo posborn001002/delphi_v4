@@ -1,6 +1,6 @@
-<!-- CONTENT: people/edit -->
-<%= page_title( { title: 'Edit Workshop', form_for: @workshop } ) %>
-  <%= render 'form', resource: @workshop %>
+<!-- CONTENT: workshops/edit.html -->
+<%= page_title title: 'Edit Workshop', form_for: @parent %>
+  <%= render  'workshops/form', resource: @resource, parent: @parent %>
 <%= page_footer() %>
-  <%= back_button({ path: organization_path( :org_id ), label: 'Back' }) %>
+  <%= back_button path: process_owner_path( @parent ), label: 'Back' %>
 <%= page_end() %>

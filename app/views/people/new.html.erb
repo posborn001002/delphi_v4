@@ -1,6 +1,6 @@
 <!-- CONTENT: people/new,html -->
-<%= page_title( { title: 'New Contact for' + @organization.name, form_for: @person } ) %>
-  <%= render 'form', resource: @person, organization: @organization %>
+<%= page_title title: 'New Contact for' + @resource.name, form_for: @resource %>
+  <%= render 'form', resource: @resource, parent: @parent %>
 <%= page_footer() %>
-  <%= back_button( { path: organization_path( @org_id ) }) %>
+  <%= back_button( { path: organization_path( @parent ) }) %>
 <%= page_end() %>

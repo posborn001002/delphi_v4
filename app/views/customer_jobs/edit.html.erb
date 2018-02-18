@@ -1,6 +1,6 @@
-<!-- CONTENT: people/edit -->
-<%= page_title( { title: @customer_job.job_name, form_for: @customer_job } ) %>
-  <%= render 'form', resource: @customer_job, dropdown: @dropdown %>
+<!-- CONTENT: customer-jobs/edit -->
+<%= page_title( { title: @resource.job_name, form_for: @resource } ) %>
+  <%= render 'form', resource: @resource, parent: @parent, dropdown: @parent.customers.all.order( :name ) %>
 <%= page_footer() %>
   <%= back_button({ path: customer_job_path, label: 'Back' }) %>
 <%= page_end() %>

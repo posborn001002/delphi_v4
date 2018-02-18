@@ -1,7 +1,18 @@
 <!-- CONTENT: workshops/show.html -->
-<%= page_title() %>
-<%= render 'profile', resource: @workshop %>
+<%= page_title title: 'Workshop Overview' %>
+  <%= render 'profile', resource: @resource, parent: @parent %>
+<%= section_title({title: 'Participants'}) %>
+  <%= render 'people/table', resources: @participants, parent: @resource %>
+<%= section_title({title: 'Toe Tags'}) %>
+  <%= render 'toe_tags/table', resources: @toe_tags, parent: @resource %>
+<%= section_title({title: 'Process Map'}) %>
+  <%= render 'action_results/table', resources: @action_results, parent: @resource %>
+<%= section_title({title: 'Points of Pain'}) %>
+  <%= render 'pain_points/table', resources: @pain_points, parent: @resource %>
+<%= section_title title: 'Status Updates'  %>
+  <%= link_to 'New Update', new_workshop_update_path( @resource ), class: 'btn btn-primary' %>
+  <%= render partial: 'status_updates/status_update', collection: @resource.workshop_updates.sort_by_date %>
 <%= page_footer() %>
-<%= back_button( { path: organization_path( @org_id ), class: "left"  }) %>
-<%= edit_button( { path: edit_workshop_path( @workshop ), buttonType: 'primary', class: "right" } ) %>
+  <%= back_button title: 'All Workshops', path: process_owner_path( @parent ), class: "left" %>
+  <%= edit_button path: edit_process_owner_workshop_path( @parent, @resource ), buttonType: 'primary', class: "right" %>
 <%= page_end() %>
