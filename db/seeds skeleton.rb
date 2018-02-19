@@ -56,3 +56,4 @@ group_association_1 = Triager.create( { person: person_1, workshop: workshop_1 }
 group_association_2 = workshop_1.triagers.create( { person: person_2, lookup_workshop_role: lookup_13 } )
 # group_association_1 = workshop_1.triagers.create( { person: person_1, lookup_workshop_role: lookup_13 } )
 # group_association_2 = workshop_1.triagers.create( { person: person_2, lookup_workshop_role: lookup_14 } )
+

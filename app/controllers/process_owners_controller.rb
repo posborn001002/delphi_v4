@@ -74,7 +74,7 @@ class ProcessOwnersController < OrganizationsController
   private
 
   def set_process_owner
-    @resource = ProcessOwner.find_by( id: params[:id])
+    @resource = @process_owner
   end
 
 

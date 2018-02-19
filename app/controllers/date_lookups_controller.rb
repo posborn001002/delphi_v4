@@ -1,4 +1,5 @@
 class DateLookupsController < ApplicationController
+
   before_action :set_date_lookup, only: [:show, :edit, :update, :destroy]
 
   # GET /date_lookups
