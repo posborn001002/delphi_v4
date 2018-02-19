@@ -1,7 +1,34 @@
 <!-- CONTENT: customer_jobs/index.html -->
-<%= page_title( { title: 'Customer Jobs' } ) %>
-  <div class="list-group">
-    <%= render @customer_jobs, parent: @parent %>
-  </div> <!--End of List Group -->
+<% content_for :header_page_title do %>
+  <div class="header-page-title"><h1>Customer Jobs</h1></div>
+<% end %>
+
+
+<%= page_title %>
+
+  <div class="row  justify-content-end mb-2">
+       <div class="col-6 text-right  pr-0">
+         <%= link_to "New Job".html_safe, new_process_owner_customer_job_url( @parent ), class: "btn btn-outline-secondary" %>
+       </div>
+  </div>
+
+  <div class="row ">
+    <div class="col text-left">
+      <span class="column-heading-small">Order Date</span>
+    </div>
+    <div class="col text-right">
+      <span class="column-heading-small">Due Date</span>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-12">
+      <div class="list-group">
+      <%= render @customer_jobs, parent: @parent %>
+    </div> <!--End of List Group -->
+    </div>
+  </div>
+
 <%= page_footer %>
 <%= page_end %>

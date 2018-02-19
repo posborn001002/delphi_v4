@@ -1,32 +1,55 @@
 
 
-    <div class="row list-group-item"
-         data-toggle="collapse"
-         href="#collapse_<%= customer_job.id %>"
-         role="button"
-         aria-expanded="false"
-         aria-controls="collapse_<%= customer_job.id %>">
-      <div class="col-sm">
+<!-- COLLAPSED DETAILED UPDATES -->
+<div class="row customer-jobs-header list-group-item pt-0 pr-1 pl-1 pb-3 collapsed"
+     data-toggle="collapse"
+     href="#collapse_<%= customer_job.id %>"
+     role="button"
+     aria-expanded="false"
+     aria-controls="collapse_<%= customer_job.id %>">
+  <div class="col">
+
+    <div class="row ">
+      <div class="col text-left">
+        <span class="date"><%= customer_job.order_date_date.strftime("%e %b '%g") %></span>
+      </div>
+      <div class="col text-right">
+        <span class="date"><%= customer_job.due_date_date.strftime("%e %b '%g") %></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col text-center">
         <span class="name"><%= customer_job.job_name %></span>
         <span class="reference"><%= customer_job.ref_number %></span>
       </div>
     </div>
-    <div id="collapse_<%= customer_job.id %>" class="row collapse" class="list-group-item">
-      <div class="col-sm">
-        <div class="row">
-          <div class="col-sm">
-            <%= link_to 'New Update', new_customer_job_customer_job_update_path( customer_job ), class: 'btn btn-primary' %>
-            <%= link_to 'View', process_owner_customer_job_path( parent, customer_job ), class: 'link' %>&nbsp;|&nbsp;
-            <%= link_to 'Edit', edit_process_owner_customer_job_path(  parent, customer_job ), class: 'link' %>&nbsp;|&nbsp;
-            <%= link_to '<i class="glyphicon glyphicon-remove"></i>Delete'.html_safe, customer_job, method: :delete, data: { confirm: 'Are you sure?' }, class: 'txt-color-red' %>
-            <div class="job_description">
-              <%= customer_job.job_description %>
-            </div>
-          </div>
-        </div>
 
+  </div>
+</div>
+
+<!-- COLLAPSED DETAILED UPDATES -->
+<div id="collapse_<%= customer_job.id %>" class="row collapse" class="list-group-item customer-jobs-detail">
+  <div class="col">
+    <div class="row  justify-content-center mb-1 mt-1">
+      <div class="col">
+        <div class="job_description">
+          <%= customer_job.job_description %>
+        </div>
+      </div>
+    </div><!-- end of Description Row -->
+    <div class="row justify-content mb-1 mt-1">
+      <div class="col text-left">
+        <%= link_to 'New Update', new_customer_job_customer_job_update_path(customer_job), class: 'btn btn-outline-secondary' %>
+      </div>
+        <div class="col text-right">
+        <%= link_to 'Edit Job', edit_process_owner_customer_job_path(parent, customer_job), class: 'btn btn-outline-secondary' %>
+      </div>
+    </div> <!-- end of Buttons Row -->
+    <div class="row mb-2 mt-1">
+      <div class="col">
         <% @status_updates = CustomerJobUpdate.sort_by_date %>
         <%= render partial: 'status_updates/status_update', collection: @status_updates %>
-
       </div>
-    </div><!--End of CustomerJob <%= customer_job.id %> -->
+    </div> <!-- end of Job Updates Row -->
+  </div> <!-- end of Collapse CustomerJob col -->
+</div><!--End of Collape CustomerJob Row <%= customer_job.id %> -->

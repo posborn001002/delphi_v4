@@ -14,6 +14,10 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
 
+  get 'process_owner/:id/customer_job/:id/confirm',
+    to: 'customer_jobs#confirm',
+    as: :process_owner_customer_job_confirm
+
   # Delphi
 
   resources :organizations do

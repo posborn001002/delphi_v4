@@ -3,12 +3,13 @@ module PageElementsHelper
     has_title = args[:title].present?
     has_entity = args[:form_for].present?
 
+
+
     html = ''
       html << '<div class="container">
                 <div class="row  content-row">
                   <div class="col  content-col">'
       if has_title
-        html <<
           '<div id="content-header" class="row">
             <div class="col">
               <h1>' + args[:title] + '</h1>

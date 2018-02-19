@@ -11,6 +11,16 @@
             <%= collection_select( :customer_job, :customer_id, dropdown, :id, :name, {:prompt =>'Which Customer?'} ) %>
           </div>
         </div>
+
+        <div class="row">
+          <div class="col-sm mr-sm-3">
+            <%= delphi_date_field( form, {label: 'Order Date', icon: 'fa fa-calendar', name: :order_date, value: Date.today.strftime('%F')}) %>
+          </div>
+          <div class="col-sm">
+            <%= delphi_date_field( form, {label: 'Due Date', icon: 'fa fa-calendar', name: :due_date }) %>
+          </div>
+        </div>
+
         <div class="row">
           <div class="col-sm mr-sm-3">
             <%= delphi_text_field( form, { label: 'Job Name', name: :job_name} ) %>

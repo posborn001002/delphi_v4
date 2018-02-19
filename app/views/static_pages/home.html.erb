@@ -1,13 +1,13 @@
-<div class="delphi-content">
-  <div class="button-collection main-menu">
-    <div class="button-row">
-      <div id="open1-02" class="button-cell">Quality Mgmt &amp;<br>Points of Pain</div>
-    </div>
-    <div class="button-row">
-      <div id="open2-02" class="button-cell">Project Status &amp; Measurements</div>
-    </div>
-    <div class="button-row" >
-      <%= link_to "Customer Jobs &amp;<br>Process Capabilities".html_safe, process_owner_customer_jobs_path( @parent ), class: "button-cell" %>
+<!-- static_pages/home.html -->
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10 text-center">
+      <div class="btn-group-vertical btn-group-huge" role="group" aria-label="Main Menu">
+        <%= link_to "Quality Mgmt &amp;<br>Points of Pain".html_safe, process_owner_url(1), class: "btn btn-primary mb-3" %>
+        <%= link_to "Project Status &amp; Measurements".html_safe, process_owner_url(1), class: "btn btn-primary mb-3" %>
+        <%= link_to "Customer Jobs &amp;<br>Process Capabilities".html_safe, process_owner_customer_jobs_url( @process_owner ), class: "btn btn-primary mb-3" %>
+      </div>
     </div>
   </div>
 </div>

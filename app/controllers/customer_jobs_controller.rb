@@ -25,12 +25,15 @@ class CustomerJobsController < ApplicationController
   def edit
   end
 
+  def confirm
+  end
+
   # POST /customer_jobs
   # POST /customer_jobs.json
   def create
     respond_to do |format|
       if @resource.save
-        format.html { redirect_to process_owner_path( @parent ), notice: 'Customer Job successfully created.' }
+        format.html { redirect_to process_owner_customer_job_confirm_path( @parent, @resource ), notice: 'Customer Job successfully created.' }
         format.json { render :show, status: :created, location: @resource }
       else
         format.html { render :new, notice: 'An error occured!'  }

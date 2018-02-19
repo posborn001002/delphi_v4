@@ -11,7 +11,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # PROCESS OWNERS
-process_owner_1 =ProcessOwner.create( { name: 'KelTech', address1: '3510 South Pine Street', city: 'Tacoma', state: 'WA', zip: '98409', country: 'USA'})
+process_owner_1 = ProcessOwner.create( { name: 'KelTech', address1: '3510 South Pine Street', city: 'Tacoma', state: 'WA', zip: '98409', country: 'USA'})
 # CUSTOMERS
 customer_2 = process_owner_1.customers.create( { name: 'Alpha Precision Machining Inc.', address1: '19652 70TH Ave S', city: 'Kent', state: 'WA', zip: '98032-1138', country: 'United States'})
 # SUPPLIERS
@@ -57,3 +57,6 @@ group_association_2 = workshop_1.triagers.create( { person: person_2, lookup_wor
 # group_association_1 = workshop_1.triagers.create( { person: person_1, lookup_workshop_role: lookup_13 } )
 # group_association_2 = workshop_1.triagers.create( { person: person_2, lookup_workshop_role: lookup_14 } )
 
+customer_job_1 = customer_2.customer_jobs.create( { process_owner: process_owner_1, order_date_id: 347, due_date_id: 369, job_name: 'Customer Job 1', job_description: 'Phasellus pretium diam augue. Vestibulum consectetur neque metus, et facilisis nisl sodales id. Integer tincidunt lectus vitae dolor mattis, ut tristi', ref_number: 'PO#: 4119485-8088' } )
+
+customer_job_2 = process_owner_1.customer_jobs.create( { customer: customer_2, order_date_id: 131, due_date_id: 145, job_name: 'Customer Job 2', job_description: 'Aenean laoreet mi eget dictum tempus. Maecenas consectetur felis consequat neque vulputate, ultrices hendrerit purus lobortis. Proin molestie, tellus ', ref_number: 'PO#: 6711249-6574' } )

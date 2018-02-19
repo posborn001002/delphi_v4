@@ -2,31 +2,84 @@
 
 
 
-
-/** Collapsable  */
+/** Collapsable  **************************/
 .list-group-item {
   cursor:pointer;
-  position: relative;
-  display: block;
-  padding: 0.75rem 1.25rem;
-  margin-bottom: -1px;
-  background-color: $background_neutral;
-  border-bottom: 1px solid $background_emphasis;
-  border-left: none;
-  border-right: none;
-  .active {
-    z-index: 2;
-    color: #fff;
-    background-color: $light_blue;
-    border-color: #007bff;
-  }
+  background-color: $background_emphasis;
+  border-bottom: 1px solid $border-neutral;
 }
+.list-group-item.collapsed {
+  background-color: $background_neutral;
+}
+
 .list-group-item:first-child,
 .list-group-item:last-child {
     border-top: 2px solid #00000020;
 }
 
+.header-page-title {
+  text-align: center;
+  color: #fff;
+  font-size: larger;
+}
+#header > div {
+  display: table-cell;
+  vertical-align: middle;
+  height: auto;
+  float: none;
+}
 
+
+.column-heading-small {
+  text-transform: uppercase;
+  font-size: medium;
+  font-weight: 400;
+}
+
+/**** CUSTOMER JOBS **************/
+.customer-jobs-header {
+  .date {
+    text-transform: uppercase;
+    font-size: small;
+  }
+  .name,
+  .reference {
+    font-size: large;
+    color: $medium_blue;
+    display: block;
+    line-height: 1.2em;
+  }
+}
+
+
+
+/***** Button Customixation *****/
+.btn {
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  font-weight: bold;
+  line-height:1.1em;
+  white-space: normal;
+}
+a.btn {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+//  Main Menu Buttons
+.btn-group-huge {
+  max-width: 340px;
+  margin: 25px auto;
+}
+.btn-group-huge .btn {
+  padding:0 25px;
+  text-transform: uppercase;
+  font-size:larger;
+  height:125px;
+}
 
 /* DelphiSkin1 ******************************************************************************************************* */
 body,
@@ -193,7 +246,7 @@ body.delphi-skin-1 {
   .btn-primary:active,
   .btn-primary:hover,
   .btn-primary:focus {
-    background: darken( $medium_blue , 5% ) !important;
+    background: $dark_blue !important;
   }
   .btn-primary.active,
   .btn-primary:active,
@@ -210,9 +263,61 @@ body.delphi-skin-1 {
   .open > .dropdown-toggle.btn-primary.focus,
   .open > .dropdown-toggle.btn-primary:focus,
   .open > .dropdown-toggle.btn-primary:hover {
-    background: darken( $medium_blue , 5% ) !important;
+    background: $dark_blue !important;
     border-color: darken( $medium_blue , 5% ) !important;
   }
+
+  .btn-secondary {
+    background: $light_blue;
+    border-color: darken( $light_blue , 5% ) !important;
+  }
+  .btn-secondary:active,
+  .btn-secondary:hover,
+  .btn-secondary:focus {
+    background: lighten( $light_blue , 10% ) !important;
+  }
+  .btn-secondary.active,
+  .btn-secondary:active,
+  .btn-secondary:hover,
+  .open > .dropdown-toggle.btn-secondary {
+    border-color: darken( $light_blue , 5% ) !important;
+  }
+  .btn-secondary.active.focus,
+  .btn-secondary.active:focus,
+  .btn-secondary.active:hover,
+  .btn-secondary:active.focus,
+  .btn-secondary:active:focus,
+  .btn-secondary:active:hover,
+  .open > .dropdown-toggle.btn-secondary.focus,
+  .open > .dropdown-toggle.btn-secondary:focus,
+  .open > .dropdown-toggle.btn-secondary:hover {
+    background: $light_blue !important;
+    border-color: darken( $light_blue , 5% ) !important;
+  }
+  .btn-outline-secondary {
+    color: $dark_blue;
+    background-color: $background;
+    background-image: none;
+    border-color: $light_blue;
+    border-width: 2px;
+    border-radius: 5px;
+  }
+  .btn-outline-secondary:not(:disabled):not(.disabled):active,
+  .btn-outline-secondary:not(:disabled):not(.disabled).active,
+  .show > .btn-outline-secondary.dropdown-toggle,
+  .btn-outline-secondary:hover,
+  .btn-outline-secondary.hover,
+  .btn-outline-secondary:focus,
+  .btn-outline-secondary.focus {
+    color: $background;
+    background-color: $light_blue;
+  }
+
+
+
+
+
+
   .btn-warning {
     background: #FF9800;
     border-color: #cc7a00 !important;
@@ -363,7 +468,9 @@ body.delphi-skin-1 {
     box-shadow: 0 2px 0 #E91E63;
     z-index: 10;
   }
-  #header,
+  #header {
+    background: $darker_blue
+  }
   .dropdown-menu > .active > a,
   .dropdown-menu > .active > a:focus,
   .dropdown-menu > .active > a:hover,
@@ -372,9 +479,9 @@ body.delphi-skin-1 {
     background: $medium_blue;
   }
   #content {
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 0;
     margin-bottom: 20px;
   }
   #content > .row {

@@ -13,9 +13,16 @@ class CustomerJob < ApplicationRecord
   has_many :job_contacts, inverse_of: :customer_job
   has_many :people, through: :job_contacts, inverse_of: :customer_jobs
 
+  belongs_to :order_date
+  delegate :date, to: :order_date, prefix: true
+  belongs_to :due_date
+  delegate :date, to: :due_date, prefix: true
+
   def name
     return self.job_name
   end
+
+
 
 end
 

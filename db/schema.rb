@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 20180217193548) do
   create_table "customer_jobs", force: :cascade do |t|
     t.integer "process_owner_id"
     t.integer "customer_id"
+    t.integer "order_date_id"
+    t.integer "due_date_id"
     t.string "job_name"
     t.text "job_description"
     t.string "ref_number"
@@ -64,6 +66,8 @@ ActiveRecord::Schema.define(version: 20180217193548) do
     t.datetime "updated_at", null: false
     t.index ["active"], name: "index_customer_jobs_on_active"
     t.index ["customer_id"], name: "index_customer_jobs_on_customer_id"
+    t.index ["due_date_id"], name: "index_customer_jobs_on_due_date_id"
+    t.index ["order_date_id"], name: "index_customer_jobs_on_order_date_id"
     t.index ["process_owner_id"], name: "index_customer_jobs_on_process_owner_id"
   end
 

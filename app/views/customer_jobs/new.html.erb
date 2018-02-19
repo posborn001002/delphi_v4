@@ -1,4 +1,8 @@
 <!-- CONTENT: customer_jobs/new,html -->
+<% content_for :header_page_title do %>
+  <div class="header-page-title"><h1>New Customer Job</h1></div>
+<% end %>
+
 <%= page_title title: 'New Job Details', form_for: @resource %>
   <%= render 'form', resource: @resource, parent: @parent, dropdown: @parent.customers.all.order( :name ), edit_parent: @parent %>
 <%= page_footer() %>

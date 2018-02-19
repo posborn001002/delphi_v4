@@ -250,7 +250,7 @@ table {
   /********************************************
   * BUTTONS
   ********************************************/
-  /** Used for conformation screens */
+  /** Used for confirmation screens */
   .button-container h3 {
     text-transform:none;
     color: $medium_blue;
@@ -301,32 +301,6 @@ table {
   div.button-row .button-cell:not(.spacer):active {
     box-shadow: 0 3px #c5c5c5;
     transform: translateY(2px);
-  }
-
-  /*** Main Menu ********************************/
-  .button-collection.main-menu {
-    border-spacing:10px;
-    width:100%;
-    max-width: 340px;
-    margin: 25px auto;
-  }
-  .main-menu  div.button-row {
-    width:80%;
-    max-width:340px;
-    height:125px;
-  }
-  .main-menu  div.button-row .button-cell:not(.spacer):hover,
-  .main-menu  div.button-row .button-cell:not(.spacer):visited,
-  .main-menu  div.button-row .button-cell:not(.spacer) {
-    padding:0 25px;
-    font-size:larger;
-    text-transform: uppercase;
-    color:$background;
-    line-height:1.1em;
-    background-color: $medium_blue;
-  }
-  .main-menu div.button-row .button-cell:not(.spacer):active {
-    background-color: $dark_blue;
   }
 
   /*** OK Cancel ********************************/
